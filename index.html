@@ -357,6 +357,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <li><a href="#benchmarks" onclick="this.closest('ul').classList.remove('open')">Benchmarks</a></li>
     <li><a href="#glossary"   onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
     <li><a href="#about"      onclick="this.closest('ul').classList.remove('open')">About</a></li>
+    <li><a href="#playlist"   onclick="this.closest('ul').classList.remove('open')">Playlist</a></li>
   </ul>
 </nav>
 
@@ -806,6 +807,188 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       </div>
     </div>
   </div>
+</section>
+
+
+<!-- PLAYLIST -->
+<section id="playlist" style="background:#09090f;padding:4rem 0 0;">
+<style>
+  #playlist { overflow:hidden; }
+  .pl-wrap { max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem; }
+  .pl-hero { padding:2rem 0 2rem; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:2rem; }
+  .pl-eyebrow { font-size:0.68rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:#ff2d55; margin-bottom:1rem; display:flex; align-items:center; gap:0.6rem; }
+  .pl-eyebrow::before { content:""; width:20px; height:1.5px; background:#ff2d55; display:block; }
+  .pl-h1 { font-family:"Bebas Neue",sans-serif; font-size:clamp(42px,10vw,88px); line-height:0.92; letter-spacing:0.02em; color:#fff; margin-bottom:0.5rem; }
+  .pl-h1 span { color:#ff2d55; }
+  .pl-sub { font-family:"Bebas Neue",sans-serif; font-size:clamp(16px,3vw,26px); color:#6b6b88; letter-spacing:0.08em; margin-bottom:1.5rem; }
+  .pl-meta { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+  .pl-pill { font-size:0.68rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#6b6b88; border:1px solid rgba(255,255,255,0.07); padding:0.35rem 0.85rem; border-radius:2px; }
+  .pl-spotify { display:inline-flex; align-items:center; gap:0.5rem; background:#1DB954; color:#000; font-weight:700; font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; padding:0.6rem 1.25rem; border-radius:2px; }
+  .pl-quote { padding:1.5rem 0; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:2rem; }
+  .pl-quote blockquote { border-left:3px solid #ff2d55; padding-left:1.25rem; font-size:0.9rem; font-weight:300; font-style:italic; color:#aaa; }
+  .pl-quote cite { display:block; margin-top:0.4rem; font-style:normal; font-weight:700; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#ff2d55; }
+  .pl-pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.07); margin-bottom:3rem; border:1px solid rgba(255,255,255,0.07); }
+  .pl-pillar { background:#111120; padding:1.25rem 1rem; text-align:center; cursor:pointer; transition:background 0.2s; }
+  .pl-pillar:hover { background:#181830; }
+  .pl-pillar-code { font-family:"Bebas Neue",sans-serif; font-size:2.5rem; line-height:1; display:block; }
+  .pl-pillar[data-b="str"] .pl-pillar-code { color:#ff2d55; }
+  .pl-pillar[data-b="pwr"] .pl-pillar-code { color:#00c8ff; }
+  .pl-pillar[data-b="skl"] .pl-pillar-code { color:#00e87a; }
+  .pl-pillar-lbl { font-size:0.62rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#6b6b88; display:block; margin-top:0.25rem; }
+  .pl-pillar-ct { font-size:0.72rem; color:#6b6b88; margin-top:0.3rem; display:block; }
+  .pl-block { margin-bottom:3.5rem; }
+  .pl-block-hdr { display:flex; align-items:baseline; gap:1rem; margin-bottom:0.5rem; padding-bottom:0.85rem; border-bottom:2px solid rgba(255,255,255,0.07); position:relative; }
+  .pl-block-hdr::after { content:""; position:absolute; bottom:-2px; left:0; width:48px; height:2px; }
+  .pl-block.str .pl-block-hdr::after { background:#ff2d55; }
+  .pl-block.pwr .pl-block-hdr::after { background:#00c8ff; }
+  .pl-block.skl .pl-block-hdr::after { background:#00e87a; }
+  .pl-block-code { font-family:"Bebas Neue",sans-serif; font-size:2.8rem; line-height:1; }
+  .pl-block.str .pl-block-code { color:#ff2d55; }
+  .pl-block.pwr .pl-block-code { color:#00c8ff; }
+  .pl-block.skl .pl-block-code { color:#00e87a; }
+  .pl-block-ttl h3 { font-weight:700; font-size:1rem; color:#fff; }
+  .pl-block-ttl p { font-size:0.78rem; color:#6b6b88; font-style:italic; }
+  .pl-tracks { list-style:none; }
+  .pl-track { display:grid; grid-template-columns:28px 1fr auto; gap:0 1rem; align-items:center; padding:0.75rem 1rem; border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.15s; }
+  .pl-track:hover { background:#111120; }
+  .pl-track-num { font-size:0.72rem; color:#6b6b88; text-align:right; font-variant-numeric:tabular-nums; }
+  .pl-track-title { font-weight:600; font-size:0.85rem; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pl-track-artist { font-size:0.75rem; color:#6b6b88; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pl-tag { font-size:0.62rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:0.2rem 0.5rem; border-radius:2px; white-space:nowrap; flex-shrink:0; }
+  .pl-block.str .pl-tag { background:rgba(255,45,85,0.12); color:#ff2d55; border:1px solid rgba(255,45,85,0.25); }
+  .pl-block.pwr .pl-tag { background:rgba(0,200,255,0.1); color:#00c8ff; border:1px solid rgba(0,200,255,0.25); }
+  .pl-block.skl .pl-tag { background:rgba(0,232,122,0.1); color:#00e87a; border:1px solid rgba(0,232,122,0.25); }
+  @media (max-width:480px) {
+    .pl-pillars { grid-template-columns:1fr; }
+    .pl-track { grid-template-columns:24px 1fr; }
+    .pl-tag { display:none; }
+  }
+</style>
+
+<div class="pl-wrap">
+  <div class="pl-hero">
+    <div class="pl-eyebrow">Train To Perform · All Genres</div>
+    <div class="pl-h1">THE <span>PLAYLIST</span></div>
+    <div class="pl-sub">STR · PWR · SKL — Spring / Summer 2026</div>
+    <div class="pl-meta">
+      <span class="pl-pill">61 Tracks</span>
+      <span class="pl-pill">~3 hr 30 min</span>
+      <span class="pl-pill">All Genres</span>
+      <a class="pl-spotify" href="https://open.spotify.com/playlist/18a6uV36EkRC2fWtiD1rw3" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Open in Spotify
+      </a>
+    </div>
+  </div>
+
+  <div class="pl-quote">
+    <blockquote>"Perfection is not attainable, but if we chase perfection we can catch excellence."<cite>— Vince Lombardi</cite></blockquote>
+  </div>
+
+  <div class="pl-pillars">
+    <div class="pl-pillar" data-b="str" onclick="document.getElementById('pl-str').scrollIntoView({behavior:'smooth',block:'start'})">
+      <span class="pl-pillar-code">STR</span><span class="pl-pillar-lbl">Athletic Muscle</span><span class="pl-pillar-ct">21 tracks</span>
+    </div>
+    <div class="pl-pillar" data-b="pwr" onclick="document.getElementById('pl-pwr').scrollIntoView({behavior:'smooth',block:'start'})">
+      <span class="pl-pillar-code">PWR</span><span class="pl-pillar-lbl">Athletic Performance</span><span class="pl-pillar-ct">24 tracks</span>
+    </div>
+    <div class="pl-pillar" data-b="skl" onclick="document.getElementById('pl-skl').scrollIntoView({behavior:'smooth',block:'start'})">
+      <span class="pl-pillar-code">SKL</span><span class="pl-pillar-lbl">Skill Development</span><span class="pl-pillar-ct">16 tracks</span>
+    </div>
+  </div>
+
+  <!-- STR -->
+  <div class="pl-block str" id="pl-str">
+    <div class="pl-block-hdr">
+      <span class="pl-block-code">STR</span>
+      <div class="pl-block-ttl"><h3>Athletic Muscle — Strength Block</h3><p>Heavy compound lifts · Deliberate pace · Maximum effort</p></div>
+    </div>
+    <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">SICKO MODE</div><div class="pl-track-artist">Travis Scott</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Heavy Is the Crown</div><div class="pl-track-artist">Daughtry ft. Slash</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">Crossed Out</div><div class="pl-track-artist">Future, Metro Boomin</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">Wrecked</div><div class="pl-track-artist">Imagine Dragons</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">Giving Chanel</div><div class="pl-track-artist">Meek Mill ft. Future</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">Just Pretend</div><div class="pl-track-artist">Bad Omens</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Circle With Me</div><div class="pl-track-artist">Spiritbox</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Dominoes</div><div class="pl-track-artist">Bad Omens</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Heartless</div><div class="pl-track-artist">Kanye West</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">122 Days</div><div class="pl-track-artist">$uicideboy$</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">All Falls Down</div><div class="pl-track-artist">Kanye West</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Money Trees</div><div class="pl-track-artist">Kendrick Lamar ft. Jay Rock</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Lights Burn Dimmer</div><div class="pl-track-artist">Fred again.. ft. Jamie T</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Neon Noir</div><div class="pl-track-artist">Falling in Reverse</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">Redrum</div><div class="pl-track-artist">21 Savage</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">6WA</div><div class="pl-track-artist">BigXthaPlug, Ro$ama</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">Its All Your Fault</div><div class="pl-track-artist">Logic</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">Ever Since U Left Me (I Went Deaf)</div><div class="pl-track-artist">French Montana, Max B</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Upset</div><div class="pl-track-artist">Various</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">The Way I Are</div><div class="pl-track-artist">Timbaland ft. Keri Hilson</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">American Boy</div><div class="pl-track-artist">Estelle ft. Kanye West</div></div><span class="pl-tag">STR</span></li>
+    </ul>
+  </div>
+
+  <!-- PWR -->
+  <div class="pl-block pwr" id="pl-pwr">
+    <div class="pl-block-hdr">
+      <span class="pl-block-code">PWR</span>
+      <div class="pl-block-ttl"><h3>Athletic Performance — Conditioning Block</h3><p>Metcons · Intervals · Sprint work · High-stakes competitive energy</p></div>
+    </div>
+    <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">luther (with sza)</div><div class="pl-track-artist">Kendrick Lamar, SZA</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Not Like Us</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">INDUSTRY BABY</div><div class="pl-track-artist">Lil Nas X ft. Jack Harlow</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">Squabble Up</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">TEXAS HOLD 'EM</div><div class="pl-track-artist">Beyoncé</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">A Bar Song (Tipsy)</div><div class="pl-track-artist">Shaboozey</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Paint The Town Red</div><div class="pl-track-artist">Doja Cat</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Sabotage</div><div class="pl-track-artist">Beastie Boys</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Come and Get Your Love</div><div class="pl-track-artist">Redbone</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">TGIF</div><div class="pl-track-artist">GloRilla</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">Rumble</div><div class="pl-track-artist">Skrillex, Fred again.. ft. Flowdan</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Flower Shops</div><div class="pl-track-artist">ERNEST ft. Morgan Wallen</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Escapism.</div><div class="pl-track-artist">RAYE ft. 070 Shake</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Boy's A Liar Pt. 2</div><div class="pl-track-artist">PinkPantheress ft. Ice Spice</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">RAGER teenager!</div><div class="pl-track-artist">Travis Scott ft. Young Thug</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Middle of the Night</div><div class="pl-track-artist">Elley Duhe</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">solo - KETTAMA remix</div><div class="pl-track-artist">KETTAMA, Fred again.., Blanco</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">Lean On</div><div class="pl-track-artist">Major Lazer ft. DJ Snake, MØ</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Cold Water</div><div class="pl-track-artist">Major Lazer ft. Justin Bieber, MØ</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">greedy</div><div class="pl-track-artist">Tate McRae</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">What Do You Mean?</div><div class="pl-track-artist">Justin Bieber</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">22</span><div><div class="pl-track-title">Lush Life</div><div class="pl-track-artist">Zara Larsson</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">23</span><div><div class="pl-track-title">Walking On A Dream</div><div class="pl-track-artist">Empire Of The Sun</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">24</span><div><div class="pl-track-title">Say No Prayer</div><div class="pl-track-artist">oskar med k, Izzy Bizu</div></div><span class="pl-tag">PWR</span></li>
+    </ul>
+  </div>
+
+  <!-- SKL -->
+  <div class="pl-block skl" id="pl-skl">
+    <div class="pl-block-hdr">
+      <span class="pl-block-code">SKL</span>
+      <div class="pl-block-ttl"><h3>Skill Development — Focus Block</h3><p>Technical work · Gymnastics · Flow state · Earned complexity</p></div>
+    </div>
+    <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">Blinding Lights</div><div class="pl-track-artist">The Weeknd</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Houdini</div><div class="pl-track-artist">Eminem</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">favorite crime</div><div class="pl-track-artist">Olivia Rodrigo</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">As It Was</div><div class="pl-track-artist">Harry Styles</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">BIZCOCHITO</div><div class="pl-track-artist">ROSALÍA</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">One Thing At A Time</div><div class="pl-track-artist">Morgan Wallen</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Too Sweet</div><div class="pl-track-artist">Hozier</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Lose Control</div><div class="pl-track-artist">Teddy Swims</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Water</div><div class="pl-track-artist">Tyla</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">All The Stars</div><div class="pl-track-artist">Kendrick Lamar ft. SZA</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">think you're someone new</div><div class="pl-track-artist">Ian Asher, Arden Jones</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Wait a Minute!</div><div class="pl-track-artist">WILLOW</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Habits (Stay High)</div><div class="pl-track-artist">Tove Lo</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">What Was I Made For?</div><div class="pl-track-artist">Billie Eilish</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">Good Days</div><div class="pl-track-artist">SZA</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Lift Me Up</div><div class="pl-track-artist">Rihanna</div></div><span class="pl-tag">SKL</span></li>
+    </ul>
+  </div>
+
+</div>
 </section>
 
 <!-- FOOTER -->
