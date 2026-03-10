@@ -4,6 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>TrainToPerform</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -810,6 +812,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 </section>
 
 
+
 <!-- PLAYLIST -->
 <section id="playlist" style="background:#09090f;padding:4rem 0 0;">
 <style>
@@ -846,8 +849,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   .pl-block.str .pl-block-code { color:#ff2d55; }
   .pl-block.pwr .pl-block-code { color:#00c8ff; }
   .pl-block.skl .pl-block-code { color:#00e87a; }
-  .pl-block-ttl h3 { font-weight:700; font-size:1rem; color:#fff; }
-  .pl-block-ttl p { font-size:0.78rem; color:#6b6b88; font-style:italic; }
   .pl-tracks { list-style:none; }
   .pl-track { display:grid; grid-template-columns:28px 1fr auto; gap:0 1rem; align-items:center; padding:0.75rem 1rem; border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.15s; }
   .pl-track:hover { background:#111120; }
@@ -871,8 +872,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <div class="pl-h1">THE <span>PLAYLIST</span></div>
     <div class="pl-sub">STR · PWR · SKL — Spring / Summer 2026</div>
     <div class="pl-meta">
-      <span class="pl-pill">61 Tracks</span>
-      <span class="pl-pill">~3 hr 30 min</span>
+      <span class="pl-pill">130 Tracks</span>
+      <span class="pl-pill">~7 hr 30 min</span>
       <a class="pl-spotify" href="https://open.spotify.com/playlist/18a6uV36EkRC2fWtiD1rw3" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
         Open in Spotify
@@ -886,102 +887,168 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 
   <div class="pl-pillars">
     <div class="pl-pillar" data-b="str" onclick="document.getElementById('pl-str').scrollIntoView({behavior:'smooth',block:'start'})">
-      <span class="pl-pillar-code">STR</span><span class="pl-pillar-lbl">Athletic Muscle</span><span class="pl-pillar-ct">21 tracks</span>
+      <span class="pl-pillar-code">STR</span><span class="pl-pillar-lbl">Strength</span><span class="pl-pillar-ct">54 tracks</span>
     </div>
     <div class="pl-pillar" data-b="pwr" onclick="document.getElementById('pl-pwr').scrollIntoView({behavior:'smooth',block:'start'})">
-      <span class="pl-pillar-code">PWR</span><span class="pl-pillar-lbl">Athletic Performance</span><span class="pl-pillar-ct">24 tracks</span>
+      <span class="pl-pillar-code">PWR</span><span class="pl-pillar-lbl">Power</span><span class="pl-pillar-ct">35 tracks</span>
     </div>
     <div class="pl-pillar" data-b="skl" onclick="document.getElementById('pl-skl').scrollIntoView({behavior:'smooth',block:'start'})">
-      <span class="pl-pillar-code">SKL</span><span class="pl-pillar-lbl">Skill Development</span><span class="pl-pillar-ct">16 tracks</span>
+      <span class="pl-pillar-code">SKL</span><span class="pl-pillar-lbl">Skill</span><span class="pl-pillar-ct">54 tracks</span>
     </div>
   </div>
 
   <!-- STR -->
   <div class="pl-block str" id="pl-str">
-    <div class="pl-block-hdr">
-      <span class="pl-block-code">STR</span>
-    </div>
-    <ul class="pl-tracks">
-      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">SICKO MODE</div><div class="pl-track-artist">Travis Scott</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Heavy Is the Crown</div><div class="pl-track-artist">Daughtry ft. Slash</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">Crossed Out</div><div class="pl-track-artist">Future, Metro Boomin</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">Wrecked</div><div class="pl-track-artist">Imagine Dragons</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">Giving Chanel</div><div class="pl-track-artist">Meek Mill ft. Future</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">Just Pretend</div><div class="pl-track-artist">Bad Omens</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Circle With Me</div><div class="pl-track-artist">Spiritbox</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Dominoes</div><div class="pl-track-artist">Bad Omens</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Heartless</div><div class="pl-track-artist">Kanye West</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">122 Days</div><div class="pl-track-artist">$uicideboy$</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">All Falls Down</div><div class="pl-track-artist">Kanye West</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Money Trees</div><div class="pl-track-artist">Kendrick Lamar ft. Jay Rock</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Lights Burn Dimmer</div><div class="pl-track-artist">Fred again.. ft. Jamie T</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Neon Noir</div><div class="pl-track-artist">Falling in Reverse</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">Redrum</div><div class="pl-track-artist">21 Savage</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">6WA</div><div class="pl-track-artist">BigXthaPlug, Ro$ama</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">Its All Your Fault</div><div class="pl-track-artist">Logic</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">Ever Since U Left Me (I Went Deaf)</div><div class="pl-track-artist">French Montana, Max B</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Upset</div><div class="pl-track-artist">Various</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">The Way I Are</div><div class="pl-track-artist">Timbaland ft. Keri Hilson</div></div><span class="pl-tag">STR</span></li>
-      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">American Boy</div><div class="pl-track-artist">Estelle ft. Kanye West</div></div><span class="pl-tag">STR</span></li>
+    <div class="pl-block-hdr"><span class="pl-block-code">STR</span></div>
+    <p style="font-size:0.82rem;color:#6b6b88;font-style:italic;padding:0.75rem 1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:0;">Heavy, hard-hitting, and gritty music best suited for weight training, heavy lifts, and grinding through resistance. Dark production, aggressive rap, hard rock, and metal.</p>
+        <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">Heavy Is The Crown</div><div class="pl-track-artist">Daughtry</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Crossed Out</div><div class="pl-track-artist">Future, Metro Boomin</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">squabble up</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">redrum</div><div class="pl-track-artist">21 Savage</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">All the Smoke</div><div class="pl-track-artist">Tyla Yaweh</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">Sabotage</div><div class="pl-track-artist">Beastie Boys</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Foux (feat. Ab-Soul)</div><div class="pl-track-artist">ScHoolboy Q, Ab-Soul</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Giving Chanel</div><div class="pl-track-artist">Meek Mill, Future</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Just Pretend</div><div class="pl-track-artist">Bad Omens</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">Circle With Me</div><div class="pl-track-artist">Spiritbox</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">122 Days</div><div class="pl-track-artist">$uicideboy$</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Scatter Brain (feat. Ludacris &amp; JID)</div><div class="pl-track-artist">Conway the Machine, Ludacris, JID</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">OK OK - Hamdi remix</div><div class="pl-track-artist">Hamdi, Fred again.., Danny Brown, BEAM</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Its All Your Fault</div><div class="pl-track-artist">Logic</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">6WA</div><div class="pl-track-artist">BigXthaPlug</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Run This Town</div><div class="pl-track-artist">JAY-Z, Rihanna, Kanye West</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">Hypnotize</div><div class="pl-track-artist">The Notorious B.I.G.</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">How We Do</div><div class="pl-track-artist">The Game, 50 Cent</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Backseat Freestyle</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">m.A.A.d city</div><div class="pl-track-artist">Kendrick Lamar, MC Eiht</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">Numb / Encore</div><div class="pl-track-artist">JAY-Z, Linkin Park</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">22</span><div><div class="pl-track-title">Soul Survivor</div><div class="pl-track-artist">Jeezy, Akon</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">23</span><div><div class="pl-track-title">Texas</div><div class="pl-track-artist">BigXthaPlug</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">24</span><div><div class="pl-track-title">Back In Black</div><div class="pl-track-artist">AC/DC</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">25</span><div><div class="pl-track-title">Mmhmm</div><div class="pl-track-artist">BigXthaPlug</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">26</span><div><div class="pl-track-title">Show Me How to Live</div><div class="pl-track-artist">Audioslave</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">27</span><div><div class="pl-track-title">Wanna Be A Baller</div><div class="pl-track-artist">Lil' Troy</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">28</span><div><div class="pl-track-title">Thunderstruck</div><div class="pl-track-artist">AC/DC</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">29</span><div><div class="pl-track-title">I'm Shipping Up To Boston</div><div class="pl-track-artist">Dropkick Murphys</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">30</span><div><div class="pl-track-title">Remember the Name</div><div class="pl-track-artist">Fort Minor, Styles of Beyond</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">31</span><div><div class="pl-track-title">Ghostface Killers (feat. Travis Scott)</div><div class="pl-track-artist">21 Savage, Offset, Metro Boomin</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">32</span><div><div class="pl-track-title">Money In The Grave</div><div class="pl-track-artist">Drake, Rick Ross</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">33</span><div><div class="pl-track-title">Starin' Through My Rear View</div><div class="pl-track-artist">2Pac</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">34</span><div><div class="pl-track-title">NOW OR NEVER II</div><div class="pl-track-artist">Tkandz, Lil Baby</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">35</span><div><div class="pl-track-title">Right Now</div><div class="pl-track-artist">Van Halen</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">36</span><div><div class="pl-track-title">Get It Together</div><div class="pl-track-artist">Beastie Boys, Q-Tip</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">37</span><div><div class="pl-track-title">Real Hip-Hop</div><div class="pl-track-artist">Das EFX</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">38</span><div><div class="pl-track-title">Hard Knock Life (Ghetto Anthem)</div><div class="pl-track-artist">JAY-Z</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">39</span><div><div class="pl-track-title">Run It Up (feat. Key Glock)</div><div class="pl-track-artist">Offset, Key Glock</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">40</span><div><div class="pl-track-title">Down South (feat. Key Glock)</div><div class="pl-track-artist">Trap Dickey, Key Glock</div></div><span class="pl-tag">STR</span></li>
+      <li class="pl-track"><span class="pl-track-num">41</span><div><div class="pl-track-title">CLOUD 9</div><div class="pl-track-artist">BabyChiefDoit</div></div><span class="pl-tag">STR</span></li>
     </ul>
   </div>
 
-  <!-- PWR -->
   <div class="pl-block pwr" id="pl-pwr">
-    <div class="pl-block-hdr">
-      <span class="pl-block-code">PWR</span>
-    </div>
-    <ul class="pl-tracks">
-      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">luther (with sza)</div><div class="pl-track-artist">Kendrick Lamar, SZA</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Not Like Us</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">INDUSTRY BABY</div><div class="pl-track-artist">Lil Nas X ft. Jack Harlow</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">Squabble Up</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">TEXAS HOLD 'EM</div><div class="pl-track-artist">Beyoncé</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">A Bar Song (Tipsy)</div><div class="pl-track-artist">Shaboozey</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Paint The Town Red</div><div class="pl-track-artist">Doja Cat</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Sabotage</div><div class="pl-track-artist">Beastie Boys</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Come and Get Your Love</div><div class="pl-track-artist">Redbone</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">TGIF</div><div class="pl-track-artist">GloRilla</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">Rumble</div><div class="pl-track-artist">Skrillex, Fred again.. ft. Flowdan</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Flower Shops</div><div class="pl-track-artist">ERNEST ft. Morgan Wallen</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Escapism.</div><div class="pl-track-artist">RAYE ft. 070 Shake</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Boy's A Liar Pt. 2</div><div class="pl-track-artist">PinkPantheress ft. Ice Spice</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">RAGER teenager!</div><div class="pl-track-artist">Travis Scott ft. Young Thug</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Middle of the Night</div><div class="pl-track-artist">Elley Duhe</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">solo - KETTAMA remix</div><div class="pl-track-artist">KETTAMA, Fred again.., Blanco</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">Lean On</div><div class="pl-track-artist">Major Lazer ft. DJ Snake, MØ</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Cold Water</div><div class="pl-track-artist">Major Lazer ft. Justin Bieber, MØ</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">greedy</div><div class="pl-track-artist">Tate McRae</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">What Do You Mean?</div><div class="pl-track-artist">Justin Bieber</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">22</span><div><div class="pl-track-title">Lush Life</div><div class="pl-track-artist">Zara Larsson</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">23</span><div><div class="pl-track-title">Walking On A Dream</div><div class="pl-track-artist">Empire Of The Sun</div></div><span class="pl-tag">PWR</span></li>
-      <li class="pl-track"><span class="pl-track-num">24</span><div><div class="pl-track-title">Say No Prayer</div><div class="pl-track-artist">oskar med k, Izzy Bizu</div></div><span class="pl-tag">PWR</span></li>
+    <div class="pl-block-hdr"><span class="pl-block-code">PWR</span></div>
+    <p style="font-size:0.82rem;color:#6b6b88;font-style:italic;padding:0.75rem 1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:0;">Explosive, anthemic, and high-energy music best suited for sprints, HIIT, plyometrics, and any training requiring a burst of maximum effort. Big drops, driving tempo, and roof-raising hooks.</p>
+                <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">Paint The Town Red</div><div class="pl-track-artist">Doja Cat</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Blinding Lights</div><div class="pl-track-artist">The Weeknd</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">TGIF</div><div class="pl-track-artist">GloRilla</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">INDUSTRY BABY (feat. Jack Harlow)</div><div class="pl-track-artist">Lil Nas X</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">Not Ordinary</div><div class="pl-track-artist">ILLENIUM, Kid Cudi</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">EVERYWHERE I GO (REMIND ME)</div><div class="pl-track-artist">BNYX, Kid Cudi, Röyksopp</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Lights Burn Dimmer</div><div class="pl-track-artist">Fred again.., Jamie T</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Lean On</div><div class="pl-track-artist">Major Lazer, DJ Snake, MO</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Levitating (feat. DaBaby)</div><div class="pl-track-artist">Dua Lipa</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">Unstoppable</div><div class="pl-track-artist">Sia</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">Physical</div><div class="pl-track-artist">Dua Lipa</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Midnight City</div><div class="pl-track-artist">M83</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Everyday (feat. Rod Stewart, Miguel &amp; Mark Ronson)</div><div class="pl-track-artist">A$AP Rocky</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">Big Energy</div><div class="pl-track-artist">Latto</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">17</div><div class="pl-track-artist">MK</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Beautiful People</div><div class="pl-track-artist">David Guetta, Sia</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">Bang My Head (feat. Sia &amp; Fetty Wap)</div><div class="pl-track-artist">David Guetta</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">Live Your Life</div><div class="pl-track-artist">T.I., Rihanna</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Young Forever</div><div class="pl-track-artist">JAY-Z, Mr Hudson</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">Players</div><div class="pl-track-artist">Coi Leray</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">Never Forget You</div><div class="pl-track-artist">Zara Larsson, MNEK</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">22</span><div><div class="pl-track-title">Edge of Seventeen</div><div class="pl-track-artist">Wuki</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">23</span><div><div class="pl-track-title">Radio Baby</div><div class="pl-track-artist">Don Diablo, Fitz and The Tantrums</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">24</span><div><div class="pl-track-title">GOING UP (feat. Wiz Khalifa)</div><div class="pl-track-artist">Arizona Zervas</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">25</span><div><div class="pl-track-title">COOK</div><div class="pl-track-artist">SOFI TUKKER, J Balvin</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">26</span><div><div class="pl-track-title">HIGHJACK (right back)</div><div class="pl-track-artist">Alok, Laszewo, A$AP Rocky</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">27</span><div><div class="pl-track-title">Rapstar</div><div class="pl-track-artist">Polo G</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">28</span><div><div class="pl-track-title">SICKO MODE</div><div class="pl-track-artist">Travis Scott</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">29</span><div><div class="pl-track-title">Not Like Us</div><div class="pl-track-artist">Kendrick Lamar</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">30</span><div><div class="pl-track-title">All Of The Lights</div><div class="pl-track-artist">Kanye West</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">31</span><div><div class="pl-track-title">Banquet</div><div class="pl-track-artist">Bloc Party</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">32</span><div><div class="pl-track-title">The Rat</div><div class="pl-track-artist">The Walkmen</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">33</span><div><div class="pl-track-title">BIZCOCHITO</div><div class="pl-track-artist">ROSALÍA</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">34</span><div><div class="pl-track-title">Wait a Minute!</div><div class="pl-track-artist">WILLOW</div></div><span class="pl-tag">PWR</span></li>
+      <li class="pl-track"><span class="pl-track-num">35</span><div><div class="pl-track-title">Lovin On Me</div><div class="pl-track-artist">Jack Harlow</div></div><span class="pl-tag">PWR</span></li>
     </ul>
   </div>
 
-  <!-- SKL -->
   <div class="pl-block skl" id="pl-skl">
-    <div class="pl-block-hdr">
-      <span class="pl-block-code">SKL</span>
-    </div>
-    <ul class="pl-tracks">
-      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">Blinding Lights</div><div class="pl-track-artist">The Weeknd</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">Houdini</div><div class="pl-track-artist">Eminem</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">favorite crime</div><div class="pl-track-artist">Olivia Rodrigo</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">As It Was</div><div class="pl-track-artist">Harry Styles</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">BIZCOCHITO</div><div class="pl-track-artist">ROSALÍA</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">One Thing At A Time</div><div class="pl-track-artist">Morgan Wallen</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Too Sweet</div><div class="pl-track-artist">Hozier</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Lose Control</div><div class="pl-track-artist">Teddy Swims</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Water</div><div class="pl-track-artist">Tyla</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">All The Stars</div><div class="pl-track-artist">Kendrick Lamar ft. SZA</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">think you're someone new</div><div class="pl-track-artist">Ian Asher, Arden Jones</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">Wait a Minute!</div><div class="pl-track-artist">WILLOW</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Habits (Stay High)</div><div class="pl-track-artist">Tove Lo</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">What Was I Made For?</div><div class="pl-track-artist">Billie Eilish</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">Good Days</div><div class="pl-track-artist">SZA</div></div><span class="pl-tag">SKL</span></li>
-      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Lift Me Up</div><div class="pl-track-artist">Rihanna</div></div><span class="pl-tag">SKL</span></li>
+    <div class="pl-block-hdr"><span class="pl-block-code">SKL</span></div>
+    <p style="font-size:0.82rem;color:#6b6b88;font-style:italic;padding:0.75rem 1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:0;">Groovy, rhythmic, and technically precise music best suited for skill work, coordination drills, technique sessions, and flow state training. Smooth production, R&B, pop, and mid-tempo hip-hop.</p>
+            <ul class="pl-tracks">
+      <li class="pl-track"><span class="pl-track-num">1</span><div><div class="pl-track-title">Espresso</div><div class="pl-track-artist">Sabrina Carpenter</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">2</span><div><div class="pl-track-title">A Bar Song (Tipsy)</div><div class="pl-track-artist">Shaboozey</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">3</span><div><div class="pl-track-title">Come and Get Your Love</div><div class="pl-track-artist">Redbone</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">4</span><div><div class="pl-track-title">Lose Control</div><div class="pl-track-artist">Teddy Swims</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">5</span><div><div class="pl-track-title">Water</div><div class="pl-track-artist">Tyla</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">6</span><div><div class="pl-track-title">MIDDLE OF THE NIGHT</div><div class="pl-track-artist">Elley Duhe</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">7</span><div><div class="pl-track-title">Toxic</div><div class="pl-track-artist">BoyWithUke</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">8</span><div><div class="pl-track-title">Boy's a Liar</div><div class="pl-track-artist">PinkPantheress</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">9</span><div><div class="pl-track-title">Oblivion</div><div class="pl-track-artist">Grimes</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">10</span><div><div class="pl-track-title">luther (with sza)</div><div class="pl-track-artist">Kendrick Lamar, SZA</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">11</span><div><div class="pl-track-title">Escapism.</div><div class="pl-track-artist">RAYE, 070 Shake</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">12</span><div><div class="pl-track-title">think you're someone new</div><div class="pl-track-artist">Ian Asher, Arden Jones</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">13</span><div><div class="pl-track-title">Scoop</div><div class="pl-track-artist">Connor Price, Nic D</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">14</span><div><div class="pl-track-title">scared</div><div class="pl-track-artist">Fred again.., Young Thug</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">15</span><div><div class="pl-track-title">Ever Since U Left Me (I Went Deaf)</div><div class="pl-track-artist">French Montana, Max B</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">16</span><div><div class="pl-track-title">Say No Prayer</div><div class="pl-track-artist">oskar med k, Izzy Bizu</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">17</span><div><div class="pl-track-title">Upset</div><div class="pl-track-artist">Nic D</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">18</span><div><div class="pl-track-title">solo - KETTAMA remix</div><div class="pl-track-artist">KETTAMA, Fred again.., Blanco</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">19</span><div><div class="pl-track-title">Lush Life</div><div class="pl-track-artist">Zara Larsson</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">20</span><div><div class="pl-track-title">greedy</div><div class="pl-track-artist">Tate McRae</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">21</span><div><div class="pl-track-title">What Do You Mean?</div><div class="pl-track-artist">Justin Bieber</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">22</span><div><div class="pl-track-title">Cold Water</div><div class="pl-track-artist">Major Lazer, Justin Bieber, MO</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">23</span><div><div class="pl-track-title">Gold</div><div class="pl-track-artist">Kiiara</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">24</span><div><div class="pl-track-title">Roses</div><div class="pl-track-artist">The Chainsmokers, ROZES</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">25</span><div><div class="pl-track-title">BIRDS OF A FEATHER</div><div class="pl-track-artist">Billie Eilish</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">26</span><div><div class="pl-track-title">Trap Queen</div><div class="pl-track-artist">Fetty Wap</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">27</span><div><div class="pl-track-title">Sure Thing</div><div class="pl-track-artist">Miguel</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">28</span><div><div class="pl-track-title">Sky Walker (feat. Travis Scott)</div><div class="pl-track-artist">Miguel, Travis Scott</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">29</span><div><div class="pl-track-title">Call On Me - Ryan Riback Remix</div><div class="pl-track-artist">Starley, Ryan Riback</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">30</span><div><div class="pl-track-title">Spaces</div><div class="pl-track-artist">BUNT., The Chainsmokers, Izzy Bizu</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">31</span><div><div class="pl-track-title">Sports car</div><div class="pl-track-artist">Tate McRae</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">32</span><div><div class="pl-track-title">Too Easy</div><div class="pl-track-artist">Connor Price, Nic D</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">33</span><div><div class="pl-track-title">No Broke Boys</div><div class="pl-track-artist">Disco Lines, Tinashe</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">34</span><div><div class="pl-track-title">TRIPPIN</div><div class="pl-track-artist">BUNT., Mapei</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">35</span><div><div class="pl-track-title">SILVER TOOTH. (with A$AP Ferg)</div><div class="pl-track-artist">Armani White, A$AP Ferg</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">36</span><div><div class="pl-track-title">The Mack</div><div class="pl-track-artist">Nevada, Mark Morrison, Fetty Wap</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">37</span><div><div class="pl-track-title">The Ocean (feat. Shy Martin)</div><div class="pl-track-artist">Mike Perry</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">38</span><div><div class="pl-track-title">Post Malone (feat. RANI)</div><div class="pl-track-artist">Sam Feldt</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">39</span><div><div class="pl-track-title">Plot Twist</div><div class="pl-track-artist">Sigrid</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">40</span><div><div class="pl-track-title">Stunnin'</div><div class="pl-track-artist">Curtis Waters, Harm Franklin</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">41</span><div><div class="pl-track-title">Classic (feat. Fetty Wap &amp; POWERS)</div><div class="pl-track-artist">The Knocks</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">42</span><div><div class="pl-track-title">Summer Soulstice</div><div class="pl-track-artist">Jay Ham</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">43</span><div><div class="pl-track-title">Betty (Get Money)</div><div class="pl-track-artist">Yung Gravy</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">44</span><div><div class="pl-track-title">Prada</div><div class="pl-track-artist">casso, RAYE, D-Block Europe</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">45</span><div><div class="pl-track-title">Green Light - Chromeo Remix</div><div class="pl-track-artist">Lorde, Chromeo</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">46</span><div><div class="pl-track-title">Solo (feat. Demi Lovato) - Yxng Bane Remix</div><div class="pl-track-artist">Clean Bandit, Demi Lovato</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">47</span><div><div class="pl-track-title">Confession</div><div class="pl-track-artist">D.O.D, Poppy Baskcomb</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">48</span><div><div class="pl-track-title">High Maintenance</div><div class="pl-track-artist">Paul Russell</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">49</span><div><div class="pl-track-title">Slide</div><div class="pl-track-artist">Connor Price, Nic D</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">50</span><div><div class="pl-track-title">Everywhere (Afrobeta remix)</div><div class="pl-track-artist">Afrobeta</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">51</span><div><div class="pl-track-title">Gemstone</div><div class="pl-track-artist">Don Toliver</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">52</span><div><div class="pl-track-title">Feel Good Inc.</div><div class="pl-track-artist">Gorillaz, De La Soul</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">53</span><div><div class="pl-track-title">Reflections (Milkman Remix)</div><div class="pl-track-artist">Milkman, MisterWives</div></div><span class="pl-tag">SKL</span></li>
+      <li class="pl-track"><span class="pl-track-num">54</span><div><div class="pl-track-title">GOOD TIMES</div><div class="pl-track-artist">Jungle</div></div><span class="pl-tag">SKL</span></li>
     </ul>
+  </div>
+
   </div>
 
 </div>
