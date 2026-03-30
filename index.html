@@ -46,7 +46,7 @@ nav {
   /* Dropdown */
   .nav-dropdown { position: relative; }
   .nav-dropdown > a { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; }
-  .nav-dropdown > a::after { content: "▾"; font-size: 0.55rem; opacity: 0.5; position: relative; top: 0.5px; }
+  .nav-dropdown > a::after { content: "▾"; font-size: 0.75rem; opacity: 1; color: var(--gold); position: relative; top: 0.5px; }
   .nav-dropdown-menu {
     display: none; position: absolute; top: calc(100% + 10px); left: 0;
     background: var(--darker); border: 1px solid rgba(255,255,255,0.08);
@@ -73,6 +73,38 @@ nav {
   .nav-links.open { display: flex; }
   .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
   .nav-links a { display: block; padding: 0.9rem 1.25rem; font-size: 0.8rem; }
+
+  /* Dropdowns inside mobile nav — flow inline, no float */
+  .nav-dropdown-menu {
+    position: static !important;
+    border-top: none;
+    border-left: 2px solid var(--red);
+    margin-left: 1.25rem;
+    padding: 0;
+    min-width: unset;
+    background: transparent;
+    border-right: none;
+    border-bottom: none;
+  }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a { padding: 0.65rem 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+  .nav-dropdown-menu a:hover { color: var(--gold); background: transparent; }
+
+  /* Guide section inline grids — collapse on mobile */
+  [style*="grid-template-columns:1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Progression phase steps — stack vertically */
+  [style*="display:flex"][style*="gap:0"],
+  [style*="display: flex"][style*="gap: 0"] {
+    flex-direction: column !important;
+  }
 }
 
 /* ── HERO ── */
@@ -165,7 +197,8 @@ h2.section-title {
 /* ── PROGRAM ── */
 #program { background: var(--cream); }
 .goals-grid { display: grid; gap: 1rem; margin-bottom: 2.5rem; }
-@media (min-width: 640px) { .goals-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 480px) { .goals-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .goals-grid { grid-template-columns: repeat(4, 1fr); } }
 .goal-card {
   background: var(--white); border: 1px solid rgba(0,0,0,0.08);
   border-top: 3px solid #666; padding: 1.5rem; border-radius: 2px;
