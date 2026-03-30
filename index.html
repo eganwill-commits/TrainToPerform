@@ -42,6 +42,25 @@ nav {
 }
 .nav-links a:hover { color: var(--red); }
 
+  /* Dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+  .nav-dropdown > a::after { content: "▾"; font-size: 0.6rem; opacity: 0.6; }
+  .nav-dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 10px); left: 0;
+    background: var(--darker); border: 1px solid rgba(255,255,255,0.08);
+    border-top: 2px solid var(--red); min-width: 160px; z-index: 200;
+    padding: 0.4rem 0;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a {
+    display: block; padding: 0.6rem 1rem;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ice); text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-dropdown-menu a:hover { color: var(--red); background: rgba(255,255,255,0.04); }
+
 /* ── MOBILE NAV ── */
 @media (max-width: 768px) {
   .nav-menu-btn { display: flex; }
@@ -360,6 +379,12 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <li><a href="#glossary"   onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
     <li><a href="#about"      onclick="this.closest('ul').classList.remove('open')">About</a></li>
     <li><a href="#playlist"   onclick="this.closest('ul').classList.remove('open')">Playlist</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Guides</a>
+      <div class="nav-dropdown-menu">
+        <a href="#mvt-guide" onclick="this.closest('ul').classList.remove('open')">MVT — Movement & Mobility</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -969,6 +994,126 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   </div>
 
 </div>
+</section>
+
+<!-- MVT GUIDE -->
+<section id="mvt-guide" style="background:var(--cream);padding:0;">
+
+  <!-- MVT Hero -->
+  <div style="background:var(--dark);padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 41px);pointer-events:none;"></div>
+    <div style="max-width:900px;margin:0 auto;position:relative;z-index:1;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;">
+        <span style="width:20px;height:1.5px;background:var(--red);display:block;"></span>Train To Perform · Pillar Guide
+      </div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,18vw,140px);line-height:0.9;letter-spacing:0.02em;color:#fff;margin-bottom:0.75rem;"><span style="color:var(--red);">MVT</span></div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,5vw,40px);color:rgba(255,255,255,0.6);letter-spacing:0.06em;margin-bottom:1rem;">Movement &amp; Mobility</div>
+      <p style="font-size:clamp(0.88rem,2.5vw,1rem);color:var(--ice);line-height:1.7;font-weight:300;max-width:560px;margin-bottom:2rem;">The foundation every other training quality is built on. Before you load the bar, you earn the right to move well.</p>
+      <div style="display:inline-flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:0.6rem 1.1rem;border-radius:2px;">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--red);line-height:1;">MVT</span>
+        <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Movement · Mobility · Resilience</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objective -->
+  <div style="background:var(--dark);">
+    <div style="max-width:900px;margin:0 auto;padding:3rem 1.5rem;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="width:20px;height:1.5px;background:var(--gold);display:block;"></span>Objective</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2rem);color:#fff;margin-bottom:0.85rem;line-height:1.2;">Why Movement Quality Comes First</div>
+      <p style="font-size:0.95rem;color:var(--ice);line-height:1.75;font-weight:300;margin-bottom:1.5rem;">Develop optimal movement quality, joint health, and injury resilience to allow safe and efficient performance in all training and sport-specific activities.</p>
+      <div style="background:rgba(255,255,255,0.04);border-left:3px solid var(--gold);padding:1.25rem 1.5rem;border-radius:0 2px 2px 0;font-size:0.9rem;color:var(--ice);line-height:1.8;font-weight:300;">
+        Quality movement underpins everything. Poor patterns increase injury risk, reduce force production, and cap an athlete's ceiling before they ever get close to it. Teaching and reinforcing movement early — before load, before speed, before complexity — is how you protect long-term athletic potential and build athletes who are durable over the full arc of their career.
+      </div>
+    </div>
+  </div>
+
+  <!-- Rationale + Key Principles -->
+  <div style="background:var(--cream);">
+    <div style="max-width:900px;margin:0 auto;padding:3rem 1.5rem;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="width:20px;height:1.5px;background:var(--smoke);display:block;"></span>Rationale &amp; Key Principles</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2rem);color:var(--dark);margin-bottom:0.85rem;line-height:1.2;">The Case for MVT</div>
+      <p style="font-size:0.9rem;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:1.5rem;">Three reasons it comes first — and five principles that guide how it's trained.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:3px solid var(--red);padding:1.5rem;border-radius:2px;">
+          <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;">Why It Matters</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--dark);margin-bottom:0.85rem;">The Rationale</div>
+          <ul style="list-style:none;padding:0;display:grid;gap:0.5rem;">
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Quality movement underpins strength, power, and skill development</li>
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Poor movement patterns increase injury risk and reduce force production</li>
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Teaching movement early ensures long-term athletic potential</li>
+          </ul>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:3px solid var(--red);padding:1.5rem;border-radius:2px;">
+          <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;">How We Train It</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--dark);margin-bottom:0.85rem;">Key Principles</div>
+          <ul style="list-style:none;padding:0;display:grid;gap:0.5rem;">
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Prioritize fundamental patterns — hinge, squat, lunge, push, pull, rotation</li>
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Focus on full range of motion with control</li>
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Emphasize neuromuscular control and core stability</li>
+            <li style="font-size:0.84rem;color:var(--mid);line-height:1.65;font-weight:300;padding-left:1rem;border-left:2px solid rgba(204,31,31,0.25);">Progress complexity gradually — bodyweight → loaded → dynamic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Implementation -->
+  <div style="background:var(--darker);">
+    <div style="max-width:900px;margin:0 auto;padding:3rem 1.5rem;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="width:20px;height:1.5px;background:var(--gold);display:block;"></span>Implementation</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2rem);color:#fff;margin-bottom:0.85rem;line-height:1.2;">How MVT Shows Up in Every Session</div>
+      <p style="font-size:0.9rem;color:var(--ice);line-height:1.75;font-weight:300;margin-bottom:1.75rem;">MVT is not a standalone block — it is the opening sequence of every training day, setting the conditions for everything that follows.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);">
+        <div style="background:#1f1f1f;padding:1.4rem 1.25rem;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--red);line-height:1;display:block;margin-bottom:0.4rem;">01</span>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.6rem;display:block;">Warm-Up &amp; Prehab</span>
+          <p style="font-size:0.82rem;color:#aaa;font-weight:300;line-height:1.65;margin:0;">Dynamic warm-ups, prehabilitation exercises, and corrective drills built into every session before main lifts begin.</p>
+        </div>
+        <div style="background:#1f1f1f;padding:1.4rem 1.25rem;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--red);line-height:1;display:block;margin-bottom:0.4rem;">02</span>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.6rem;display:block;">Coaching &amp; Feedback</span>
+          <p style="font-size:0.82rem;color:#aaa;font-weight:300;line-height:1.65;margin:0;">Coaching cues, mirrors, and real-time feedback used to reinforce proper technique and build movement awareness.</p>
+        </div>
+        <div style="background:#1f1f1f;padding:1.4rem 1.25rem;">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--red);line-height:1;display:block;margin-bottom:0.4rem;">03</span>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.6rem;display:block;">Paired with Skill Work</span>
+          <p style="font-size:0.82rem;color:#aaa;font-weight:300;line-height:1.65;margin:0;">MVT drills paired with skill acquisition where possible — reinforcing patterns under controlled and dynamic conditions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progression -->
+  <div style="background:var(--cream);">
+    <div style="max-width:900px;margin:0 auto;padding:3rem 1.5rem;">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="width:20px;height:1.5px;background:var(--smoke);display:block;"></span>Progression</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2rem);color:var(--dark);margin-bottom:0.85rem;line-height:1.2;">How Athletes Advance Through MVT</div>
+      <p style="font-size:0.9rem;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:1.5rem;">Movement quality is not a checkbox — it is a continuous standard that evolves as athletes develop. Progression is deliberate and always earns load before adding it.</p>
+      <div style="display:flex;gap:0;margin-bottom:1.5rem;">
+        <div style="flex:1;background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:3px solid var(--red);padding:1rem;text-align:center;">
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.3rem;">Phase 1</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--red);letter-spacing:0.05em;">Simple Patterns</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:var(--red);font-size:1rem;">→</div>
+        <div style="flex:1;background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:3px solid var(--red);padding:1rem;text-align:center;">
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.3rem;">Phase 2</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--red);letter-spacing:0.05em;">Loaded Variations</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 0.5rem;color:var(--red);font-size:1rem;">→</div>
+        <div style="flex:1;background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:3px solid var(--red);padding:1rem;text-align:center;">
+          <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.3rem;">Phase 3</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--red);letter-spacing:0.05em;">Dynamic Complexity</div>
+        </div>
+      </div>
+      <ul style="list-style:none;padding:0;display:grid;gap:0.75rem;">
+        <li style="font-size:0.85rem;color:#aaa;padding:0.85rem 1rem 0.85rem 1.25rem;border-left:2px solid var(--red);background:#fff;border-radius:0 2px 2px 0;line-height:1.6;font-weight:300;"><strong style="color:var(--dark);font-weight:600;">Start simple, earn complexity.</strong> Begin with bodyweight patterns and advance only when movement quality is consistent under load.</li>
+        <li style="font-size:0.85rem;color:#aaa;padding:0.85rem 1rem 0.85rem 1.25rem;border-left:2px solid var(--red);background:#fff;border-radius:0 2px 2px 0;line-height:1.6;font-weight:300;"><strong style="color:var(--dark);font-weight:600;">Test and monitor periodically.</strong> Mobility and movement quality are assessed at the start of each block and adjusted if patterns degrade under fatigue or load.</li>
+        <li style="font-size:0.85rem;color:#aaa;padding:0.85rem 1rem 0.85rem 1.25rem;border-left:2px solid var(--red);background:#fff;border-radius:0 2px 2px 0;line-height:1.6;font-weight:300;"><strong style="color:var(--dark);font-weight:600;">Extend habits beyond the session.</strong> Athletes are encouraged to integrate MVT habits outside formal training — mobility work, warm-up routines, and movement awareness carry over to sport.</li>
+      </ul>
+    </div>
+  </div>
+
 </section>
 
 <!-- FOOTER -->
