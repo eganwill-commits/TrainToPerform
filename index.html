@@ -35,17 +35,18 @@ nav {
   flex-direction: column; gap: 4px; padding: 4px;
 }
 .nav-menu-btn span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 1px; transition: 0.3s; }
-.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
 .nav-links a {
   color: var(--ice); text-decoration: none; font-size: 0.73rem;
   font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  display: inline-flex; align-items: center;
 }
 .nav-links a:hover { color: var(--red); }
 
   /* Dropdown */
   .nav-dropdown { position: relative; }
-  .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-  .nav-dropdown > a::after { content: "▾"; font-size: 0.6rem; opacity: 0.6; }
+  .nav-dropdown > a { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; }
+  .nav-dropdown > a::after { content: "▾"; font-size: 0.55rem; opacity: 0.5; position: relative; top: 0.5px; }
   .nav-dropdown-menu {
     display: none; position: absolute; top: calc(100% + 10px); left: 0;
     background: var(--darker); border: 1px solid rgba(255,255,255,0.08);
@@ -94,10 +95,10 @@ nav {
 .hero-inner { position: relative; z-index: 2; max-width: 560px; }
 .hero-eyebrow {
   font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 1.25rem;
+  color: var(--gold); margin-bottom: 1.25rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
-.hero-eyebrow::before { content: ""; width: 24px; height: 1.5px; background: var(--red); }
+.hero-eyebrow::before { content: ""; width: 24px; height: 1.5px; background: var(--gold); }
 h1.hero-title {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(48px, 12vw, 88px);
@@ -108,11 +109,13 @@ h1.hero-title span { color: var(--red); display: block; }
   font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--ice);
   line-height: 1.7; max-width: 420px; margin-bottom: 2rem; font-weight: 300;
 }
+.hero-sub strong { color: var(--gold); font-weight: 600; }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--red); color: #fff; font-weight: 700;
   font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 0.85rem 1.75rem; text-decoration: none; border-radius: 2px;
+  border-bottom: 2px solid var(--gold);
 }
 
 /* ── SHARED SECTION ── */
@@ -162,7 +165,7 @@ h2.section-title {
 /* ── PROGRAM ── */
 #program { background: var(--cream); }
 .goals-grid { display: grid; gap: 1rem; margin-bottom: 2.5rem; }
-@media (min-width: 640px) { .goals-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px) { .goals-grid { grid-template-columns: repeat(4, 1fr); } }
 .goal-card {
   background: var(--white); border: 1px solid rgba(0,0,0,0.08);
   border-top: 3px solid #666; padding: 1.5rem; border-radius: 2px;
@@ -171,6 +174,14 @@ h2.section-title {
   font-family: "Bebas Neue", sans-serif; font-size: 1.4rem;
   color: #888; letter-spacing: 0.1em; margin-bottom: 0.6rem;
 }
+.goal-card:nth-child(1) { border-top-color: var(--gold); }
+.goal-card:nth-child(1) .goal-abbr { color: var(--gold); }
+.goal-card:nth-child(2) { border-top-color: var(--red); }
+.goal-card:nth-child(2) .goal-abbr { color: var(--red); }
+.goal-card:nth-child(3) { border-top-color: var(--dark); }
+.goal-card:nth-child(3) .goal-abbr { color: var(--dark); }
+.goal-card:nth-child(4) { border-top-color: #2a7a4b; }
+.goal-card:nth-child(4) .goal-abbr { color: #2a7a4b; }
 .goal-title {
   font-family: "DM Serif Display", serif; font-size: 1.05rem;
   color: var(--dark); margin-bottom: 0.5rem;
@@ -398,11 +409,11 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-ghost">STR<br>PWR<br>SKL</div>
+  <div class="hero-ghost">MVT<br>PWR<br>STR<br>SKL</div>
   <div class="hero-inner">
     <div class="hero-eyebrow">Spring – Summer 2026</div>
     <h1 class="hero-title">Teen Athlete<span>Performance<br>Program</span></h1>
-    <p class="hero-sub">An in-person, coach-led training program built specifically for 15–17 year old athletes.<br>Muscle. Strength. Athleticism.<br>Built the right way.</p>
+    <p class="hero-sub">An in-person, coach-led training program built specifically for 15–17 year old athletes.<br><strong>Muscle. Strength. Athleticism.</strong><br>Built the right way.</p>
     <a href="#program" class="hero-cta">Explore the Program →</a>
   </div>
   <div style="position:absolute;bottom:2rem;left:1.5rem;right:1.5rem;z-index:2;padding-top:4rem;">
@@ -440,18 +451,23 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 <section id="program">
   <div class="section-inner">
     <div class="section-label">The Program</div>
-    <h2 class="section-title">Three pillars. Every session.</h2>
-    <p class="section-lead">Every training day is built around the same three-part framework: Power, Strength, and Skill/Endurance — in that order. The sequence is intentional. Explosive work happens when the nervous system is fresh. Strength follows while the athlete still has capacity. Conditioning finishes the session with purpose.</p>
+    <h2 class="section-title">Four pillars. Every session.</h2>
+    <p class="section-lead">Every training day is built around the same four-part framework: Movement, Power, Strength, and Skill/Endurance — in that order. The sequence is intentional. Movement prep primes joints, patterns, and the nervous system. Explosive work follows while output is highest. Strength builds while capacity remains. Conditioning finishes the session with purpose.</p>
 
     <div class="goals-grid">
       <div class="goal-card">
+        <div class="goal-abbr">MVT</div>
+        <div class="goal-title">Movement First</div>
+        <p class="goal-text">Dynamic warm-up, mobility, and corrective drills that prepare the body to train at full capacity. Every session opens with MVT — building joint health, movement quality, and the foundational patterns that make everything else safer and more effective.</p>
+      </div>
+      <div class="goal-card">
         <div class="goal-abbr">PWR</div>
-        <div class="goal-title">Power First</div>
+        <div class="goal-title">Power Second</div>
         <p class="goal-text">Explosive movements — jumps, throws, sprints — performed when the nervous system is fully fresh. Short sets, full rest, maximum intent. This is how athletes develop speed and explosiveness that transfers to sport.</p>
       </div>
       <div class="goal-card">
         <div class="goal-abbr">STR</div>
-        <div class="goal-title">Strength Second</div>
+        <div class="goal-title">Strength Third</div>
         <p class="goal-text">Primary compound lifts trained with progressive overload across three 4-week blocks. Deadlifts, squats, presses, rows — the foundational movements that build durable, athletic strength and muscle. Movements evolve each block; the demand always increases.</p>
       </div>
       <div class="goal-card">
@@ -477,7 +493,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <div class="audience-title">What to expect</div>
         <ul class="audience-points">
           <li>4 training days per week — Monday, Tuesday, Thursday, Friday. Wednesday and weekends are rest and recovery</li>
-          <li>Every session follows the same structure: Power → Strength → Skill/Endurance. The order matters</li>
+          <li>Every session follows the same structure: MVT → PWR → STR → SKL. The order matters</li>
           <li>The program runs 12 weeks across 3 blocks. Each block keeps the same session structure and builds on the same movement patterns — adding load or reps for the first 4 weeks, then shifting to variations in the next block. Trust the process, especially early</li>
           <li>You'll learn barbell and gymnastics movements that most athletes your age never get properly coached on</li>
           <li>Everything is tracked. PRs get celebrated. Progress is visible. Show up and the numbers will show it</li>
