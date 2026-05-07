@@ -143,31 +143,75 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .pillars-principle p { font-size: 0.9rem; color: var(--ice); line-height: 1.8; font-weight: 300; margin-bottom: 0.85rem; }
 .pillars-principle p:last-child { margin-bottom: 0; font-size: 0.85rem; color: var(--gold); font-weight: 600; letter-spacing: 0.03em; }
 .pillars-order {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin: 1.75rem 0;
+  width: 100%;
+}
+.pillars-order .pname {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem 0.7rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top-width: 3px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.pillars-order .pname:hover { transform: translateY(-1px); background: rgba(255,255,255,0.06); }
+.pillars-order .pname-abbr {
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(1.1rem, 3.2vw, 1.6rem);
-  letter-spacing: 0.15em;
-  margin: 1.25rem 0;
-  padding: 1rem 1.5rem;
-  background: rgba(200,146,42,0.08);
-  border-left: 3px solid var(--gold);
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.12em;
+  color: #fff;
+  line-height: 1;
+}
+.pillars-order .pname-word {
+  font-family: "DM Sans", sans-serif;
+  font-style: italic;
+  font-size: clamp(0.58rem, 1.2vw, 0.7rem);
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  margin-top: 0.4rem;
+  text-transform: lowercase;
+}
+.pillars-order .pname.mvt  { border-top-color: var(--gold); }
+.pillars-order .pname.pwr  { border-top-color: var(--red); }
+.pillars-order .pname.skl  { border-top-color: #4a9a6b; }
+.pillars-order .pname.str  { border-top-color: #ddd; }
+.pillars-order .pname.fin  { border-top-color: #4a8cb8; }
+.pillars-order .pname.cond { border-top-color: #9a4a8b; }
+.pillars-order .pname.mvt  .pname-abbr { color: var(--gold); }
+.pillars-order .pname.pwr  .pname-abbr { color: var(--red); }
+.pillars-order .pname.skl  .pname-abbr { color: #4a9a6b; }
+.pillars-order .pname.str  .pname-abbr { color: #fff; }
+.pillars-order .pname.fin  .pname-abbr { color: #4a8cb8; }
+.pillars-order .pname.cond .pname-abbr { color: #9a4a8b; }
+.pillars-order .arrow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.5rem;
+  justify-content: center;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(200,146,42,0.5);
+  font-weight: 300;
+  padding: 0 0.15rem;
 }
-.pillars-order .pname { white-space: nowrap; }
-.pillars-order .pname.mvt  { color: var(--gold); }
-.pillars-order .pname.pwr  { color: var(--red); }
-.pillars-order .pname.str  { color: var(--dark); }
-.pillars-order .pname.skl  { color: #2a7a4b; }
-.pillars-order .pname.fin  { color: #1a5c8a; }
-.pillars-order .pname.cond { color: #7a2a6b; }
-.pillars-order .arrow { color: rgba(0,0,0,0.25); font-size: 0.85em; font-weight: 300; }
-@media (max-width: 520px) {
-  .pillars-order { justify-content: center; padding: 0.9rem 1rem; }
-  .pillars-order .arrow { margin: 0 0.1rem; }
+@media (max-width: 720px) {
+  .pillars-order {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+  }
+  .pillars-order .arrow { display: none; }
+  .pillars-order .pname { padding: 0.6rem 0.4rem 0.55rem; }
+  .pillars-order .pname-word { font-size: 0.58rem; margin-top: 0.3rem; }
 }
+.pillars-order.on-dark { /* legacy class still applied; styles above handle it */ }
 
 /* ── LANES ── */
 #lanes { background: var(--white); }
@@ -327,6 +371,20 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <h2 class="section-title">One methodology.<br>Dosed to meet you where you are.</h2>
     <p class="section-lead">Train To Perform is built on a principle most programs ignore: the framework is universal, but the expression has to change with the life stage of the athlete. Teens building their athletic ceiling train differently than adults balancing performance with work and family, who train differently than masters athletes protecting decades of capacity ahead. Same pillars. Same principles. Different dosing.</p>
 
+    <div class="pillars-order on-dark">
+      <span class="pname mvt"><span class="pname-abbr">MVT</span><span class="pname-word">mobility</span></span>
+      <span class="arrow">→</span>
+      <span class="pname pwr"><span class="pname-abbr">PWR</span><span class="pname-word">power</span></span>
+      <span class="arrow">/</span>
+      <span class="pname skl"><span class="pname-abbr">SKL</span><span class="pname-word">skill</span></span>
+      <span class="arrow">→</span>
+      <span class="pname str"><span class="pname-abbr">STR</span><span class="pname-word">strength</span></span>
+      <span class="arrow">→</span>
+      <span class="pname fin"><span class="pname-abbr">FIN</span><span class="pname-word">finishing</span></span>
+      <span class="arrow">→</span>
+      <span class="pname cond"><span class="pname-abbr">COND</span><span class="pname-word">conditioning</span></span>
+    </div>
+
     <div class="methodology-grid">
       <div class="methodology-panel">
         <div class="methodology-panel-label">What stays the same</div>
@@ -342,7 +400,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 
     <div class="methodology-callout">
       <h3>The engine underneath the pillars.</h3>
-      <p>Six pillars are the structure of every session. <strong>Progressive overload is the engine that drives improvement underneath them.</strong> Every program, Teen, Adult, Masters, runs on planned progression: weight, intensity, complexity, or volume increasing in deliberate, calibrated steps. The same workout twice in a row is rare. Each block pushes the athlete one step beyond where they were, while staying inside what their body can absorb and adapt to.</p>
+      <p>Six pillars are the structure of every session. <strong>Progressive overload is the engine that drives improvement underneath them.</strong> Every program runs on planned progression: weight, intensity, complexity, or volume increasing in deliberate, calibrated steps. The same workout twice in a row is rare. Each block pushes the athlete one step beyond where they were, while staying inside what their body can absorb and adapt to.</p>
       <p>The pillars are <em>what</em> gets trained. Progressive overload is <em>how</em> it improves.</p>
     </div>
 
@@ -363,20 +421,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       <div class="pillars-quote">
         &ldquo;The framework is universal. The dose is personal.&rdquo;
       </div>
-    </div>
-
-    <div class="pillars-order">
-      <span class="pname mvt">MVT</span>
-      <span class="arrow">→</span>
-      <span class="pname pwr">PWR</span>
-      <span class="arrow">/</span>
-      <span class="pname skl">SKL</span>
-      <span class="arrow">→</span>
-      <span class="pname str">STR</span>
-      <span class="arrow">→</span>
-      <span class="pname fin">FIN</span>
-      <span class="arrow">→</span>
-      <span class="pname cond">COND</span>
     </div>
 
     <div class="pillars-grid">
