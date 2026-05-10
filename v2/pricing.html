@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pricing for Train To Perform. Same methodology. Three programs. Multiple formats. The price reflects how it's delivered.">
+  <title>Pricing — Train To Perform</title>
+
+  <!-- Fonts: matches v2 site — Bebas Neue (display labels) + DM Serif Display (editorial) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS
+       Adjust these to match the v2 site's exact design system on integration.
+       ========================================================================== */
+    :root {
+      /* Color */
+      --bg: #131210;          /* deep warm black */
+      --paper: #1C1A17;       /* raised surface */
+      --ink: #F4F1EA;         /* primary text — warm white */
+      --ink-muted: #C9C3B8;   /* secondary text — warm light */
+      --ink-faint: #8E8678;   /* tertiary / labels */
+      --accent: #D9744A;      /* burnt sienna, brightened for dark bg */
+      --accent-soft: #C26B4A;
+      --hairline: rgba(244, 241, 234, 0.12);
+      --hairline-strong: rgba(244, 241, 234, 0.32);
+
+      /* Typography — matches v2 site */
+      --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Bebas Neue', 'Arial Narrow', sans-serif;
+
+      /* Layout */
+      --max-w: 1240px;
+      --gutter: clamp(20px, 4vw, 56px);
+      --section-y: clamp(64px, 9vw, 128px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==========================================================================
+       LAYOUT PRIMITIVES
+       ========================================================================== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+
+    .hairline {
+      border: 0;
+      border-top: 1px solid var(--hairline);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       NAV (placeholder — replace with your existing v2 nav on integration)
+       ========================================================================== */
+    .site-nav {
+      border-bottom: 1px solid var(--hairline);
+      padding: 20px 0;
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(19, 18, 16, 0.92);
+    }
+    .site-nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .site-nav__brand {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .site-nav__logo {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .site-nav__links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+    }
+    .site-nav__links a {
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 150ms ease;
+    }
+    .site-nav__links a:hover { opacity: 1; }
+    .site-nav__links a.is-current { opacity: 1; font-weight: 500; }
+    @media (max-width: 720px) {
+      .site-nav__links { display: none; }
+    }
+
+    /* ==========================================================================
+       HERO
+       ========================================================================== */
+    .hero {
+      padding: clamp(72px, 11vw, 160px) 0 clamp(48px, 7vw, 96px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hero__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(48px, 9vw, 120px);
+      line-height: 0.96;
+      letter-spacing: -0.025em;
+      margin-bottom: 28px;
+    }
+    .hero__lede {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.35;
+      color: var(--ink);
+      max-width: 720px;
+      letter-spacing: -0.01em;
+      font-style: italic;
+    }
+    .hero__sub {
+      font-size: 16px;
+      color: var(--ink-muted);
+      max-width: 620px;
+      margin-top: 24px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       INTRO / APPROACH
+       ========================================================================== */
+    .intro__body {
+      max-width: 720px;
+    }
+    .intro__lede {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 36px;
+    }
+    .intro__copy {
+      font-size: clamp(16px, 1.4vw, 18px);
+      line-height: 1.7;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+    }
+    .intro__copy:last-child { margin-bottom: 0; }
+    .intro__copy strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .intro__exclusions {
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 24px 0;
+      margin: 8px 0 32px;
+    }
+    .intro__exclusions-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .intro__exclusions-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 32px;
+    }
+    .intro__exclusions-list li {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: var(--ink-muted);
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .intro__exclusions-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      .intro__exclusions-list { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================================
+       SECTION HEADER
+       ========================================================================== */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: clamp(32px, 5vw, 56px);
+      padding-top: var(--section-y);
+    }
+    .section-head__index {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+    }
+    .section-head__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ==========================================================================
+       PROGRAM GRID
+       ========================================================================== */
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--hairline-strong);
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    @media (max-width: 960px) {
+      .programs { grid-template-columns: 1fr; }
+    }
+
+    .program {
+      padding: 40px clamp(20px, 2.5vw, 36px);
+      border-right: 1px solid var(--hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      background: var(--bg);
+      transition: background 200ms ease;
+    }
+    .program:last-child { border-right: 0; }
+    @media (max-width: 960px) {
+      .program {
+        border-right: 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .program:last-child { border-bottom: 0; }
+    }
+    .program:hover { background: var(--paper); }
+
+    .program__tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border: 1px solid var(--hairline-strong);
+      color: var(--ink);
+      border-radius: 2px;
+    }
+    .tag--accent {
+      background: var(--accent);
+      color: var(--paper);
+      border-color: var(--accent);
+    }
+
+    .program__name {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(32px, 3.5vw, 42px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .program__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      margin-top: -16px;
+    }
+    .program__meta {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .program__meta li {
+      list-style: none;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .program__meta li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--ink-faint);
+    }
+
+    /* Pricing block within program card */
+    .price-block { margin-top: auto; }
+    .price-block + .price-block {
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid var(--hairline);
+    }
+    .price-block__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      padding: 6px 0;
+    }
+    .price-row__amount {
+      font-size: 16px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .price-row__period {
+      color: var(--ink-muted);
+      font-size: 12px;
+    }
+    .price-row__note {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    .price-row--hero .price-row__amount {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .price-row--hero {
+      padding-bottom: 12px;
+    }
+
+    .program__addon {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      padding-top: 16px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .cta {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 0;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      align-self: flex-start;
+      transition: color 150ms ease, border-color 150ms ease, transform 150ms ease;
+    }
+    .cta:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    /* ==========================================================================
+       BUNDLE STRIP (All Access)
+       ========================================================================== */
+    .bundle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+      padding: clamp(48px, 7vw, 80px) clamp(28px, 4vw, 64px);
+      border: 1px solid var(--hairline-strong);
+      background: var(--paper);
+    }
+    @media (max-width: 720px) {
+      .bundle { grid-template-columns: 1fr; }
+    }
+    .bundle__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 3.6vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .bundle__copy {
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .bundle__price {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bundle__amount {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .bundle__period {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+    .bundle__alt {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-top: 12px;
+    }
+
+    /* ==========================================================================
+       CUSTOM TIERS
+       ========================================================================== */
+    .custom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--hairline-strong);
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    @media (max-width: 960px) {
+      .custom-grid { grid-template-columns: 1fr; }
+    }
+    .custom-tier {
+      padding: clamp(36px, 5vw, 56px) clamp(24px, 3vw, 44px);
+      border-right: 1px solid var(--hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .custom-tier:last-child { border-right: 0; }
+    @media (max-width: 960px) {
+      .custom-tier {
+        border-right: 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .custom-tier:last-child { border-bottom: 0; }
+    }
+    .custom-tier--featured { background: var(--paper); }
+
+    .custom-tier__name {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 3.6vw, 40px);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .custom-tier__price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .custom-tier__price strong {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .custom-tier__package {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink-muted);
+      padding: 12px 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      letter-spacing: 0.04em;
+    }
+    .custom-tier__package strong {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-right: 6px;
+    }
+    .custom-tier__package span {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .custom-tier__includes {
+      list-style: none;
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .custom-tier__includes li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .custom-tier__includes li:last-child { border-bottom: 0; }
+    .custom-tier__min {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       LOYALTY / FOUNDING
+       ========================================================================== */
+    .loyalty {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+    }
+    @media (max-width: 720px) {
+      .loyalty { grid-template-columns: 1fr; }
+    }
+    .loyalty__card {
+      padding: clamp(28px, 4vw, 40px);
+      border: 1px solid var(--hairline-strong);
+      background: var(--bg);
+    }
+    .loyalty__card--accent {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+    .loyalty__card--accent .loyalty__label,
+    .loyalty__card--accent .loyalty__copy { color: rgba(19, 18, 16, 0.78); }
+    .loyalty__card--accent .loyalty__title { color: var(--bg); }
+
+    .loyalty__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .loyalty__title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .loyalty__copy {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+    .loyalty__copy + .loyalty__copy { margin-top: 12px; }
+    .loyalty__copy strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .loyalty__card--accent .loyalty__copy strong { color: var(--bg); }
+
+    /* ==========================================================================
+       FAQ / FINE PRINT
+       ========================================================================== */
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(24px, 4vw, 64px);
+      border-top: 1px solid var(--hairline);
+      padding-top: clamp(40px, 5vw, 64px);
+      padding-bottom: clamp(64px, 8vw, 120px);
+    }
+    @media (max-width: 720px) {
+      .faq { grid-template-columns: 1fr; }
+    }
+    .faq__title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .faq__list {
+      list-style: none;
+    }
+    .faq__item {
+      padding: 18px 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .faq__item:first-child { border-top: 0; padding-top: 0; }
+    .faq__q {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .faq__a {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       FOOTER — matches v2 structure (logo + tagline + links + location)
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--hairline-strong);
+      padding: clamp(48px, 7vw, 80px) 0;
+      text-align: center;
+    }
+    .site-footer__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    .site-footer__logo {
+      height: 36px;
+      width: auto;
+    }
+    .site-footer__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+    }
+    .site-footer__links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .site-footer__links a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    .site-footer__links a:hover { color: var(--accent); }
+    .site-footer__location {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ==========================================================================
+       MOTION
+       ========================================================================== */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero__title,
+      .hero__lede,
+      .hero__sub {
+        opacity: 0;
+        animation: rise 800ms cubic-bezier(.2,.7,.2,1) forwards;
+      }
+      .hero__lede { animation-delay: 120ms; }
+      .hero__sub { animation-delay: 220ms; }
+
+      .program {
+        opacity: 0;
+        animation: rise 700ms cubic-bezier(.2,.7,.2,1) forwards;
+      }
+      .program:nth-child(1) { animation-delay: 100ms; }
+      .program:nth-child(2) { animation-delay: 180ms; }
+      .program:nth-child(3) { animation-delay: 260ms; }
+
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAV — matches v2 structure. Replace logo path/links with your real ones.
+       ========================================================================== -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/index.html" class="site-nav__brand">
+        <img src="/logo.png" alt="T2P" class="site-nav__logo" />
+        <span>Train To Perform</span>
+      </a>
+      <ul class="site-nav__links">
+        <li><a href="/index.html#methodology">Methodology</a></li>
+        <li><a href="/teen.html">Teen</a></li>
+        <li><a href="/adult.html">Adult</a></li>
+        <li><a href="/masters.html">Masters</a></li>
+        <li><a href="/pricing.html" class="is-current">Pricing</a></li>
+        <li><a href="/index.html#about">About</a></li>
+        <li><a href="https://app.traintoperform.fit">Athlete Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ==========================================================================
+         HERO
+         ========================================================================== -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero__eyebrow">Pricing &nbsp;/&nbsp; Honest by Design</span>
+        <h1 class="hero__title">The price reflects the format.</h1>
+        <p class="hero__lede">Same methodology. Three programs. Three formats — coached in person, programmed remotely, or built individually for you.</p>
+        <p class="hero__sub">Train To Perform doesn't run promotions, gate features behind upgrade tiers, or sell things you don't need. Every athlete gets the full framework. What changes is how it's delivered — and how much coach involvement is built into the process.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTRO / APPROACH — who this is for, why it's different
+         ========================================================================== -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">01 / Approach</span>
+          <h2 class="section-head__title">A word before you pick a program.</h2>
+        </div>
+
+        <div class="intro__body">
+          <p class="intro__lede">This is for athletes who would rather follow a real framework for years than chase a new workout every Monday.</p>
+
+          <p class="intro__copy">Most programs treat all athletes the same and simply adjust the volume. <strong>T2P treats the framework as universal and adjusts the dose.</strong></p>
+
+          <p class="intro__copy">A teenager building capacity trains differently than an adult balancing performance with life demands. Both train differently than a masters athlete protecting long-term durability and health. Same six pillars. Same sequence. Different weighting based on where you are now — and where you need to go next.</p>
+
+          <div class="intro__exclusions">
+            <p class="intro__exclusions-label">What you won't find here</p>
+            <ul class="intro__exclusions-list">
+              <li>Hero workouts</li>
+              <li>Personality-driven programming</li>
+              <li>Volume mistaken for progress</li>
+              <li>Hidden tiers or locked features</li>
+            </ul>
+          </div>
+
+          <p class="intro__copy">Every athlete gets the methodology in full. The price reflects the delivery: coached in person, programmed remotely, or built individually.</p>
+
+          <p class="intro__copy">Teens see the fastest results — biology rewards the right work at the right age, and the framework is built to take advantage of that window. But the principle holds at every stage. Consistency beats intensity. Training evolves as you do. The athletes who keep getting better are the ones who keep showing up after the early gains stop feeling automatic — at 16 and at 56.</p>
+
+          <p class="intro__copy">If you're looking for a quick transformation, this probably isn't for you — and saying that up front is part of the deal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROGRAMS — three cards (Teen, Adult, Masters)
+         ========================================================================== -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">02 / Programs</span>
+          <h2 class="section-head__title">Three programs. Three formats.</h2>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="programs">
+
+          <!-- TEEN -->
+          <article class="program">
+            <div class="program__tags">
+              <span class="tag tag--accent">In-person · Jackson</span>
+            </div>
+            <h3 class="program__name">Teen Athlete</h3>
+            <p class="program__tagline">Drive your destiny.</p>
+            <ul class="program__meta">
+              <li>Ages 15–18 · year-round</li>
+              <li>4 days / week · 1:45–2:00 per session</li>
+              <li>Coach-led · max 6 athletes per cohort</li>
+            </ul>
+
+            <div class="price-block">
+              <div class="price-block__label">In-person, Jackson</div>
+              <div class="price-row price-row--hero">
+                <span class="price-row__amount">$325</span>
+                <span class="price-row__period">/ month</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$895</span>
+                <span class="price-row__period">/ quarter</span>
+                <span class="price-row__note">$298 / mo</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$3,250</span>
+                <span class="price-row__period">/ year</span>
+                <span class="price-row__note">17% off · $271 / mo</span>
+              </div>
+            </div>
+
+            <p class="program__addon">Sibling: 15% off second athlete · Application required</p>
+            <a href="#inquire" class="cta">Inquire about a seat →</a>
+          </article>
+
+          <!-- ADULT -->
+          <article class="program">
+            <div class="program__tags">
+              <span class="tag">Digital</span>
+              <span class="tag tag--accent">In-person · Jackson</span>
+            </div>
+            <h3 class="program__name">Adult</h3>
+            <p class="program__tagline">More isn't the answer. Better is.</p>
+            <ul class="program__meta">
+              <li>2–3 sessions / week · 75–90 min</li>
+              <li>Anchor and Ascend dosing</li>
+              <li>In-person cohorts max 6 athletes</li>
+            </ul>
+
+            <div class="price-block">
+              <div class="price-block__label">Digital — app-delivered</div>
+              <div class="price-row price-row--hero">
+                <span class="price-row__amount">$45</span>
+                <span class="price-row__period">/ month</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$450</span>
+                <span class="price-row__period">/ year</span>
+                <span class="price-row__note">17% off</span>
+              </div>
+            </div>
+
+            <div class="price-block">
+              <div class="price-block__label">In-person, Jackson</div>
+              <div class="price-row">
+                <span class="price-row__amount">$295</span>
+                <span class="price-row__period">/ mo · 2× / wk</span>
+                <span class="price-row__note">$2,950 / yr</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$395</span>
+                <span class="price-row__period">/ mo · 3× / wk</span>
+                <span class="price-row__note">$3,950 / yr</span>
+              </div>
+            </div>
+
+            <p class="program__addon">7-day free trial on digital · No long-term contract</p>
+            <a href="#" class="cta">Start free trial →</a>
+          </article>
+
+          <!-- MASTERS -->
+          <article class="program">
+            <div class="program__tags">
+              <span class="tag">Digital</span>
+              <span class="tag tag--accent">In-person · Jackson</span>
+            </div>
+            <h3 class="program__name">Masters</h3>
+            <p class="program__tagline">For those who choose to keep playing.</p>
+            <ul class="program__meta">
+              <li>3 sessions / week · 75–90 min</li>
+              <li>Recovery- and longevity-calibrated</li>
+              <li>In-person cohorts max 6 athletes</li>
+            </ul>
+
+            <div class="price-block">
+              <div class="price-block__label">Digital — app-delivered</div>
+              <div class="price-row price-row--hero">
+                <span class="price-row__amount">$45</span>
+                <span class="price-row__period">/ month</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$450</span>
+                <span class="price-row__period">/ year</span>
+                <span class="price-row__note">17% off</span>
+              </div>
+            </div>
+
+            <div class="price-block">
+              <div class="price-block__label">In-person, Jackson</div>
+              <div class="price-row">
+                <span class="price-row__amount">$295</span>
+                <span class="price-row__period">/ mo · 2× / wk</span>
+                <span class="price-row__note">$2,950 / yr</span>
+              </div>
+              <div class="price-row">
+                <span class="price-row__amount">$395</span>
+                <span class="price-row__period">/ mo · 3× / wk</span>
+                <span class="price-row__note">$3,950 / yr</span>
+              </div>
+            </div>
+
+            <p class="program__addon">7-day free trial on digital · No long-term contract</p>
+            <a href="#" class="cta">Start free trial →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CUSTOM PROGRAMMING
+         ========================================================================== -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">03 / Custom</span>
+          <h2 class="section-head__title">When the templates don't fit.</h2>
+        </div>
+
+        <div class="custom-grid">
+
+          <article class="custom-tier">
+            <h3 class="custom-tier__name">Custom Core</h3>
+            <p class="custom-tier__price"><strong>$239</strong> / month</p>
+            <ul class="custom-tier__includes">
+              <li>Fully individualized monthly programming</li>
+              <li>Initial intake call (60 min)</li>
+              <li>Async messaging via the app</li>
+              <li>Programming refreshed every 4 weeks</li>
+              <li>Full Train To Perform methodology, dosed to you</li>
+            </ul>
+            <p class="custom-tier__min">3-month minimum · Application required</p>
+            <a href="#inquire" class="cta">Apply →</a>
+          </article>
+
+          <article class="custom-tier">
+            <h3 class="custom-tier__name">Custom Coached</h3>
+            <p class="custom-tier__price"><strong>$399</strong> / month</p>
+            <ul class="custom-tier__includes">
+              <li>Everything in Custom Core, plus —</li>
+              <li>Weekly written check-ins</li>
+              <li>Video review of key lifts</li>
+              <li>Monthly 30-minute Zoom call</li>
+              <li>Direct messaging access to coach</li>
+            </ul>
+            <p class="custom-tier__min">3-month minimum · Roster capped at 12</p>
+            <a href="#inquire" class="cta">Apply →</a>
+          </article>
+
+          <article class="custom-tier custom-tier--featured">
+            <div class="program__tags">
+              <span class="tag tag--accent">Jackson · By application</span>
+            </div>
+            <h3 class="custom-tier__name">Custom Coach In-Person</h3>
+            <p class="custom-tier__price"><strong>$185</strong> / session</p>
+            <p class="custom-tier__package"><strong>$3,995</strong> <span>/ 12-week package · 24 sessions · saves $445</span></p>
+            <ul class="custom-tier__includes">
+              <li>Everything in Custom Coached, plus —</li>
+              <li>1-on-1 coached sessions in Jackson</li>
+              <li>Aligned to the 12-week T2P programming block</li>
+              <li>Hands-on technique correction and loading</li>
+              <li>Other frequencies available on application</li>
+            </ul>
+            <p class="custom-tier__min">12-week commitment · Roster capped at 4</p>
+            <a href="#inquire" class="cta">Apply →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LOYALTY / FOUNDING
+         ========================================================================== -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">04 / Loyalty</span>
+          <h2 class="section-head__title">For the athletes who got here first.</h2>
+        </div>
+
+        <div class="loyalty">
+
+          <div class="loyalty__card loyalty__card--accent">
+            <p class="loyalty__label">Current athletes</p>
+            <h3 class="loyalty__title">Locked at $250 through August 2027.</h3>
+            <p class="loyalty__copy">If you're already training with Train To Perform, your current rate holds for the next full program year. <strong>No bump. No fine print.</strong></p>
+            <p class="loyalty__copy">From September 2027 onward, you settle into a permanent <strong>15% loyalty discount</strong> off public rates — for as long as you stay enrolled, indefinitely.</p>
+          </div>
+
+          <div class="loyalty__card">
+            <p class="loyalty__label">Founding members</p>
+            <h3 class="loyalty__title">First 50 sign-ups: 25% off year one.</h3>
+            <p class="loyalty__copy">For Adult and Masters digital subscribers. Your founding rate locks in for the first 12 months of enrollment. After that, you transition to the standard public rate.</p>
+            <p class="loyalty__copy">Once 50 seats are filled, founding pricing is closed. <strong>No reopens.</strong></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ / FINE PRINT
+         ========================================================================== -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-head__index">05 / Notes</span>
+          <h2 class="section-head__title">The fine print, in plain English.</h2>
+        </div>
+
+        <div class="faq">
+          <h3 class="faq__title">Things worth knowing.</h3>
+          <ul class="faq__list">
+            <li class="faq__item">
+              <p class="faq__q">Free trial?</p>
+              <p class="faq__a">Yes — 7 days on Adult and Masters digital programs. Full access during the trial. Cancel anytime before day 7 with no charge.</p>
+            </li>
+            <li class="faq__item">
+              <p class="faq__q">How does the annual billing work?</p>
+              <p class="faq__a">Paid once, upfront. No monthly auto-bill, no surprise renewals. You'll receive a renewal note 30 days before your next year begins.</p>
+            </li>
+            <li class="faq__item">
+              <p class="faq__q">Can I cancel or pause?</p>
+              <p class="faq__a">Monthly digital subscriptions cancel anytime, no penalty. In-person cohorts run in 12-week blocks; mid-block pauses are handled case-by-case. Custom programming requires a 3-month minimum, after which it goes month-to-month.</p>
+            </li>
+            <li class="faq__item">
+              <p class="faq__q">Why is in-person more expensive than digital?</p>
+              <p class="faq__a">Because your coach is in the room. Each in-person cohort is capped at six athletes — that's a deliberate design choice, and it's reflected in the price.</p>
+            </li>
+            <li class="faq__item">
+              <p class="faq__q">How do I apply for Custom Programming?</p>
+              <p class="faq__a">Brief application, then a free 20-minute call to make sure it's the right fit. Custom isn't sold via a Buy button — it's a real coaching relationship.</p>
+            </li>
+            <li class="faq__item">
+              <p class="faq__q">Sibling, family, or team rates?</p>
+              <p class="faq__a">Sibling discount of 15% is automatic on the second Teen athlete. For families training across multiple programs (Teen + parent on Adult, etc.), reach out — happy to work something out.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="/index.html" class="site-footer__brand">
+        <img src="/logo.png" alt="T2P" class="site-footer__logo" />
+        <span>Train To Perform</span>
+      </a>
+      <p class="site-footer__tagline">One methodology. Dosed to meet you where you are.</p>
+      <ul class="site-footer__links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/teen.html">Teen</a></li>
+        <li><a href="/adult.html">Adult</a></li>
+        <li><a href="/masters.html">Masters</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/index.html#about">About</a></li>
+      </ul>
+      <p class="site-footer__location">Jackson, Wyoming</p>
+    </div>
+  </footer>
+
+</body>
+</html>
