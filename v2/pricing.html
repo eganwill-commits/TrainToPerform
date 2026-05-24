@@ -157,26 +157,6 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .custom-cta:hover { color: #fff; border-bottom-color: #fff; }
 .custom-cta:hover::after { transform: translateX(3px); }
 
-/* LOYALTY */
-#loyalty { background: var(--cream); }
-.loyalty-grid { display: grid; gap: 1.25rem; margin-top: 1rem; }
-@media (min-width: 769px) { .loyalty-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
-.loyalty-card { padding: 2rem 1.75rem; border-radius: 2px; display: flex; flex-direction: column; }
-.loyalty-card.dark { background: var(--dark); color: var(--ice); border-top: 3px solid var(--red); }
-.loyalty-card.light { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-top: 3px solid var(--gold); }
-.loyalty-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.85rem; }
-.loyalty-card.dark .loyalty-label { color: var(--red); }
-.loyalty-card.light .loyalty-label { color: var(--gold); }
-.loyalty-title { font-family: "DM Serif Display", serif; font-size: clamp(1.35rem, 3.5vw, 1.7rem); line-height: 1.25; margin-bottom: 1.25rem; font-weight: 400; }
-.loyalty-card.dark .loyalty-title { color: #fff; }
-.loyalty-card.light .loyalty-title { color: var(--dark); }
-.loyalty-body p { font-size: 0.9rem; line-height: 1.75; font-weight: 300; }
-.loyalty-body p + p { margin-top: 0.85rem; }
-.loyalty-card.dark .loyalty-body p { color: rgba(255,255,255,0.85); }
-.loyalty-card.dark .loyalty-body strong { color: #fff; font-weight: 500; }
-.loyalty-card.light .loyalty-body p { color: var(--mid); }
-.loyalty-card.light .loyalty-body strong { color: var(--dark); font-weight: 600; }
-
 /* NOTES / FAQ */
 #notes { background: var(--white); }
 .faq-grid { display: grid; gap: 2rem; margin-top: 1rem; }
@@ -333,7 +313,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           </div>
         </div>
 
-        <p class="program-addon">Sibling discount: 15% off the second athlete · Application required</p>
         <a href="#cta" class="program-cta">Inquire About a Seat</a>
       </article>
 
@@ -493,37 +472,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   </div>
 </section>
 
-<!-- LOYALTY -->
-<section id="loyalty" class="standard">
-  <div class="section-inner">
-    <div class="section-label">Loyalty</div>
-    <h2 class="section-title">For the athletes who got here first.</h2>
-    <p class="section-lead">Two loyalty programs — one for current athletes, one for the first wave of new sign-ups. Both are time-bound and explicit about what's locked in.</p>
-
-    <div class="loyalty-grid">
-
-      <div class="loyalty-card light">
-        <div class="loyalty-label">Founding Members</div>
-        <h3 class="loyalty-title">First 50 sign-ups: 25% off year one.</h3>
-        <div class="loyalty-body">
-          <p>For Adult and Masters digital subscribers. Your founding rate locks in for the first 12 months of enrollment. After that, you transition to the standard public rate.</p>
-          <p>Once 50 seats are filled, founding pricing is closed. <strong>No reopens.</strong></p>
-        </div>
-      </div>
-
-      <div class="loyalty-card dark">
-        <div class="loyalty-label">Current Athletes</div>
-        <h3 class="loyalty-title">Locked at $250 through August 2027.</h3>
-        <div class="loyalty-body">
-          <p>If you're already training with Train To Perform, your current rate holds for the next full program year. <strong>No bump. No fine print.</strong></p>
-          <p>From September 2027 onward, you settle into a permanent <strong>15% loyalty discount</strong> off public rates — for as long as you stay enrolled, indefinitely.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- NOTES -->
 <section id="notes" class="standard">
   <div class="section-inner">
@@ -554,10 +502,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <li class="faq-item">
           <div class="faq-q">How do I apply for Custom Programming?</div>
           <p class="faq-a">Brief application, then a free 20-minute call to make sure it's the right fit. Custom isn't sold via a Buy button — it's a real coaching relationship.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Sibling, family, or team rates?</div>
-          <p class="faq-a">Sibling discount of 15% is automatic on the second Teen athlete. For families training across multiple programs (Teen + parent on Adult, etc.), reach out — happy to work something out.</p>
         </li>
       </ul>
     </div>
