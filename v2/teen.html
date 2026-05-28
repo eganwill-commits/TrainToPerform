@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Train To Perform — Teen Athlete</title>
-<meta name="description" content="Drive your destiny. A four-day/week strength, power, and conditioning program for teen athletes ages 15–18, built to develop stronger, faster, more resilient, more capable athletes in sport and in life.">
+<meta name="description" content="Drive your destiny. Strength, power, and conditioning programming for teen athletes ages 15–18 — two tracks dosed to the season you're in, built to develop stronger, faster, more resilient, more capable athletes in sport and in life.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,10 @@
   --white: #ffffff; --red: #cc1f1f; --gold: #c8922a;
 }
 html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
-body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--darker); overflow-x: hidden; margin: 0; padding: 52px 0 0; width: 100%; max-width: 100vw; }
+body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--darker); overflow-x: hidden; margin: 0; padding: 0; width: 100%; max-width: 100vw; }
 
 /* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--dark); border-bottom: 2px solid var(--red); padding: 0 1.25rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+nav { position: sticky; top: 0; z-index: 100; background: var(--dark); border-bottom: 2px solid var(--red); padding: 0 1.25rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { display: flex; align-items: center; gap: 0.55rem; font-family: "Bebas Neue", sans-serif; font-size: 1.3rem; color: #fff; letter-spacing: 0.1em; text-decoration: none; }
 .nav-logo span { color: var(--red); }
 .nav-logo img { height: 38px; width: 38px; object-fit: contain; object-position: center; background: #fff; border-radius: 6px; padding: 4px; box-sizing: border-box; }
@@ -185,6 +185,23 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .week-principle p { font-size: 0.9rem; color: var(--ice); line-height: 1.8; font-weight: 300; }
 .week-principle p + p { margin-top: 0.85rem; }
 
+/* TWO TRACKS */
+.track-grid { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+@media (min-width: 769px) { .track-grid { grid-template-columns: repeat(2, 1fr); } }
+.track-card { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-top: 3px solid var(--gold); border-radius: 2px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
+.track-card.complement { border-top-color: var(--red); }
+.track-tag { font-family: "Bebas Neue", sans-serif; font-size: 1.7rem; color: var(--gold); letter-spacing: 0.04em; line-height: 1; margin-bottom: 0.3rem; }
+.track-card.complement .track-tag { color: var(--red); }
+.track-freq { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--smoke); margin-bottom: 1.1rem; }
+.track-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
+.track-pathway { margin-top: 1.25rem; background: var(--dark); padding: 1.75rem; border-radius: 2px; }
+.track-pathway-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.track-pathway p { font-size: 0.9rem; color: var(--ice); line-height: 1.8; font-weight: 300; }
+
+/* COMPLEMENT WEEK */
+.complement-grid { display: grid; gap: 1rem; margin-top: 2rem; }
+@media (min-width: 640px) { .complement-grid { grid-template-columns: repeat(2, 1fr); max-width: 660px; } }
+
 /* DIFFERENTIATOR */
 #differentiator { background: var(--dark); color: var(--ice); position: relative; overflow: hidden; }
 #differentiator::before { content: "DRIVE"; position: absolute; left: -1rem; bottom: -3rem; font-family: "Bebas Neue", sans-serif; font-size: clamp(120px, 22vw, 260px); color: rgba(200,146,42,0.035); line-height: 0.85; pointer-events: none; user-select: none; }
@@ -296,17 +313,42 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       <span class="line-2"><span>destiny.</span></span>
     </h1>
     <div class="hero-tagline">Every session is an investment in who you're becoming.</div>
-    <p class="hero-sub">A four-day/week strength, power, and conditioning program for teen athletes ages 15–18. Built to develop stronger, faster, more resilient, more capable athletes, in sport, in the mountains, and in life.</p>
+    <p class="hero-sub">Strength, power, and conditioning programming for teen athletes ages 15–18 — built to develop stronger, faster, more resilient, more capable athletes in sport and in life. Two tracks, dosed to the season you're in.</p>
     <div class="hero-meta">
-      <div class="meta-item"><strong>4 days</strong>per week</div>
-      <div class="meta-item"><strong>105–120</strong>min per session</div>
+      <div class="meta-item"><strong>2–4 days</strong>per week</div>
+      <div class="meta-item"><strong>75–120</strong>min per session</div>
       <div class="meta-item"><strong>12 weeks</strong>per block</div>
       <div class="meta-item"><strong>Ages 15–18</strong>year-round</div>
     </div>
   </div>
 </section>
 
-<!-- LOMBARDI -->
+<!-- TWO TRACKS -->
+<section id="tracks" class="standard">
+  <div class="section-inner">
+    <div class="section-label">Two Tracks</div>
+    <h2 class="section-title">One methodology. Dosed to the season you're in.</h2>
+    <p class="section-lead">Some athletes are between seasons, or training <em>is</em> the pursuit — they need the full program. Others are deep in a sport season, stacking practices and games, and need strength work that fits alongside it without breaking them down. Same methodology, same coaching. Two doses.</p>
+
+    <div class="track-grid">
+      <div class="track-card">
+        <div class="track-tag">Comprehensive</div>
+        <div class="track-freq">4 Days / Week</div>
+        <p class="track-desc">The full program. Strength, power, skill, conditioning, mobility, and finishing — the complete stimulus, no supplementation needed. Built for the athlete whose primary investment is athletic development, or who's in a long offseason with room to train hard and often.</p>
+      </div>
+      <div class="track-card complement">
+        <div class="track-tag">Complement</div>
+        <div class="track-freq">2 Days / Week</div>
+        <p class="track-desc">Built to fit alongside a sport season. For the multi-sport athlete — hockey, freeski, basketball, alpine, soccer — already practicing and competing three to four days a week. Two focused sessions that build resilience and keep them developing, without adding fatigue the sport can't absorb.</p>
+      </div>
+    </div>
+
+    <div class="track-pathway">
+      <div class="track-pathway-label">The Seasonal Pathway</div>
+      <p>Most athletes move between the two across a year. Complement during the season. Comprehensive in the offseason. The program follows the athlete's calendar, not the other way around.</p>
+    </div>
+  </div>
+</section>
 <div class="quote-banner">
   <div class="quote-inner">
     <p class="quote-text">&ldquo;Perfection is not attainable, but if we chase perfection we can catch excellence.&rdquo;</p>
@@ -319,18 +361,18 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">Built for young athletes in pursuit of excellence.</h2>
-    <p class="section-lead">This is for the teen athlete who wants to grow and excel in sport, in the mountains, and in life. Who understands that the work between seasons, between events, between adventures is the opportunity. An opportunity to be taken advantage of. To gain an edge. This is a program built to transform you into a different athlete before your next season, adventure, or whatever else you are chasing begins.</p>
+    <p class="section-lead">This is for the teen athlete who wants to continue to grow and excel in sport and life. Who understands that the additional work during or in between seasons is an opportunity to grow and develop. An opportunity to be taken advantage of. To gain an edge. This is a program built to transform you into a different athlete before your next season, adventure, or whatever else you are chasing begins.</p>
 
     <div class="audience-grid">
       <div class="audience-card">
         <div class="audience-num">01</div>
         <div class="audience-title">The athlete in pursuit of more.</div>
-        <div class="audience-text">You finished a season, an event, or a comp and want to come back stronger, faster, and more capable than before. You're willing to put in the deliberate, structured work it takes to reach a higher level of what you do.</div>
+        <div class="audience-text">You finished a season of sport and want to come back stronger, faster, and more capable than before. You're willing to put in the deliberate, structured work it takes to reach a higher level of what you do.</div>
       </div>
       <div class="audience-card">
         <div class="audience-num">02</div>
         <div class="audience-title">The athlete with big goals.</div>
-        <div class="audience-text">You have ambitions: in your sport, in the mountains, in what you want your body to be able to do. You understand that goals of this scale don't happen by accident, and you're looking for programming that matches the size of what you're chasing.</div>
+        <div class="audience-text">You have ambitions — in sport, in performance, in what you want your body to be able to do. You understand that goals of this scale don't happen by accident, and you're looking for programming that matches the size of what you're chasing.</div>
       </div>
       <div class="audience-card">
         <div class="audience-num">03</div>
@@ -405,7 +447,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 <!-- WEEK -->
 <section id="week" class="standard">
   <div class="section-inner">
-    <div class="section-label">What A Week Looks Like</div>
+    <div class="section-label">The Comprehensive Track</div>
     <h2 class="section-title">Four days. Two rhythms.<br>One progressive trajectory of improvement.</h2>
     <p class="section-lead">Every session follows the universal order: mobility first, power or skill when fresh, strength in the middle, isometric work pre-conditioning, conditioning last.</p>
 
@@ -468,8 +510,49 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <div class="week-principle">
       <div class="week-principle-label">The Intersection</div>
       <h3>Day 4 is a key differentiator.</h3>
-      <p>Most teen strength programs train skill fresh and conditioning separate, then hope the two merge when it counts. That hope is usually wrong — skill under fatigue is a distinct capacity that has to be trained directly.</p>
-      <p>Day 4 deliberately combines skill and conditioning after both capacities exist independently. Pistol Squats with the heart rate at 180. Holding form into the last feature of a long descent. A final surge with :10 left in sudden death overtime. That's where sport actually lives — and that's the day that makes the difference when the season, the event, or the line you've been chasing arrives.</p>
+      <p>Most teen strength programs train skill fresh and conditioning separate, then hope the two merge on game day. That hope is usually wrong — skill under fatigue is a distinct capacity that has to be trained directly.</p>
+      <p>Day 4 deliberately combines skill and conditioning after both capacities exist independently. Double-unders at minute eight. Pistol squats with a heart rate at 180. Clean footwork when the forearms are on fire. That's where sport actually lives — and that's the day that makes the difference in preseason.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLEMENT TRACK -->
+<section id="complement" class="standard">
+  <div class="section-inner">
+    <div class="section-label">The Complement Track</div>
+    <h2 class="section-title">Two days, built to fit a season.</h2>
+    <p class="section-lead">In-season, the goal isn't to pile on volume — it's to stay strong, stay healthy, and keep developing while the sport leads. Two sessions a week, dosed to support performance without competing with it.</p>
+
+    <div class="complement-grid">
+      <div class="day-card complement-day">
+        <div class="day-num">Day 1</div>
+        <div class="day-title">Lower Strength + Power</div>
+        <ul class="day-stack">
+          <li><span class="pill mvt">MVT</span><span>Mobility + movement prep</span></li>
+          <li><span class="pill pwr">PWR</span><span>Lower: jumps, throws</span></li>
+          <li><span class="pill str">STR</span><span>Lower emphasis, upper pair</span></li>
+          <li><span class="pill fin">FIN</span><span>Posterior chain iso</span></li>
+        </ul>
+        <div class="day-time">~75–90 min</div>
+      </div>
+      <div class="day-card complement-day">
+        <div class="day-num">Day 2</div>
+        <div class="day-title">Upper Strength + Resilience</div>
+        <ul class="day-stack">
+          <li><span class="pill mvt">MVT</span><span>Mobility + movement prep</span></li>
+          <li><span class="pill pwr">PWR</span><span>Upper: med ball, throws</span></li>
+          <li><span class="pill str">STR</span><span>Upper emphasis, lower pair</span></li>
+          <li><span class="pill fin">FIN</span><span>Core + joint iso</span></li>
+        </ul>
+        <div class="day-time">~75–90 min</div>
+      </div>
+    </div>
+
+    <div class="week-principle">
+      <div class="week-principle-label">The Honest Part</div>
+      <h3>No conditioning block. The sport provides that.</h3>
+      <p>In-season weighting shifts to protect what the season taxes — posterior chain, single-leg stability, the joints taking the most load. Conditioning comes from practice and games, so the strength work doesn't compete with it.</p>
+      <p>The aim is an athlete who finishes the season healthier and stronger than they started — not one who's fried from doing too much.</p>
     </div>
   </div>
 </section>
@@ -483,8 +566,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <div class="diff-grid">
       <div class="diff-card">
         <div class="diff-icon">01</div>
-        <div class="diff-title">Complete on its own.</div>
-        <div class="diff-text">The four-day program delivers the full training stimulus — strength, power, skill, conditioning, mobility, and finishing work — without needing to be supplemented. It's the comprehensive version, ideal as a standalone offseason block. Programs also adapt for teens with different schedules and goals year-round.</div>
+        <div class="diff-title">Two tracks, one standard.</div>
+        <div class="diff-text">The four-day Comprehensive program delivers the full stimulus on its own. The two-day Complement fits alongside a sport season. Different doses of the same methodology — and every program is still built for the specific athlete.</div>
       </div>
       <div class="diff-card">
         <div class="diff-icon">02</div>
