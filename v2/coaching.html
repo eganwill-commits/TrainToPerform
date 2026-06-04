@@ -62,10 +62,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(
 .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
 .breadcrumb a:hover { color: var(--gold); }
 .breadcrumb-sep { color: rgba(255,255,255,0.2); }
-.hero-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
-.hero-label::before { content: ""; width: 32px; height: 2px; background: var(--gold); }
-h1.hero-title { font-family: "DM Serif Display", serif; font-size: clamp(36px, 6.5vw, 64px); color: #fff; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 1.75rem; font-weight: 400; max-width: 920px; }
-h1.hero-title em { color: var(--gold); font-style: italic; }
+.hero-label { font-size: clamp(0.88rem, 1.8vw, 1.08rem); font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.85rem; }
+.hero-label::before { content: ""; width: 38px; height: 2px; background: var(--gold); }
+h1.hero-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(40px, 9vw, 88px); color: #fff; line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.75rem; max-width: 920px; }
+h1.hero-title .line-1, h1.hero-title .line-2 { display: block; }
+h1.hero-title .line-2 { color: var(--gold); }
+h1.hero-title .line-1 > span, h1.hero-title .line-2 > span { white-space: nowrap; }
 .hero-body { max-width: 720px; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.1); }
 .hero-body p { font-size: clamp(0.95rem, 2.3vw, 1.08rem); color: var(--ice); line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
 .hero-body p:last-child { margin-bottom: 0; }
@@ -236,8 +238,11 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="hero-ghost">COACHING</div>
   <div class="hero-inner">
     <div class="breadcrumb"><a href="index.html">Home</a> <span class="breadcrumb-sep">/</span> <span>Coaching</span></div>
-    <div class="hero-label">How We Work Together</div>
-    <h1 class="hero-title">One methodology. <em>Built to meet you where you are.</em></h1>
+    <div class="hero-label">Ways We Can Work Together</div>
+    <h1 class="hero-title">
+      <span class="line-1"><span>One</span> <span>methodology.</span></span>
+      <span class="line-2"><span>Built to meet you</span> <span>where you are.</span></span>
+    </h1>
     <div class="hero-body">
       <p>Same framework. Same six pillars. The dose changes with the life stage, and the format changes with what works for your schedule, your geography, and your life.</p>
       <p>There are two ways to train with me. <strong>In Jackson, in person</strong> — 1:1 or with a small cohort of athletes/friends. <strong>Custom remote</strong>, for athletes who split time between Jackson and elsewhere, and for athletes training from anywhere in the world.</p>
