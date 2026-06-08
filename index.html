@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Train To Perform</title>
+<meta name="description" content="Two programs. One framework. Tailored to where you are in life right now — whether you're chasing a starting position or balancing a demanding career and home life.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --dark: #2b2b2b; --darker: #1a1a1a; --mid: #444;
+  --smoke: #888; --ice: #e0e0e0; --cream: #f2f2f2;
+  --white: #ffffff; --red: #cc1f1f; --gold: #c8922a;
+}
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--darker); overflow-x: hidden; margin: 0; padding: 52px 0 0; width: 100%; max-width: 100vw; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--dark);
+  border-bottom: 2px solid var(--red);
+  padding: 0 1.25rem;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.55rem; font-family: "Bebas Neue", sans-serif; font-size: 1.3rem; color: #fff; letter-spacing: 0.1em; text-decoration: none; }
+.nav-logo span { color: var(--red); }
+.nav-logo img { height: 38px; width: 38px; object-fit: contain; object-position: center; background: #fff; border-radius: 6px; padding: 4px; box-sizing: border-box; }
+.nav-menu-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 4px; padding: 4px; }
+.nav-menu-btn span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 1px; transition: 0.3s; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--ice); text-decoration: none; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; display: inline-flex; align-items: center; }
+.nav-links a:hover { color: var(--red); }
+.nav-links a.active { color: var(--gold); }
+.athlete-login-btn { background: #F97316 !important; color: #fff !important; padding: 6px 16px !important; border-radius: 6px !important; font-weight: 700 !important; letter-spacing: 0.05em !important; transition: background 0.2s !important; }
+.athlete-login-btn:hover { background: #EA580C !important; color: #fff !important; }
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; cursor: pointer; }
+.nav-dropdown > a::after { content: "▾"; font-size: 0.75rem; opacity: 1; color: var(--gold); position: relative; top: 0.5px; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); left: 0; background: var(--darker); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid var(--red); min-width: 220px; z-index: 200; padding: 0.4rem 0; }
+.nav-dropdown.open .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a { display: block; padding: 0.6rem 1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ice); text-decoration: none; white-space: nowrap; }
+.nav-dropdown-menu a:hover { color: var(--red); background: rgba(255,255,255,0.04); }
+.nav-dropdown-menu a .menu-tag { display: block; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.08em; color: var(--smoke); text-transform: none; margin-top: 0.15rem; font-style: italic; }
+
+@media (max-width: 768px) {
+  .nav-menu-btn { display: flex; }
+  .nav-links { display: none; position: fixed; top: 52px; left: 0; right: 0; background: var(--darker); flex-direction: column; gap: 0; border-bottom: 2px solid var(--red); z-index: 999; width: 100vw; max-height: calc(100vh - 52px); overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); width: 100%; }
+  .nav-links a { display: block; padding: 0.9rem 1.25rem; font-size: 0.8rem; }
+  .athlete-login-btn { display: inline-block !important; margin: 0.6rem 1.25rem !important; padding: 0.75rem 1.5rem !important; text-align: center !important; border-radius: 8px !important; font-size: 0.85rem !important; }
+  .nav-dropdown-menu { position: static !important; border-top: none; border-left: 2px solid var(--red); margin-left: 1.25rem; padding: 0; min-width: unset; background: transparent; border-right: none; border-bottom: none; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a { padding: 0.65rem 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+  .nav-dropdown-menu a:hover { color: var(--gold); background: transparent; }
+}
+
+/* ── HERO ── */
+.hero { background: var(--dark); padding: 2.5rem 1.5rem 9rem; position: relative; overflow: hidden; min-height: 70vh; display: flex; align-items: flex-start; }
+.hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px); }
+.hero-ghost { position: absolute; right: -1rem; bottom: 1rem; font-family: "Bebas Neue", sans-serif; font-size: clamp(56px, 18vw, 150px); color: rgba(255,255,255,0.03); line-height: 0.88; text-align: right; pointer-events: none; user-select: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 920px; }
+.hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.hero-eyebrow::before { content: ""; width: 24px; height: 1.5px; background: var(--gold); }
+h1.hero-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(40px, 10vw, 88px); color: #fff; line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.25rem; }
+h1.hero-title .line-1, h1.hero-title .line-2 { display: block; }
+h1.hero-title .line-2 { color: var(--red); }
+h1.hero-title .line-1 > span, h1.hero-title .line-2 > span { white-space: nowrap; }
+.hero-sub { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: var(--ice); line-height: 1.7; max-width: 520px; margin-bottom: 0; font-weight: 300; }
+.hero-sub strong { color: var(--gold); font-weight: 600; }
+
+/* ── SHARED SECTION ── */
+section { padding: 3.5rem 1.5rem; }
+@media (min-width: 769px) { section { padding: 5rem 3rem; } }
+@media (max-width: 480px) { .hero { padding-bottom: 8rem; } }
+@media (min-width: 769px) { .hero { padding: 3rem 3rem 9rem; } }
+@media (min-width: 1100px) { section { padding: 5.5rem 5rem; } }
+.section-inner { max-width: 1080px; margin: 0 auto; }
+.section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+.section-label::before { content: ""; width: 20px; height: 1.5px; background: var(--smoke); }
+h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6rem, 5vw, 2.6rem); color: var(--dark); line-height: 1.15; margin-bottom: 0.85rem; }
+.section-lead { font-size: clamp(0.88rem, 2.5vw, 1rem); color: var(--mid); line-height: 1.75; max-width: 680px; margin-bottom: 2.5rem; font-weight: 300; }
+
+/* ── METHODOLOGY (dark) ── */
+#methodology { background: var(--dark); }
+#methodology .section-label { color: var(--gold); }
+#methodology .section-label::before { background: var(--gold); }
+#methodology h2.section-title { color: #fff; }
+#methodology .section-lead { color: var(--ice); }
+
+.methodology-grid { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
+@media (min-width: 640px) { .methodology-grid { grid-template-columns: 1fr 1fr; } }
+.methodology-panel { padding: 1.5rem; border-radius: 2px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-top: 3px solid var(--red); }
+.methodology-panel.gold { border-top-color: var(--gold); }
+.methodology-panel-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.85rem; color: var(--red); }
+.methodology-panel.gold .methodology-panel-label { color: var(--gold); }
+.methodology-panel-text { font-size: 0.88rem; line-height: 1.75; font-weight: 300; color: var(--ice); }
+.methodology-panel-text + .methodology-panel-text { margin-top: 0.75rem; }
+
+.methodology-callout { background: rgba(200,146,42,0.08); border-left: 3px solid var(--gold); padding: 1.5rem 1.75rem; border-radius: 2px; font-size: 0.95rem; color: var(--ice); line-height: 1.75; font-weight: 300; margin-top: 1.5rem; }
+.methodology-callout h3 { font-family: "DM Serif Display", serif; font-size: clamp(1.05rem, 3vw, 1.3rem); color: var(--gold); margin-bottom: 0.85rem; line-height: 1.3; font-weight: 400; }
+.methodology-callout p { font-size: 0.95rem; line-height: 1.85; font-weight: 300; color: var(--ice); margin-bottom: 0.85rem; }
+.methodology-callout p:last-child { margin-bottom: 0; }
+.methodology-callout p strong { color: #fff; font-weight: 500; }
+.methodology-callout p em { color: var(--gold); font-style: italic; font-weight: 400; }
+.methodology-callout strong { color: var(--gold); font-weight: 600; }
+
+/* ── PILLARS ── */
+#pillars { background: var(--cream); }
+.pillars-lead-row { display: grid; gap: 1.25rem; margin-bottom: 2.5rem; }
+@media (min-width: 769px) { .pillars-lead-row { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+.pillars-intro p { font-size: 0.92rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
+.pillars-intro p + p { margin-top: 0.85rem; }
+.pillars-quote { font-family: "DM Serif Display", serif; font-size: clamp(1.05rem, 2.8vw, 1.35rem); color: var(--dark); line-height: 1.45; border-left: 3px solid var(--red); padding-left: 1.25rem; font-style: italic; align-self: center; }
+
+.pillars-grid { display: grid; gap: 1rem; }
+@media (min-width: 480px) { .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .pillars-grid { grid-template-columns: repeat(3, 1fr); } }
+.pillar-card { position: relative; min-height: 340px; perspective: 1200px; cursor: pointer; transition: transform 0.2s ease; outline: none; scroll-margin-top: 80px; }
+.pillar-card:hover { transform: translateY(-2px); }
+.pillar-card:focus-visible .pillar-card-inner { box-shadow: 0 0 0 2px var(--gold), 0 8px 24px rgba(0,0,0,0.08); }
+.pillar-card-inner { position: relative; width: 100%; height: 100%; min-height: 340px; transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.4, 0.0, 0.2, 1); }
+.pillar-card.flipped .pillar-card-inner { transform: rotateY(180deg); }
+.pillar-card .card-front, .pillar-card .card-back {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 3px solid #666;
+  padding: 1.5rem; border-radius: 2px;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+.pillar-card:hover .card-front, .pillar-card:hover .card-back { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.pillar-card .card-back { transform: rotateY(180deg); }
+.pillar-abbr { font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; color: #888; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+.pillar-card.pc-mvt  .card-front, .pillar-card.pc-mvt  .card-back { border-top-color: var(--gold); }
+.pillar-card.pc-mvt  .pillar-abbr { color: var(--gold); }
+.pillar-card.pc-pwr  .card-front, .pillar-card.pc-pwr  .card-back { border-top-color: var(--red); }
+.pillar-card.pc-pwr  .pillar-abbr { color: var(--red); }
+.pillar-card.pc-skl  .card-front, .pillar-card.pc-skl  .card-back { border-top-color: #2a7a4b; }
+.pillar-card.pc-skl  .pillar-abbr { color: #2a7a4b; }
+.pillar-card.pc-str  .card-front, .pillar-card.pc-str  .card-back { border-top-color: var(--dark); }
+.pillar-card.pc-str  .pillar-abbr { color: var(--dark); }
+.pillar-card.pc-cond .card-front, .pillar-card.pc-cond .card-back { border-top-color: #7a2a6b; }
+.pillar-card.pc-cond .pillar-abbr { color: #7a2a6b; }
+.pillar-card.pc-fin  .card-front, .pillar-card.pc-fin  .card-back { border-top-color: #1a5c8a; }
+.pillar-card.pc-fin  .pillar-abbr { color: #1a5c8a; }
+.pillar-title { font-family: "DM Serif Display", serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; }
+.pillar-text { font-size: 0.87rem; color: var(--mid); line-height: 1.7; font-weight: 300; flex: 1; padding-bottom: 1.75rem; }
+.flip-indicator { position: absolute; bottom: 1rem; right: 1rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.35); display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s ease; white-space: nowrap; }
+.pillar-card:hover .flip-indicator { color: rgba(0,0,0,0.6); }
+.flip-indicator-icon { font-size: 0.85rem; line-height: 1; }
+.examples-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(0,0,0,0.35); margin-bottom: 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.examples-list { list-style: none; padding: 0; margin: 0; flex: 1; }
+.examples-list li { font-size: 0.85rem; color: var(--dark); line-height: 1.5; font-weight: 400; padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+.examples-list li:last-child { border-bottom: none; }
+.flip-back-hint { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.35); margin-top: 0.6rem; text-align: right; }
+
+.pillars-principle { margin-top: 2.5rem; background: var(--dark); padding: 2rem 1.5rem; border-radius: 2px; }
+@media (min-width: 769px) { .pillars-principle { padding: 2.5rem 3rem; } }
+.pillars-principle h3 { font-family: "DM Serif Display", serif; font-size: clamp(1.15rem, 3.5vw, 1.5rem); color: #fff; margin-bottom: 1rem; line-height: 1.2; }
+.pillars-principle p { font-size: 0.9rem; color: var(--ice); line-height: 1.8; font-weight: 300; margin-bottom: 0.85rem; }
+.pillars-principle p:last-child { margin-bottom: 0; font-size: 0.85rem; color: var(--gold); font-weight: 600; letter-spacing: 0.03em; }
+.pillars-order {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin: 1.75rem 0;
+  width: 100%;
+}
+.pillars-order .pname {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem 0.7rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top-width: 3px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.pillars-order .pname:hover { transform: translateY(-1px); background: rgba(255,255,255,0.06); text-decoration: none; }
+.pillars-order .pname-abbr {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.12em;
+  color: #fff;
+  line-height: 1;
+}
+.pillars-order .pname-word {
+  font-family: "DM Sans", sans-serif;
+  font-style: italic;
+  font-size: clamp(0.58rem, 1.2vw, 0.7rem);
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  margin-top: 0.4rem;
+  text-transform: lowercase;
+}
+.pillars-order .pname.mvt  { border-top-color: var(--gold); }
+.pillars-order .pname.pwr  { border-top-color: var(--red); }
+.pillars-order .pname.skl  { border-top-color: #4a9a6b; }
+.pillars-order .pname.str  { border-top-color: #ddd; }
+.pillars-order .pname.fin  { border-top-color: #4a8cb8; }
+.pillars-order .pname.cond { border-top-color: #9a4a8b; }
+.pillars-order .pname.mvt  .pname-abbr { color: var(--gold); }
+.pillars-order .pname.pwr  .pname-abbr { color: var(--red); }
+.pillars-order .pname.skl  .pname-abbr { color: #4a9a6b; }
+.pillars-order .pname.str  .pname-abbr { color: #fff; }
+.pillars-order .pname.fin  .pname-abbr { color: #4a8cb8; }
+.pillars-order .pname.cond .pname-abbr { color: #9a4a8b; }
+.pillars-order .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(200,146,42,0.5);
+  font-weight: 300;
+  padding: 0 0.15rem;
+}
+@media (max-width: 720px) {
+  .pillars-order {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+  }
+  .pillars-order .arrow { display: none; }
+  .pillars-order .pname { padding: 0.6rem 0.4rem 0.55rem; }
+  .pillars-order .pname-word { font-size: 0.58rem; margin-top: 0.3rem; }
+}
+.pillars-order.on-dark { /* legacy class still applied; styles above handle it */ }
+
+/* ── LANES ── */
+#lanes { background: var(--white); }
+.lanes-grid { display: grid; gap: 1.25rem; margin-top: 1rem; }
+@media (min-width: 900px) { .lanes-grid { grid-template-columns: repeat(2, 1fr); } }
+.lane-card { position: relative; display: block; padding: 2rem 1.75rem; border-radius: 4px; text-decoration: none; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; min-height: 340px; display: flex; flex-direction: column; }
+.lane-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
+.lane-card::after { content: "→"; position: absolute; bottom: 1.5rem; right: 1.75rem; font-size: 1.4rem; color: rgba(255,255,255,0.5); transition: transform 0.25s, color 0.25s; }
+.lane-card:hover::after { transform: translateX(6px); color: rgba(255,255,255,0.95); }
+.lane-teen { background: linear-gradient(135deg, #1f1f1f 0%, #2b2b2b 50%, #1a1a1a 100%); border: 1px solid rgba(200,146,42,0.25); }
+.lane-adult { background: linear-gradient(135deg, #2b2b2b 0%, #1f1f1f 50%, #2b2b2b 100%); border: 1px solid rgba(204,31,31,0.25); }
+.lane-masters { background: linear-gradient(135deg, #1a1a1a 0%, #252525 50%, #1a1a1a 100%); border: 1px solid rgba(255,255,255,0.1); }
+.lane-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 0.85rem; }
+.lane-teen .lane-label { color: var(--gold); }
+.lane-adult .lane-label { color: var(--red); }
+.lane-masters .lane-label { color: var(--ice); }
+.lane-title { font-family: "DM Serif Display", serif; font-size: clamp(1.4rem, 3.5vw, 1.7rem); color: #fff; line-height: 1.15; margin-bottom: 1rem; }
+.lane-tagline { font-family: "DM Serif Display", serif; font-style: italic; font-size: 0.98rem; color: rgba(255,255,255,0.8); line-height: 1.45; margin-bottom: 1.25rem; border-left: 2px solid rgba(255,255,255,0.2); padding-left: 0.9rem; }
+.lane-teen .lane-tagline { border-left-color: var(--gold); }
+.lane-adult .lane-tagline { border-left-color: var(--red); }
+.lane-masters .lane-tagline { border-left-color: var(--ice); }
+.lane-details { list-style: none; margin-top: auto; padding-top: 0.75rem; }
+.lane-details li { font-size: 0.78rem; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.5; margin-bottom: 0.35rem; padding-left: 0.9rem; position: relative; }
+.lane-details li::before { content: "·"; color: var(--gold); position: absolute; left: 0; top: -0.1em; font-size: 1.2rem; }
+.lane-adult .lane-details li::before { color: var(--red); }
+.lane-masters .lane-details li::before { color: var(--ice); }
+.lane-coming { position: absolute; top: 1.5rem; right: 1.75rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.15); padding: 0.25rem 0.55rem; border-radius: 2px; }
+
+.lanes-footer-note { margin-top: 2rem; padding: 1.5rem 1.75rem; background: var(--cream); border-left: 3px solid var(--gold); border-radius: 2px; font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
+.lanes-footer-note strong { color: var(--dark); font-weight: 600; }
+.lanes-custom-note { margin-top: 2rem; padding: 1.5rem 1.75rem; background: var(--white); border-top: 2px solid var(--gold); border-radius: 2px; font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
+.lanes-custom-note .custom-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
+.lanes-custom-note .lanes-coaching-link { color: var(--gold); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold); padding-bottom: 1px; white-space: nowrap; }
+.lanes-custom-note .lanes-coaching-link:hover { color: var(--red); border-bottom-color: var(--red); }
+.lanes-custom-note strong { color: var(--dark); font-weight: 600; }
+
+/* ── ABOUT ── */
+#about { background: var(--cream); }
+.about-grid { display: grid; gap: 2rem; }
+@media (min-width: 769px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; } }
+.about-body { font-size: 0.93rem; line-height: 1.85; color: var(--mid); font-weight: 300; }
+.about-body p + p { margin-top: 1rem; }
+.about-quote { font-family: "DM Serif Display", serif; font-size: clamp(1rem, 3vw, 1.3rem); color: var(--dark); line-height: 1.5; border-left: 3px solid var(--red); padding-left: 1.25rem; margin: 1.5rem 0; font-style: italic; }
+.about-callout { background: var(--dark); color: var(--ice); padding: 1.5rem; border-radius: 2px; margin-top: 1.5rem; }
+.about-callout p { font-size: 0.9rem; line-height: 1.75; font-weight: 300; }
+.about-callout strong { color: var(--red); font-weight: 600; }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); color: var(--ice); text-align: center; padding: 2.5rem 1.5rem; border-top: 3px solid var(--red); }
+.footer-logo-img { height: 56px; width: 56px; object-fit: contain; object-position: center; background: #fff; border-radius: 8px; padding: 5px; box-sizing: border-box; margin: 0 auto 0.85rem; display: block; }
+.footer-logo { font-family: "Bebas Neue", sans-serif; font-size: 1.75rem; color: #fff; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+.footer-logo span { color: var(--red); }
+.footer-tagline { font-size: 0.82rem; color: var(--ice); opacity: 0.55; font-weight: 300; margin-bottom: 1.25rem; }
+.footer-divider { width: 32px; height: 2px; background: var(--red); margin: 1.25rem auto; }
+.footer-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 300; }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; font-weight: 500; }
+.footer-links a:hover { color: var(--gold); }
+/* ===== COMPARISON CHART ===== */
+#comparison { background: var(--cream); padding: 5rem 1.5rem; position: relative; }
+@media (min-width: 769px) { #comparison { padding: 6rem 3rem; } }
+#comparison .section-inner { max-width: 1200px; margin: 0 auto; }
+
+.comparison-intro { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+.comparison-intro .section-label { color: var(--red); margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.6rem; }
+.comparison-intro .section-label::before { content: ""; width: 22px; height: 1.5px; background: var(--red); }
+.comparison-intro h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.7rem, 5vw, 2.65rem); color: var(--darker); line-height: 1.2; margin-bottom: 1rem; font-weight: 400; }
+.comparison-intro h2.section-title em { font-style: italic; color: var(--red); }
+.comparison-intro .section-lead { font-size: clamp(0.95rem, 2.5vw, 1.05rem); color: var(--mid); line-height: 1.85; font-weight: 300; }
+
+.comparison-grid { display: grid; gap: 1.5rem; margin-bottom: 2.5rem; }
+@media (min-width: 640px) { .comparison-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem; } }
+@media (min-width: 1000px) { .comparison-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+
+.cluster { background: var(--white); border-radius: 4px; padding: 1.5rem 1.5rem 1.25rem; border-top: 3px solid; transition: transform 0.2s ease; }
+.cluster:hover { transform: translateY(-2px); }
+.cluster.cluster-str  { border-top-color: var(--dark); }
+.cluster.cluster-pwr  { border-top-color: var(--red); }
+.cluster.cluster-mvt  { border-top-color: var(--gold); }
+.cluster.cluster-cond { border-top-color: #7a2a6b; }
+.cluster.cluster-skl  { border-top-color: #2a7a4b; }
+.cluster.cluster-fin  { border-top-color: #1a5c8a; }
+
+.cluster-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.4rem; padding-bottom: 0.85rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.cluster-pillar { font-family: "Bebas Neue", sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; line-height: 1; }
+.cluster.cluster-str  .cluster-pillar { color: var(--dark); }
+.cluster.cluster-pwr  .cluster-pillar { color: var(--red); }
+.cluster.cluster-mvt  .cluster-pillar { color: var(--gold); }
+.cluster.cluster-cond .cluster-pillar { color: #7a2a6b; }
+.cluster.cluster-skl  .cluster-pillar { color: #2a7a4b; }
+.cluster.cluster-fin  .cluster-pillar { color: #1a5c8a; }
+.cluster-name { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke); }
+
+.cluster-pattern { font-size: 0.75rem; font-style: italic; color: var(--smoke); line-height: 1.5; margin-bottom: 1rem; padding-bottom: 0.85rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+.cluster-row { display: grid; grid-template-columns: 60px 1fr 35px; align-items: center; gap: 0.65rem; margin-bottom: 0.55rem; }
+.cluster-row:last-child { margin-bottom: 0; }
+.cluster-row-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke); }
+.cluster-row-track { background: rgba(0,0,0,0.05); height: 14px; border-radius: 1px; overflow: hidden; }
+.cluster-row-fill { height: 100%; transition: width 0.6s ease-out; }
+.cluster.cluster-str  .cluster-row-fill { background: var(--dark); }
+.cluster.cluster-pwr  .cluster-row-fill { background: var(--red); }
+.cluster.cluster-mvt  .cluster-row-fill { background: var(--gold); }
+.cluster.cluster-cond .cluster-row-fill { background: #7a2a6b; }
+.cluster.cluster-skl  .cluster-row-fill { background: #2a7a4b; }
+.cluster.cluster-fin  .cluster-row-fill { background: #1a5c8a; }
+.cluster-row-pct { font-size: 0.78rem; color: var(--mid); text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+.comparison-outro { max-width: 720px; margin: 0 auto; text-align: center; padding: 1.75rem 1.5rem; background: var(--darker); color: var(--ice); border-radius: 3px; }
+.comparison-outro p { font-size: 0.95rem; line-height: 1.85; font-weight: 300; }
+.comparison-outro p strong { color: #fff; font-weight: 500; }
+.comparison-outro p em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+
+
+/* --- Contact CTA --- */
+#cta { background: var(--darker); color: var(--ice); text-align: center; padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+@media (min-width: 769px) { #cta { padding: 5rem 3rem; } }
+#cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(200,146,42,0.09) 0%, transparent 65%); pointer-events: none; }
+.cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.cta-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6rem, 4.5vw, 2.35rem); color: #fff; line-height: 1.25; margin-bottom: 1rem; font-weight: 400; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: clamp(0.92rem, 2.3vw, 1rem); color: var(--ice); line-height: 1.75; margin-bottom: 2rem; font-weight: 300; max-width: 560px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+.cta-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.85rem; border-radius: 3px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+.cta-btn.primary { background: var(--gold); color: var(--darker); }
+.cta-btn.primary:hover { background: #e0a739; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,146,42,0.3); }
+.cta-btn.secondary { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.35); }
+.cta-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+.cta-contact { margin-top: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.cta-contact span { color: var(--gold); }
+.cta-contact a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.cta-contact a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="T2P">Train To <span>Perform</span></a>
+  <button class="nav-menu-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#methodology" onclick="this.closest('ul').classList.remove('open')">Methodology</a></li>
+    <li><a href="coaching.html" onclick="this.closest('ul').classList.remove('open')">Coaching</a></li>
+    <li class="nav-dropdown">
+      <a>Programs</a>
+      <div class="nav-dropdown-menu">
+        <a href="teen.html">Teen Athlete<span class="menu-tag">Drive your destiny.</span></a>
+        <a href="adult.html">Adult<span class="menu-tag">More isn't the answer. Better is.</span></a>
+      </div>
+    </li>
+    <li><a href="pricing.html" onclick="this.closest('ul').classList.remove('open')">Pricing</a></li>
+    <li><a href="glossary.html" onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
+    <li><a href="#about" onclick="this.closest('ul').classList.remove('open')">About</a></li>
+    <li><a href="https://app.traintoperform.fit" target="_blank" class="athlete-login-btn" onclick="this.closest('ul').classList.remove('open')">Athlete Login</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ghost">MVT<br>PWR<br>SKL<br>STR<br>COND<br>FIN</div>
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      <span class="line-1"><span>Performance</span> <span>for life.</span></span>
+      <span class="line-2"><span>Every Stage.</span> <span>Every Body.</span></span>
+    </h1>
+    <p class="hero-sub">Two programs. One framework. Tailored to where you are in life right now — whether you're chasing a starting position or balancing a demanding career and home life.</p>
+  </div>
+  <div style="position:absolute;bottom:3rem;left:1.5rem;right:1.5rem;z-index:2;max-width:860px;">
+    <p style="font-family:'DM Serif Display',serif;font-size:clamp(0.92rem,2.3vw,1.3rem);color:rgba(255,255,255,0.5);font-style:italic;line-height:1.65;">The goal isn't to train more or harder than you need to. It's <span style="color:rgba(255,255,255,0.85);font-weight:500;">to show up. To train consistently.</span> To train correctly for where you are in life with realistic and attainable expectations. That's the methodology. It's what separates Train To Perform from others.</p>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="section-inner">
+    <div class="section-label">The Methodology</div>
+    <h2 class="section-title">One methodology.<br>Dosed to meet you where you are.</h2>
+    <p class="section-lead">Train To Perform is built on a principle most programs ignore: the framework is universal, but the expression has to change with the life stage of the athlete. Teens building their athletic ceiling train differently than adults balancing performance with work and family. Same pillars. Same principles. Different dosing.</p>
+
+    <div class="pillars-order on-dark">
+      <a class="pname mvt" href="#pillar-mvt"><span class="pname-abbr">MVT</span><span class="pname-word">mobility</span></a>
+      <span class="arrow">→</span>
+      <a class="pname pwr" href="#pillar-pwr"><span class="pname-abbr">PWR</span><span class="pname-word">power</span></a>
+      <span class="arrow">/</span>
+      <a class="pname skl" href="#pillar-skl"><span class="pname-abbr">SKL</span><span class="pname-word">skill</span></a>
+      <span class="arrow">→</span>
+      <a class="pname str" href="#pillar-str"><span class="pname-abbr">STR</span><span class="pname-word">strength</span></a>
+      <span class="arrow">→</span>
+      <a class="pname cond" href="#pillar-cond"><span class="pname-abbr">COND</span><span class="pname-word">conditioning</span></a>
+      <span class="arrow">→</span>
+      <a class="pname fin" href="#pillar-fin"><span class="pname-abbr">FIN</span><span class="pname-word">finishing</span></a>
+    </div>
+
+    <div class="methodology-grid">
+      <div class="methodology-panel">
+        <div class="methodology-panel-label">What stays the same</div>
+        <p class="methodology-panel-text">Six pillars, in the same order, every session. Mobility primes tissue and the nervous system. Power and skill come next, trained while the CNS is fresh. Strength follows, heavy and focused. Conditioning closes the engine work. Finishing accessories close the session with purpose, when time and energy allow.</p>
+        <p class="methodology-panel-text">The order is not arbitrary. Quality pillars go first. Volume pillars go last. Break the order and you compromise whatever you moved earlier.</p>
+      </div>
+      <div class="methodology-panel gold">
+        <div class="methodology-panel-label">What changes with the athlete</div>
+        <p class="methodology-panel-text">The weighting. Teen athletes prioritize power and skill acquisition during the window when the nervous system learns fastest. Adults balance strength, conditioning, and mobility for performance under real-world stress.</p>
+        <p class="methodology-panel-text">Same framework. Different doses. Purpose-built for where you are right now.</p>
+      </div>
+    </div>
+
+    <div class="methodology-callout">
+      <h3>The engine underneath the pillars.</h3>
+      <p>Six pillars are the structure of every session. <strong>Progressive overload is the engine that drives improvement underneath them.</strong> Every program runs on planned progression: weight, intensity, complexity, or volume increasing in deliberate, calibrated steps. Each block pushes the athlete one step beyond where they were, while staying inside what their body can absorb and adapt to.</p>
+      <p>The pillars are <em>what</em> gets trained. Progressive overload is <em>how</em> it improves.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SIX PILLARS -->
+<section id="pillars">
+  <div class="section-inner">
+    <div class="section-label">The Six Pillars</div>
+    <h2 class="section-title">Six capacities.<br>Trained in order. Every session.</h2>
+
+    <div class="pillars-lead-row">
+      <div class="pillars-intro">
+        <p>Every training session in every Train To Perform program moves through the same six pillars in the same order. The order is the methodology. It's what makes sure every pillar gets trained at quality, not just at effort.</p>
+        <p>What changes between a teen athlete and an adult in the middle of a demanding career is not the framework. It's how much of each pillar gets prescribed (the dosing), what it looks like in practice, and how the pieces are combined.</p>
+      </div>
+      <div class="pillars-quote">
+        &ldquo;The framework is universal. The dose is personal.&rdquo;
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card pc-mvt" id="pillar-mvt" role="button" tabindex="0" aria-label="Movement pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">MVT</div>
+            <div class="pillar-title">Movement</div>
+            <p class="pillar-text">Mobility, movement prep, and tissue quality. Every session opens here. MVT primes joints, activates key muscle groups, and prepares the nervous system to train at full capacity. It's the foundation everything else depends on.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">MVT</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>Good Mornings</li>
+              <li>World's Greatest Stretch</li>
+              <li>90/90 Hip Switches</li>
+              <li>Pull Aparts</li>
+              <li>Scap Pullups</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-card pc-pwr" id="pillar-pwr" role="button" tabindex="0" aria-label="Power pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">PWR</div>
+            <div class="pillar-title">Power</div>
+            <p class="pillar-text">Explosive force production: jumps, throws, sprints, med ball work. Trained when the nervous system is fresh and output is highest. Short sets, full rest, maximum intent. Power is the capacity that fades fastest with age, which is exactly why it's protected deliberately at every stage.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">PWR</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>Sled Sprints</li>
+              <li>Seated Box Jumps</li>
+              <li>Med Ball Slams</li>
+              <li>Broad Jumps</li>
+              <li>Single-Leg Hurdle Jumps</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-card pc-skl" id="pillar-skl" role="button" tabindex="0" aria-label="Skill pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">SKL</div>
+            <div class="pillar-title">Skill</div>
+            <p class="pillar-text">Motor patterns trained fresh: technique, coordination, positions, timing. Pistol squats, double-unders, muscle-up transitions, sport-specific movements. Skill is what lets the body do complicated things well. It's trained when the athlete can actually learn, not when they're gassed.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">SKL</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>Toes-to-Bar</li>
+              <li>Pistol Squats</li>
+              <li>Double-Unders</li>
+              <li>Muscle-Up Transitions</li>
+              <li>Handstand Holds</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-card pc-str" id="pillar-str" role="button" tabindex="0" aria-label="Strength pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">STR</div>
+            <div class="pillar-title">Strength</div>
+            <p class="pillar-text">Primary compound lifts with progressive overload: squats, deadlifts, presses, rows. The foundation of durable, athletic strength. Built through intentional loading, paired movement patterns, and the discipline of repeated work.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">STR</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>Back Squats</li>
+              <li>Deadlifts</li>
+              <li>Bench Press</li>
+              <li>Pull-Ups</li>
+              <li>Bent-Over Rows</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-card pc-cond" id="pillar-cond" role="button" tabindex="0" aria-label="Conditioning pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">COND</div>
+            <div class="pillar-title">Conditioning</div>
+            <p class="pillar-text">The engine: aerobic base, anaerobic capacity, work tolerance. Built through EMOMs, AMRAPs, intervals, and mixed-modal pieces. Conditioning is what lets strength and skill show up in the fourth quarter, the final rep, and the last mile of the day.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">COND</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>Rowing Intervals</li>
+              <li>Assault Bike EMOMs</li>
+              <li>Mixed-Modal AMRAPs</li>
+              <li>Tempo Runs</li>
+              <li>Zone 2 Cardio</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-card pc-fin" id="pillar-fin" role="button" tabindex="0" aria-label="Finishing Work pillar — click to see example movements">
+        <div class="pillar-card-inner">
+          <div class="card-front">
+            <div class="pillar-abbr">FIN</div>
+            <div class="pillar-title">Finishing Work</div>
+            <p class="pillar-text">Isometric and positional strength: tempo pauses, static holds, ring support, overhead carries, postural work. The pillar that protects joints, builds connective tissue, and bulletproofs the positions the rest of training depends on.</p>
+            <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
+          </div>
+          <div class="card-back">
+            <div class="pillar-abbr">FIN</div>
+            <div class="examples-label">Example Movements</div>
+            <ul class="examples-list">
+              <li>DB Curls</li>
+              <li>DB Lateral Raises</li>
+              <li>Ring Support Holds</li>
+              <li>Overhead Carries</li>
+              <li>Hollow Body Holds</li>
+            </ul>
+            <div class="flip-back-hint">↻ Back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANES -->
+<section id="lanes">
+  <div class="section-inner">
+    <div class="section-label">Choose Your Path</div>
+    <h2 class="section-title">Two programs to meet you where you are.</h2>
+    <p class="section-lead">Same pillars. Same order. Different weighting, different session lengths, different priorities. All purpose-built for the season of life you're training inside of right now.</p>
+
+    <div class="lanes-grid">
+
+      <a href="teen.html" class="lane-card lane-teen">
+        <div class="lane-label">Teen Athlete</div>
+        <div class="lane-title">For the athlete building their ceiling.</div>
+        <div class="lane-tagline">Drive your destiny.</div>
+        <ul class="lane-details">
+          <li>Ages 15–18, year-round training</li>
+          <li>Two tracks: Complement (2x/week) or Comprehensive (4x/week)</li>
+          <li>Power, skill, and strength driven</li>
+          <li>In-person in Jackson, small group, or custom remote</li>
+        </ul>
+      </a>
+
+      <a href="adult.html" class="lane-card lane-adult">
+        <div class="lane-label">Adult</div>
+        <div class="lane-title">For the athlete training inside a real life.</div>
+        <div class="lane-tagline">More isn't the answer. Better is.</div>
+        <ul class="lane-details">
+          <li>Built for adults with jobs, kids, and weekends to be capable for</li>
+          <li>Two tiers: Anchor (2x/week) or Ascend (3x/week)</li>
+          <li>Full-spectrum sessions — no wasted reps</li>
+          <li>In-person in Jackson, small group, or custom remote</li>
+        </ul>
+      </a>
+
+    </div>
+
+    <div class="lanes-custom-note">
+      <span class="custom-label">Ways To Work Together</span>
+      <strong>Choose how we train.</strong> In Jackson, in person — 1:1 or with a small cohort of athletes/friends. Custom remote, for athletes who split time between Jackson and elsewhere, for athletes training from anywhere in the world, or for locals more motivated to do the work on their own. <a href="coaching.html" class="lanes-coaching-link">See the full Coaching breakdown →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON CHART -->
+<section id="comparison">
+  <div class="section-inner">
+    <div class="comparison-intro">
+      <div class="section-label">The Methodology in Numbers</div>
+      <h2 class="section-title">Same six pillars. <em>Different dose.</em></h2>
+      <p class="section-lead">Every Train To Perform program runs on the same methodology. What changes is the <em>weighting</em> — calibrated to the physiology of the season of life you're training inside of. Look at how each pillar moves between the two programs. The patterns aren't arbitrary. They're the methodology.</p>
+    </div>
+
+    <div class="comparison-grid">
+
+      <div class="cluster cluster-mvt">
+        <div class="cluster-header">
+          <div class="cluster-pillar">MVT</div>
+          <div class="cluster-name">Mobility</div>
+        </div>
+        <div class="cluster-pattern">Climbs with age. The longer you've been in the game, the more it matters.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 30%;"></div></div>
+          <div class="cluster-row-pct">15%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 34%;"></div></div>
+          <div class="cluster-row-pct">17%</div>
+        </div>
+      </div>
+
+      <div class="cluster cluster-pwr">
+        <div class="cluster-header">
+          <div class="cluster-pillar">PWR</div>
+          <div class="cluster-name">Power</div>
+        </div>
+        <div class="cluster-pattern">Defended, not deferred. Held flat from teen to adult — because power fades the moment you stop training it.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 40%;"></div></div>
+          <div class="cluster-row-pct">20%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 40%;"></div></div>
+          <div class="cluster-row-pct">20%</div>
+        </div>
+      </div>
+
+      <div class="cluster cluster-skl">
+        <div class="cluster-header">
+          <div class="cluster-pillar">SKL</div>
+          <div class="cluster-name">Skill</div>
+        </div>
+        <div class="cluster-pattern">Descends with age. Acquisition window narrows; refinement becomes the work.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 40%;"></div></div>
+          <div class="cluster-row-pct">20%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 26%;"></div></div>
+          <div class="cluster-row-pct">13%</div>
+        </div>
+      </div>
+
+      <div class="cluster cluster-str">
+        <div class="cluster-header">
+          <div class="cluster-pillar">STR</div>
+          <div class="cluster-name">Strength</div>
+        </div>
+        <div class="cluster-pattern">Constant. The universal foundation, teen to adult.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 50%;"></div></div>
+          <div class="cluster-row-pct">25%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 50%;"></div></div>
+          <div class="cluster-row-pct">25%</div>
+        </div>
+      </div>
+
+      <div class="cluster cluster-cond">
+        <div class="cluster-header">
+          <div class="cluster-pillar">COND</div>
+          <div class="cluster-name">Conditioning</div>
+        </div>
+        <div class="cluster-pattern">Rises into adulthood. The stage of life that demands the most aerobic capacity.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 30%;"></div></div>
+          <div class="cluster-row-pct">15%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 34%;"></div></div>
+          <div class="cluster-row-pct">17%</div>
+        </div>
+      </div>
+
+      <div class="cluster cluster-fin">
+        <div class="cluster-header">
+          <div class="cluster-pillar">FIN</div>
+          <div class="cluster-name">Finishing</div>
+        </div>
+        <div class="cluster-pattern">Bumps in adulthood. Integrated work earns slightly more time as life loads up.</div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Teen</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 10%;"></div></div>
+          <div class="cluster-row-pct">5%</div>
+        </div>
+        <div class="cluster-row">
+          <div class="cluster-row-label">Adult</div>
+          <div class="cluster-row-track"><div class="cluster-row-fill" style="width: 16%;"></div></div>
+          <div class="cluster-row-pct">8%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="comparison-outro">
+      <p>Six pillars. Two programs. <em>One methodology.</em> <strong>The dose changes because life changes. Because physiology changes. Because you or your children change.</strong> This program respects that.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">The Coach</div>
+    <h2 class="section-title">Built from sport. Shaped by the hard parts.</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Sport has shaped a great deal about how I think, move, and show up in the world. Today, my arena is functional fitness and competitive CrossFit, and I've earned my place in it, ranking in the <strong>top 1% worldwide in the CrossFit Open for my age group</strong> multiple times and placing highly across a number of well-regarded global competitions.</p>
+        <p>But the experience that has shaped my coaching most wasn't a podium finish. It was a serious shoulder injury requiring surgery to repair a torn rotator cuff, labrum, and bicep, followed by the long, humbling road of recovery and rehabilitation. Getting through that process took as much discipline and determination as any competition I've entered, and coming out the other side gave me a deep, firsthand understanding of what it actually takes to rebuild the body correctly, and what it means to come back better than ever.</p>
+        <p>That experience is why Train To Perform exists as a methodology and not just a program. The framework is built to make athletes better at every stage — because bodies change, lives change, seasons change, and the training should change with them.</p>
+      </div>
+      <div>
+        <div class="about-quote">"Today I will do what others won't, so tomorrow I can accomplish what others can't." / Jerry Rice</div>
+        <div class="about-callout">
+          <p>Train To Perform is a methodology. <strong>Six pillars, one framework, two programs</strong> — each purpose-built for the season of life the athlete is training inside of. Teen athletes building their ceiling. Adults performing through the demands of a real life.</p>
+        </div>
+        <div class="about-body" style="margin-top:1.5rem;">
+          <p>Whether you're chasing a first pull-up or a first podium, or holding onto capacity through a demanding decade, the methodology meets you where you are. That's the whole point.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-label">Ready To Start</div>
+    <h2 class="cta-title">Ready to start? <em>Let's talk.</em></h2>
+    <p class="cta-sub">Whether you already know what you're after or just want to learn more before deciding, reach out. A short conversation is the fastest way to get real answers.</p>
+    <div class="cta-buttons">
+      <a href="mailto:will@traintoperform.fit?subject=Train%20To%20Perform%20Inquiry" class="cta-btn primary">Email Will</a>
+      <a href="sms:+13104984984" class="cta-btn secondary">Text · 310-498-4984</a>
+    </div>
+    <div class="cta-contact">
+      <span>or reach out directly:</span> <a href="mailto:will@traintoperform.fit">will@traintoperform.fit</a> · <a href="tel:+13104984984">310-498-4984</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="T2P" class="footer-logo-img"><div class="footer-logo">Train To <span>Perform</span></div>
+  <div class="footer-tagline">One methodology. Dosed to meet you where you are.</div>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="teen.html">Teen</a>
+    <a href="adult.html">Adult</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="footer-note" style="margin-top:1.25rem;">Jackson, Wyoming</div>
+</footer>
+
+<script>
+  // Dropdown toggle
+  document.querySelectorAll('.nav-dropdown > a').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parent = this.closest('.nav-dropdown');
+      var isOpen = parent.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+      if (!isOpen) parent.classList.add('open');
+    });
+  });
+  document.querySelectorAll('.nav-dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+    }
+  });
+</script>
+<script>
+(function() {
+  var cards = document.querySelectorAll('.pillar-card');
+  cards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('flipped');
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

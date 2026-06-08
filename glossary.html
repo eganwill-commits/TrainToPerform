@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Glossary — Train To Perform</title>
+<meta name="description" content="A quick reference for parents and athletes who are new to structured strength and conditioning.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --dark: #2b2b2b; --darker: #1a1a1a; --mid: #444;
+  --smoke: #888; --ice: #e0e0e0; --cream: #f2f2f2;
+  --white: #ffffff; --red: #cc1f1f; --gold: #c8922a;
+}
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--darker); overflow-x: hidden; margin: 0; padding: 52px 0 0; width: 100%; max-width: 100vw; }
+
+/* ── NAV (identical to index) ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--dark);
+  border-bottom: 2px solid var(--red);
+  padding: 0 1.25rem;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.55rem; font-family: "Bebas Neue", sans-serif; font-size: 1.3rem; color: #fff; letter-spacing: 0.1em; text-decoration: none; }
+.nav-logo span { color: var(--red); }
+.nav-logo img { height: 38px; width: 38px; object-fit: contain; object-position: center; background: #fff; border-radius: 6px; padding: 4px; box-sizing: border-box; }
+.nav-menu-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 4px; padding: 4px; }
+.nav-menu-btn span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 1px; transition: 0.3s; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--ice); text-decoration: none; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; display: inline-flex; align-items: center; }
+.nav-links a:hover { color: var(--red); }
+.nav-links a.active { color: var(--gold); }
+.athlete-login-btn { background: #F97316 !important; color: #fff !important; padding: 6px 16px !important; border-radius: 6px !important; font-weight: 700 !important; letter-spacing: 0.05em !important; transition: background 0.2s !important; }
+.athlete-login-btn:hover { background: #EA580C !important; color: #fff !important; }
+
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; cursor: pointer; }
+.nav-dropdown > a::after { content: "▾"; font-size: 0.75rem; opacity: 1; color: var(--gold); position: relative; top: 0.5px; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); left: 0; background: var(--darker); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid var(--red); min-width: 220px; z-index: 200; padding: 0.4rem 0; }
+.nav-dropdown.open .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a { display: block; padding: 0.6rem 1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ice); text-decoration: none; white-space: nowrap; }
+.nav-dropdown-menu a:hover { color: var(--red); background: rgba(255,255,255,0.04); }
+.nav-dropdown-menu a .menu-tag { display: block; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.08em; color: var(--smoke); text-transform: none; margin-top: 0.15rem; font-style: italic; }
+
+@media (max-width: 768px) {
+  .nav-menu-btn { display: flex; }
+  .nav-links { display: none; position: fixed; top: 52px; left: 0; right: 0; background: var(--darker); flex-direction: column; gap: 0; border-bottom: 2px solid var(--red); z-index: 999; width: 100vw; max-height: calc(100vh - 52px); overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); width: 100%; }
+  .nav-links a { display: block; padding: 0.9rem 1.25rem; font-size: 0.8rem; }
+  .athlete-login-btn { display: inline-block !important; margin: 0.6rem 1.25rem !important; padding: 0.75rem 1.5rem !important; text-align: center !important; border-radius: 8px !important; font-size: 0.85rem !important; }
+  .nav-dropdown-menu { position: static !important; border-top: none; border-left: 2px solid var(--red); margin-left: 1.25rem; padding: 0; min-width: unset; background: transparent; border-right: none; border-bottom: none; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a { padding: 0.65rem 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+  .nav-dropdown-menu a:hover { color: var(--gold); background: transparent; }
+}
+
+/* ── PAGE HEADER ── */
+.page-header { background: var(--dark); padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden; }
+@media (min-width: 769px) { .page-header { padding: 4rem 3rem 3rem; } }
+.page-header::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px); }
+.page-header-inner { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; }
+.page-header-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+.page-header-eyebrow::before { content: ""; width: 20px; height: 1.5px; background: var(--gold); }
+.page-header h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(34px, 7vw, 56px); color: #fff; line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem; }
+.page-header p { font-size: clamp(0.92rem, 2.4vw, 1.05rem); color: var(--ice); line-height: 1.7; max-width: 620px; font-weight: 300; }
+
+/* ── ALPHABETICAL INDEX ── */
+section.index-section { padding: 2.5rem 1.5rem 1.5rem; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); }
+@media (min-width: 769px) { section.index-section { padding: 3rem 3rem 2rem; } }
+@media (min-width: 1100px) { section.index-section { padding: 3rem 5rem 2rem; } }
+.index-inner { max-width: 1080px; margin: 0 auto; }
+.index-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--smoke); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+.index-label::before { content: ""; width: 20px; height: 1.5px; background: var(--smoke); }
+.index-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+.index-list a {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+  background: var(--cream);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.index-list a:hover {
+  background: var(--dark);
+  color: var(--white);
+  border-color: var(--dark);
+}
+
+/* ── CATEGORY SECTIONS ── */
+section.glossary-section { padding: 3rem 1.5rem; }
+@media (min-width: 769px) { section.glossary-section { padding: 4rem 3rem; } }
+@media (min-width: 1100px) { section.glossary-section { padding: 4.5rem 5rem; } }
+.section-inner { max-width: 1080px; margin: 0 auto; }
+
+.category {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 70px;
+}
+.category:last-of-type { margin-bottom: 0; }
+.category-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid var(--dark);
+}
+.category-number {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.category-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  color: var(--dark);
+  line-height: 1.2;
+  font-weight: 400;
+}
+.category-lead {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+  font-style: italic;
+}
+
+.glossary-grid { display: grid; gap: 1.25rem; }
+@media (min-width: 769px) { .glossary-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+
+.term {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 3px solid var(--smoke);
+  border-radius: 2px;
+  padding: 1.5rem 1.75rem;
+  transition: border-left-color 0.2s ease, transform 0.2s ease;
+  scroll-margin-top: 70px;
+}
+.term:hover { border-left-color: var(--red); transform: translateX(2px); }
+.term-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  color: var(--dark);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+.term-body {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--mid);
+  font-weight: 300;
+}
+.term-body p + p { margin-top: 0.75rem; }
+.term-body em { color: var(--red); font-style: normal; font-weight: 500; }
+
+/* Featured terms — full width with comparison treatment */
+.term-feature {
+  grid-column: 1 / -1;
+  border-left-color: var(--red);
+}
+.term-feature .term-title { color: var(--red); }
+.term-feature .term-lead { font-size: 0.92rem; color: var(--mid); line-height: 1.75; font-weight: 300; margin-bottom: 1.25rem; }
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+.compare-table th, .compare-table td {
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  vertical-align: top;
+}
+.compare-table thead th {
+  background: var(--dark);
+  color: var(--white);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.compare-table tbody th {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dark);
+  width: 22%;
+  background: var(--cream);
+}
+.compare-table tbody td { color: var(--mid); font-weight: 300; line-height: 1.5; }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: none; }
+
+.two-col-compare { display: grid; gap: 1.5rem; margin-top: 0.5rem; }
+@media (min-width: 600px) { .two-col-compare { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.two-col-compare .col-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: var(--red); margin-bottom: 0.65rem; }
+.two-col-compare .col-body { font-size: 0.9rem; line-height: 1.75; color: var(--mid); font-weight: 300; }
+.two-col-compare .col-body strong { color: var(--dark); font-weight: 600; }
+
+/* Back to index link */
+.back-to-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+.back-to-index:hover { color: var(--dark); background: var(--cream); border-color: var(--dark); }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); color: var(--ice); text-align: center; padding: 2.5rem 1.5rem; border-top: 3px solid var(--red); }
+.footer-logo-img { height: 56px; width: 56px; object-fit: contain; object-position: center; background: #fff; border-radius: 8px; padding: 5px; box-sizing: border-box; margin: 0 auto 0.85rem; display: block; }
+.footer-logo { font-family: "Bebas Neue", sans-serif; font-size: 1.75rem; color: #fff; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+.footer-logo span { color: var(--red); }
+.footer-tagline { font-size: 0.82rem; color: var(--ice); opacity: 0.55; font-weight: 300; margin-bottom: 1.25rem; }
+.footer-divider { width: 32px; height: 2px; background: var(--red); margin: 1.25rem auto; }
+.footer-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 300; }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; font-weight: 500; }
+.footer-links a:hover { color: var(--gold); }
+
+/* --- Contact CTA --- */
+#cta { background: var(--darker); color: var(--ice); text-align: center; padding: 4rem 1.5rem; position: relative; overflow: hidden; }
+@media (min-width: 769px) { #cta { padding: 5rem 3rem; } }
+#cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(200,146,42,0.09) 0%, transparent 65%); pointer-events: none; }
+.cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.cta-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6rem, 4.5vw, 2.35rem); color: #fff; line-height: 1.25; margin-bottom: 1rem; font-weight: 400; }
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: clamp(0.92rem, 2.3vw, 1rem); color: var(--ice); line-height: 1.75; margin-bottom: 2rem; font-weight: 300; max-width: 560px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+.cta-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.85rem; border-radius: 3px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+.cta-btn.primary { background: var(--gold); color: var(--darker); }
+.cta-btn.primary:hover { background: #e0a739; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,146,42,0.3); }
+.cta-btn.secondary { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.35); }
+.cta-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+.cta-contact { margin-top: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.cta-contact span { color: var(--gold); }
+.cta-contact a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.cta-contact a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="T2P">Train To <span>Perform</span></a>
+  <button class="nav-menu-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html#methodology" onclick="this.closest('ul').classList.remove('open')">Methodology</a></li>
+    <li><a href="coaching.html" onclick="this.closest('ul').classList.remove('open')">Coaching</a></li>
+    <li class="nav-dropdown">
+      <a>Programs</a>
+      <div class="nav-dropdown-menu">
+        <a href="teen.html">Teen Athlete<span class="menu-tag">Drive your destiny.</span></a>
+        <a href="adult.html">Adult<span class="menu-tag">More isn't the answer. Better is.</span></a>
+      </div>
+    </li>
+    <li><a href="pricing.html" onclick="this.closest('ul').classList.remove('open')">Pricing</a></li>
+    <li><a href="glossary.html" class="active" onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
+    <li><a href="index.html#about" onclick="this.closest('ul').classList.remove('open')">About</a></li>
+    <li><a href="https://app.traintoperform.fit" target="_blank" class="athlete-login-btn" onclick="this.closest('ul').classList.remove('open')">Athlete Login</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-eyebrow">Glossary</div>
+    <h1>Terms worth knowing.</h1>
+    <p>A quick reference for parents and athletes who are new to structured strength and conditioning. Organized by category — or use the index below to jump to any term alphabetically.</p>
+  </div>
+</section>
+
+<!-- ALPHABETICAL INDEX -->
+<section class="index-section" id="index">
+  <div class="index-inner">
+    <div class="index-label">Index — Jump to a Term</div>
+    <ul class="index-list">
+      <li><a href="#accumulation-intensification-realization">Accumulation / Intensification / Realization</a></li>
+      <li><a href="#active-recovery">Active Recovery</a></li>
+      <li><a href="#amrap">AMRAP</a></li>
+      <li><a href="#auto-regulation">Auto-regulation</a></li>
+      <li><a href="#block">Block / Block Periodization</a></li>
+      <li><a href="#closed-open-chain">Closed Chain vs. Open Chain</a></li>
+      <li><a href="#compound-isolation">Compound vs. Isolation</a></li>
+      <li><a href="#concurrent">Concurrent Training</a></li>
+      <li><a href="#deload">Deload</a></li>
+      <li><a href="#eccentric-concentric">Eccentric vs. Concentric</a></li>
+      <li><a href="#emom">EMOM</a></li>
+      <li><a href="#hypertrophy">Hypertrophy</a></li>
+      <li><a href="#hyp-str-func">Hypertrophy vs. Strength vs. Functional</a></li>
+      <li><a href="#metcon">Metcon</a></li>
+      <li><a href="#mixed-modal">Mixed Modal Training</a></li>
+      <li><a href="#movement-pattern">Movement Pattern</a></li>
+      <li><a href="#one-rm">1RM</a></li>
+      <li><a href="#pause-isometric">Pause Work / Isometric Hold</a></li>
+      <li><a href="#periodization">Periodization</a></li>
+      <li><a href="#posterior-chain">Posterior Chain</a></li>
+      <li><a href="#progressive-overload">Progressive Overload</a></li>
+      <li><a href="#rft">RFT (Rounds For Time)</a></li>
+      <li><a href="#rpe">RPE</a></li>
+      <li><a href="#tempo">Tempo</a></li>
+      <li><a href="#tut">Time Under Tension</a></li>
+      <li><a href="#unilateral-bilateral">Unilateral vs. Bilateral</a></li>
+      <li><a href="#volume-intensity">Volume vs. Intensity</a></li>
+      <li><a href="#working-warmup">Working Set vs. Warm-up Set</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- GLOSSARY BY CATEGORY -->
+<section class="glossary-section">
+  <div class="section-inner">
+
+    <!-- CATEGORY 1: PROGRAMMING STRUCTURE -->
+    <div class="category" id="cat-structure">
+      <div class="category-header">
+        <div class="category-number">01</div>
+        <h2 class="category-title">Programming Structure</h2>
+      </div>
+      <p class="category-lead">How training is organized over time — the framework that turns individual workouts into measurable progress.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term" id="periodization">
+          <div class="term-title">Periodization</div>
+          <div class="term-body">
+            <p>The practice of deliberately structuring training into phases over time, each with a different focus, movement selection, and loading progression. This program uses a block periodization model: the same core movements are trained for four weeks with increasing reps or load (progressive overload), then replaced with variations in the next block. The structure — MVT, PWR, STR, SKL — stays the same across all three blocks. This approach builds fitness systematically, prevents plateaus, and teaches athletes that improvement is a <em>process, not an event</em>.</p>
+          </div>
+        </div>
+
+        <div class="term" id="block">
+          <div class="term-title">Block / Block Periodization</div>
+          <div class="term-body">
+            <p>A 4-week training phase with one dominant focus — volume accumulation, intensity, or peaking. T2P programs run on three consecutive blocks: Block 1 builds the base, Block 2 raises intensity, Block 3 layers in complexity through movement variations. Each block ends with a benchmark or test, then the program shifts. Block structure is what lets athletes push hard without breaking down — every four weeks the stimulus changes.</p>
+          </div>
+        </div>
+
+        <div class="term" id="progressive-overload">
+          <div class="term-title">Progressive Overload</div>
+          <div class="term-body">
+            <p>The foundational principle behind all strength and performance gains. Progressive overload means gradually increasing the demand placed on the body over time, by adding weight, reps, sets, or reducing rest. The body adapts to stress: give it the same stimulus repeatedly and it stops improving. Give it slightly more each week and it keeps getting stronger. In this program, progressive overload is built into each 4-week block — athletes add load or reps to the same movements week over week before the block shifts to new variations. It's not complicated, but it requires showing up consistently and tracking your work.</p>
+          </div>
+        </div>
+
+        <div class="term" id="deload">
+          <div class="term-title">Deload</div>
+          <div class="term-body">
+            <p>A planned reduction in training volume or intensity (typically 40-60%) to let accumulated fatigue dissipate while keeping the training habit. Deloads are not weakness — they're how the body actually absorbs the work you've already done. T2P's 12-week cycle ends with a retest week that doubles as a deload: lower volume, fewer working sets, more recovery, then maximum-effort attempts on a few key lifts. Skip the deload and you flatten the curve. Build it in and you push the next block from a higher floor.</p>
+          </div>
+        </div>
+
+        <div class="term" id="accumulation-intensification-realization">
+          <div class="term-title">Accumulation / Intensification / Realization</div>
+          <div class="term-body">
+            <p>The three classical phases of block periodization. <em>Accumulation</em> = build volume at moderate intensity, lots of reps, lots of total work. <em>Intensification</em> = narrow the rep range, raise the load, fewer reps at higher percentages. <em>Realization</em> = peak the athlete on the chosen lift, test the ceiling. T2P's three blocks broadly follow this arc — that's why Week 5 feels different from Week 7, and why Week 8 is where the new PRs happen.</p>
+          </div>
+        </div>
+
+        <div class="term" id="auto-regulation">
+          <div class="term-title">Auto-regulation</div>
+          <div class="term-body">
+            <p>Adjusting training load day by day based on how the athlete actually feels, rather than rigidly hitting a prescribed number. RPE is the tool that makes this possible — a programmed "RPE 8" set might be 165 lb one Tuesday and 175 lb the next, depending on sleep, stress, and recovery. Auto-regulation matters most for developing athletes, whose readiness varies wildly week to week. The opposite — "do exactly what the program says regardless" — is how rigid programs break teenagers down.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORY 2: TRAINING APPROACHES -->
+    <div class="category" id="cat-approaches">
+      <div class="category-header">
+        <div class="category-number">02</div>
+        <h2 class="category-title">Training Approaches</h2>
+      </div>
+      <p class="category-lead">Different training philosophies and what each one is built to produce. T2P draws from all of them — deliberately.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term term-feature" id="hyp-str-func">
+          <div class="term-title">Hypertrophy vs. Strength Training vs. Functional Fitness</div>
+          <p class="term-lead">Three distinct training approaches, each with a different goal, rep range, and outcome. This program uses all three, sequenced deliberately across blocks.</p>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Hypertrophy</th>
+                <th>Strength Training</th>
+                <th>Functional Fitness</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Goal</th>
+                <td>Build muscle size</td>
+                <td>Maximize force output</td>
+                <td>Work capacity &amp; athleticism</td>
+              </tr>
+              <tr>
+                <th>Rep Range</th>
+                <td>8–12 reps</td>
+                <td>1–6 reps</td>
+                <td>Varies, often high rep or timed</td>
+              </tr>
+              <tr>
+                <th>Load</th>
+                <td>Moderate (70–80%)</td>
+                <td>Heavy (80–95%)</td>
+                <td>Light to moderate</td>
+              </tr>
+              <tr>
+                <th>Rest</th>
+                <td>60–90 seconds</td>
+                <td>2–5 minutes</td>
+                <td>Minimal — intensity is the point</td>
+              </tr>
+              <tr>
+                <th>Result</th>
+                <td>More muscle mass</td>
+                <td>More force &amp; power</td>
+                <td>Better conditioning &amp; movement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="term" id="concurrent">
+          <div class="term-title">Concurrent Training</div>
+          <div class="term-body">
+            <p>Training multiple physical qualities — strength, power, and conditioning — within the same session or block, rather than separating them. T2P is concurrent by design: every session moves through MVT, PWR, STR, and SKL. The opposite would be a pure powerlifting block followed by a pure conditioning block. Concurrent training is what mirrors the actual demands of sport, where athletes are never asked to express just one quality at a time.</p>
+          </div>
+        </div>
+
+        <div class="term" id="mixed-modal">
+          <div class="term-title">Mixed Modal Training</div>
+          <div class="term-body">
+            <p>A training approach that combines multiple movement modalities — barbell work, gymnastics, monostructural cardio (rowing, biking, running) — within a single workout. Closely related to concurrent training, but specifically about <em>modality</em> mixing within a piece. A mixed-modal AMRAP might combine wall balls, pull-ups, and a 400m run. T2P uses mixed modal pieces in the SKL pillar because they develop the work tolerance real sport requires.</p>
+          </div>
+        </div>
+
+        <div class="term" id="active-recovery">
+          <div class="term-title">Active Recovery</div>
+          <div class="term-body">
+            <p>Low-intensity movement on rest days — a walk, easy bike, swim, mobility flow. The point is to promote blood flow, accelerate recovery, and keep the body moving without adding meaningful training stress. The "off day" isn't actually off. Active recovery is one of the simplest, most under-used tools for athletes who feel beat up halfway through a training block.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORY 3: MOVEMENT & EXERCISE TYPES -->
+    <div class="category" id="cat-movement">
+      <div class="category-header">
+        <div class="category-number">03</div>
+        <h2 class="category-title">Movement &amp; Exercise Types</h2>
+      </div>
+      <p class="category-lead">How lifts and movements are classified. The categories that drive program design decisions.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term" id="movement-pattern">
+          <div class="term-title">Movement Pattern</div>
+          <div class="term-body">
+            <p>A category of human movement: squat, hinge, push, pull, carry, rotate, lunge. T2P programs lifts by pattern, not by muscle group. A good week trains every pattern at least once. That's a meaningful methodology distinction from bodybuilding splits ("chest day," "leg day") which organize around muscles rather than how the body actually moves. Patterns transfer to sport. Muscles look good in a mirror.</p>
+          </div>
+        </div>
+
+        <div class="term term-feature" id="compound-isolation">
+          <div class="term-title">Compound vs. Isolation Exercises</div>
+          <div class="two-col-compare">
+            <div>
+              <div class="col-title">Compound Exercises</div>
+              <p class="col-body"><strong>Compound exercises</strong> involve multiple joints and muscle groups — squats, deadlifts, bench press, pull-ups, rows. They build functional strength and form the foundation of every session in this program.</p>
+            </div>
+            <div>
+              <div class="col-title">Isolation Exercises</div>
+              <p class="col-body"><strong>Isolation exercises</strong> target a single muscle group — curls, lateral raises, flyes. They have their place filling gaps, but should never be the foundation of a young athlete's training. In this program: accessories, not anchors.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="term term-feature" id="unilateral-bilateral">
+          <div class="term-title">Unilateral vs. Bilateral</div>
+          <div class="two-col-compare">
+            <div>
+              <div class="col-title">Unilateral</div>
+              <p class="col-body"><strong>Unilateral training</strong> works one limb at a time — Bulgarian split squat, single-arm DB row, pistol squat. It exposes side-to-side asymmetries, builds stabilizer strength, and forces the athlete to control their own bodyweight. Critical for sport, where almost no movement is symmetrical.</p>
+            </div>
+            <div>
+              <div class="col-title">Bilateral</div>
+              <p class="col-body"><strong>Bilateral training</strong> uses both limbs simultaneously — back squat, deadlift, bench press, pull-up. Allows the heaviest absolute loads and builds raw force production. T2P programs both, deliberately — bilateral for max strength, unilateral for athletic transfer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="term" id="closed-open-chain">
+          <div class="term-title">Closed Chain vs. Open Chain</div>
+          <div class="term-body">
+            <p><em>Closed chain</em> = your hands or feet are fixed against a surface (squat, push-up, pull-up). <em>Open chain</em> = the limb moves freely (leg extension, dumbbell curl, leg curl). Closed-chain movements dominate T2P programs because they transfer directly to athletic movement — sport happens on the ground, with the body moving against fixed contact points. Open-chain work has its place for joint health and accessory volume, but it's rarely the anchor.</p>
+          </div>
+        </div>
+
+        <div class="term" id="posterior-chain">
+          <div class="term-title">Posterior Chain</div>
+          <div class="term-body">
+            <p>The muscles running down the back side of your body: glutes, hamstrings, lower back, lats. T2P emphasizes posterior chain heavily because most teen athletes are quad- and chest-dominant from sitting and pressing. Deadlifts, hip thrusts, rows, RDLs, and good mornings all live here. A strong posterior chain is what produces sprint speed, vertical jump, and the athletic positions that keep injuries away.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORY 4: LOADING & EFFORT -->
+    <div class="category" id="cat-loading">
+      <div class="category-header">
+        <div class="category-number">04</div>
+        <h2 class="category-title">Loading &amp; Effort</h2>
+      </div>
+      <p class="category-lead">How the work itself gets measured, prescribed, and tracked.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term" id="rpe">
+          <div class="term-title">RPE (Rate of Perceived Exertion)</div>
+          <div class="term-body">
+            <p>A 1–10 scale describing how hard a set feels. RPE 8 = challenging but 2 reps still possible. RPE 10 = absolute maximum. Using RPE instead of fixed percentages allows the program to auto-regulate based on how the athlete feels each day — especially important for developing athletes whose recovery varies week to week.</p>
+          </div>
+        </div>
+
+        <div class="term" id="one-rm">
+          <div class="term-title">1RM (One Rep Max)</div>
+          <div class="term-body">
+            <p>The maximum weight an athlete can lift for a single repetition. In this program, 1RM is almost always calculated rather than tested directly — an athlete lifts a challenging weight for 3–5 reps and a formula estimates their max. Safe, and still gives a meaningful number to track over time.</p>
+          </div>
+        </div>
+
+        <div class="term" id="working-warmup">
+          <div class="term-title">Working Set vs. Warm-up Set</div>
+          <div class="term-body">
+            <p>A <em>warm-up set</em> uses sub-maximal load to prime the movement pattern, raise tissue temperature, and rehearse the lift — typically 40-70% of working weight, not counted toward training volume. A <em>working set</em> is the prescribed effort that actually drives adaptation. When a program says "4 sets of 5," it means 4 working sets at the prescribed RPE or load, after whatever warm-up is needed. The distinction matters: athletes who count warm-ups as working sets undershoot the training stimulus.</p>
+          </div>
+        </div>
+
+        <div class="term" id="volume-intensity">
+          <div class="term-title">Volume vs. Intensity</div>
+          <div class="term-body">
+            <p><em>Volume</em> = total work done (sets × reps × load). <em>Intensity</em> = how heavy the load is relative to your max. The two trade off — high volume usually means lower intensity, and vice versa. You can't max out both at once. T2P moves through them in sequence: Block 1 leans volume, Block 2 raises intensity while pulling reps down, Block 3 manages both inside the introduction of new movement complexity. Understanding the trade-off is what separates structured training from random hard work.</p>
+          </div>
+        </div>
+
+        <div class="term" id="tempo">
+          <div class="term-title">Tempo</div>
+          <div class="term-body">
+            <p>The prescribed speed of each phase of a lift, usually written as four digits — for example, <em>3-1-1-0</em>. That reads: 3 seconds lowering (eccentric), 1 second pause at the bottom, 1 second lifting (concentric), 0 seconds at the top. Slowing the eccentric or adding a pause extends time under tension without adding load — which is why T2P layers tempo in Block 3 as a complexity tool rather than chasing heavier weights. Tempo work makes a 135 lb squat harder than 155 lb done fast.</p>
+          </div>
+        </div>
+
+        <div class="term" id="pause-isometric">
+          <div class="term-title">Pause Work / Isometric Hold</div>
+          <div class="term-body">
+            <p>Stopping at a specific position in a lift and holding under load — paused back squat at the bottom, dead-stop deadlift on the floor, ring support hold at the top. Builds positional strength at the exact joint angle where most lifters are weakest, and removes the stretch reflex that masks weakness in normal reps. T2P uses pause work throughout Block 1 and into Block 2 to build the foundation for heavier work later.</p>
+          </div>
+        </div>
+
+        <div class="term" id="tut">
+          <div class="term-title">Time Under Tension (TUT)</div>
+          <div class="term-body">
+            <p>The total number of seconds a muscle is loaded during a set. A 5-rep set at normal speed might be 10 seconds. A 5-rep set with a 3-second eccentric and 1-second pause is 25 seconds — more than double the stimulus from the same weight. Time under tension is the mechanism that makes tempo and pause work effective: same load, more growth signal.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORY 5: ADAPTATION & PHYSIOLOGY -->
+    <div class="category" id="cat-physiology">
+      <div class="category-header">
+        <div class="category-number">05</div>
+        <h2 class="category-title">Adaptation &amp; Physiology</h2>
+      </div>
+      <p class="category-lead">What's actually happening in the body when the training is doing its job.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term" id="hypertrophy">
+          <div class="term-title">Hypertrophy</div>
+          <div class="term-body">
+            <p>The scientific term for muscle growth. Hypertrophy occurs when muscle fibers are stressed through training and repair and grow back slightly larger during recovery. It requires sufficient training volume, progressive overload, adequate protein, and — critically for teenagers — enough sleep.</p>
+          </div>
+        </div>
+
+        <div class="term" id="eccentric-concentric">
+          <div class="term-title">Eccentric vs. Concentric</div>
+          <div class="term-body">
+            <p>The two phases of every strength movement. The <em>concentric</em> phase is the lifting phase — muscle shortens under load (e.g., standing up from a squat, pressing a bar overhead). The <em>eccentric</em> phase is the lowering phase — muscle lengthens under load (e.g., lowering into a squat, lowering the bar back to your chest). The eccentric phase is where the majority of muscle damage, and therefore growth stimulus, occurs. Controlling the eccentric deliberately (3–4 seconds down) is one of the most effective techniques for building strength and muscle, and a core principle in this program.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORY 6: CONDITIONING FORMATS -->
+    <div class="category" id="cat-conditioning">
+      <div class="category-header">
+        <div class="category-number">06</div>
+        <h2 class="category-title">Conditioning Formats</h2>
+      </div>
+      <p class="category-lead">The structural formats that make the engine work measurable, repeatable, and competitive.</p>
+
+      <div class="glossary-grid">
+
+        <div class="term" id="metcon">
+          <div class="term-title">Metcon (Metabolic Conditioning)</div>
+          <div class="term-body">
+            <p>A high-intensity workout designed to challenge the cardiovascular and energy systems, combining multiple movements performed for time or rounds. In this program, metcons are part of the Skill/Endurance pillar — often scored, competitive, and "fun". They develop work capacity and mental toughness that strength training alone cannot.</p>
+          </div>
+        </div>
+
+        <div class="term" id="emom">
+          <div class="term-title">EMOM (Every Minute On the Minute)</div>
+          <div class="term-body">
+            <p>A conditioning format where the athlete starts a set of work at the top of each minute, then rests whatever time remains in that minute before the next set begins. Move faster, rest longer. Move slower, rest less. EMOMs build pacing discipline and conditioning under structure. A typical T2P EMOM: "EMOM 14 min — M1: 10 cal row · M2: 8 push-ups · M3: 10 hollow rocks" — repeated as a rotation.</p>
+          </div>
+        </div>
+
+        <div class="term" id="amrap">
+          <div class="term-title">AMRAP (As Many Rounds As Possible)</div>
+          <div class="term-body">
+            <p>A conditioning format where the athlete completes as many rounds (or reps) as possible of a prescribed sequence within a fixed time window. The score is the number of rounds + extra reps completed. AMRAPs reward steady pacing and punish going out too hot. They're the backbone of repeatable conditioning benchmarks because the same workout, retested in a future block, yields a directly comparable score.</p>
+          </div>
+        </div>
+
+        <div class="term" id="rft">
+          <div class="term-title">RFT (Rounds For Time)</div>
+          <div class="term-body">
+            <p>A conditioning format where the athlete completes a prescribed number of rounds as fast as possible. The score is total time. Opposite structure from AMRAP — here the work is fixed and the clock is the variable. RFT pieces tend to push athletes harder than AMRAPs because there's a finish line. Typical T2P RFT: "3 Rounds For Time — 12 burpees, 8 T2B, 350m run."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <a href="#index" class="back-to-index">↑ Back to Index</a>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-label">Still Have Questions</div>
+    <h2 class="cta-title">Not sure what something means for <em>your</em> training?</h2>
+    <p class="cta-sub">If a term here raised a question about your own program, reach out. A short conversation is the fastest way to get real answers.</p>
+    <div class="cta-buttons">
+      <a href="mailto:will@traintoperform.fit?subject=Train%20To%20Perform%20Inquiry" class="cta-btn primary">Email Will</a>
+      <a href="sms:+13104984984" class="cta-btn secondary">Text · 310-498-4984</a>
+    </div>
+    <div class="cta-contact">
+      <span>or reach out directly:</span> <a href="mailto:will@traintoperform.fit">will@traintoperform.fit</a> · <a href="tel:+13104984984">310-498-4984</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.png" alt="T2P" class="footer-logo-img"><div class="footer-logo">Train To <span>Perform</span></div>
+  <div class="footer-tagline">One methodology. Dosed to meet you where you are.</div>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="teen.html">Teen</a>
+    <a href="adult.html">Adult</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="index.html#about">About</a>
+  </div>
+  <div class="footer-note" style="margin-top:1.25rem;">Jackson, Wyoming</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-dropdown > a').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parent = this.closest('.nav-dropdown');
+      var isOpen = parent.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+      if (!isOpen) parent.classList.add('open');
+    });
+  });
+  document.querySelectorAll('.nav-dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+    }
+  });
+</script>
+</body>
+</html>
