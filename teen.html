@@ -159,6 +159,19 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .methodology-principle p:last-child { margin-bottom: 0; font-family: "DM Serif Display", serif; font-style: italic; font-size: 1.05rem; color: var(--gold); margin-top: 1rem; }
 .methodology-principle p strong { color: #fff; font-weight: 500; }
 
+/* TWO TRACKS */
+#tracks { background: var(--white); }
+.tracks-grid { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+@media (min-width: 769px) { .tracks-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+.track-card { background: var(--cream); border: 1px solid rgba(0,0,0,0.07); border-top: 4px solid var(--gold); border-radius: 2px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
+.track-card.in-season { border-top-color: var(--red); }
+.track-tag { display: inline-flex; align-self: flex-start; align-items: center; gap: 0.5rem; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.track-card.in-season .track-tag { color: var(--red); }
+.track-days { font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; line-height: 1; letter-spacing: 0.04em; color: var(--dark); margin-bottom: 0.2rem; }
+.track-days span { color: var(--smoke); font-size: 1.1rem; letter-spacing: 0.08em; }
+.track-name { font-family: "DM Serif Display", serif; font-size: 1.4rem; color: var(--dark); line-height: 1.2; margin-bottom: 0.85rem; }
+.track-text { font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
+
 /* WEEKLY STRUCTURE */
 #week { background: var(--cream); }
 .week-grid { display: grid; gap: 1rem; margin-top: 2rem; }
@@ -322,13 +335,13 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">Built for young athletes in pursuit of excellence.</h2>
-    <p class="section-lead">This is for the teen athlete who wants to continue to grow and excel in sport and life. Who understands that the work between seasons is an opportunity to grow and develop. An opportunity to be taken advantage of. To gain an edge. This is a program built to transform you into a different athlete before your next season, adventure, or whatever else you are chasing begins.</p>
+    <p class="section-lead">This is for the teen athlete who wants to grow and excel in sport and life — who understands that training is an opportunity to gain an edge, in every season. Offseason, that means building into a different athlete before the next one starts. In-season, it means protecting and sharpening what the sport is already demanding. The track meets you where your season does.</p>
 
     <div class="audience-grid">
       <div class="audience-card">
         <div class="audience-num">01</div>
-        <div class="audience-title">The athlete in pursuit of more.</div>
-        <div class="audience-text">You finished a season of sport and want to come back stronger, faster, and more capable than before. You're willing to put in the deliberate, structured work it takes to reach a higher level of what you do.</div>
+        <div class="audience-title">The athlete who trains year-round.</div>
+        <div class="audience-text">Maybe you just finished a season and want to come back stronger. Maybe you're in the middle of one and want an edge it isn't giving you. Either way, you treat training as the thing that separates this year's athlete from last year's.</div>
       </div>
       <div class="audience-card">
         <div class="audience-num">02</div>
@@ -402,6 +415,30 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 
     </div>
 
+  </div>
+</section>
+
+<!-- TWO TRACKS -->
+<section id="tracks" class="standard">
+  <div class="section-inner">
+    <div class="section-label">Two Tracks</div>
+    <h2 class="section-title">Two tracks. One framework.<br>Matched to your season.</h2>
+    <p class="section-lead">The same methodology runs underneath both tracks. What changes is how much of it the athlete takes on — sized to whether the sport is in season or not.</p>
+
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-tag">Comprehensive · Offseason</div>
+        <div class="track-days">4<span>×/week</span></div>
+        <div class="track-name">The complete build.</div>
+        <div class="track-text">Four days a week, every pillar at full dose, trained in the window when deliberate work compounds fastest. Comprehensive is for the offseason athlete who has the time to commit and wants to come back transformed — not maintained.</div>
+      </div>
+      <div class="track-card in-season">
+        <div class="track-tag">Complement · In-Season</div>
+        <div class="track-days">2<span>×/week</span></div>
+        <div class="track-name">An edge through the season.</div>
+        <div class="track-text">Two focused days that add to what your season already demands. In-season, your sport is doing the conditioning and the skill work. Complement protects what the season doesn't — strength, power, and movement quality — so you finish the season more capable than you started it, not depleted.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -483,7 +520,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       <div class="diff-card">
         <div class="diff-icon">01</div>
         <div class="diff-title">Complete on its own.</div>
-        <div class="diff-text">The full program delivers the complete training stimulus — mobility, strength, power, skill, conditioning, and finishing work — without needing to be supplemented. Offseason, with four days to commit, Comprehensive is the track — a standalone block that builds the whole athlete. In-season, when you want an edge beyond your current sport's own focus, Complement is the path — two focused days that add to what the season is already asking of you. The track supports where the athlete is.</div>
+        <div class="diff-text">The full program delivers the complete training stimulus — mobility, strength, power, skill, conditioning, and finishing work — without needing to be supplemented. Whether you're in an offseason build or layering training onto a competitive season, the track meets the athlete where the season is.</div>
       </div>
       <div class="diff-card">
         <div class="diff-icon">02</div>
