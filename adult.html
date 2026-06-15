@@ -103,6 +103,13 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .audience-text { font-size: 0.88rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
 
 /* TIERS — the Anchor/Ascend feature */
+/* ── WHAT IT BUILDS ── */
+#benefits { background: var(--cream); }
+.benefits-grid { display: grid; gap: 1.75rem 2.5rem; margin-top: 2rem; }
+@media (min-width: 740px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+.benefit-item { padding-left: 1.25rem; border-left: 3px solid var(--red); }
+.benefit-head { font-family: "DM Serif Display", serif; font-size: 1.18rem; color: var(--dark); line-height: 1.3; margin-bottom: 0.5rem; }
+.benefit-sub { font-size: 0.95rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
 #tiers { background: var(--dark); color: var(--ice); position: relative; overflow: hidden; }
 #tiers::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px); pointer-events: none; }
 #tiers .section-label { color: var(--red); position: relative; z-index: 2; }
@@ -173,6 +180,20 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .dosing-teach p strong.pillar-fin { color: #1a5c8a; }
 .dosing-callout { margin-top: 1.5rem; background: var(--dark); color: var(--ice); padding: 1.5rem; font-size: 0.9rem; line-height: 1.75; font-weight: 300; border-radius: 2px; }
 .dosing-callout strong { color: var(--red); font-weight: 600; }
+/* program-wide outcomes band inside Tiers (dark) */
+.tiers-outcomes { margin: 0 0 2rem; padding: 1.4rem 1.5rem; background: rgba(255,255,255,0.04); border-radius: 2px; position: relative; z-index: 2; }
+.tiers-outcomes-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.tiers-outcomes ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem 1.75rem; }
+@media (min-width: 740px) { .tiers-outcomes ul { grid-template-columns: 1fr 1fr; } }
+.tiers-outcomes li { font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 300; line-height: 1.4; padding-left: 1.05rem; position: relative; }
+.tiers-outcomes li::before { content: "\2014"; position: absolute; left: 0; color: rgba(255,255,255,0.4); }
+/* collapsible rationale (light) */
+.dosing-why { width: 100%; max-width: 720px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.1rem; }
+.dosing-why > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); padding: 0.3rem 0; }
+.dosing-why > summary::-webkit-details-marker { display: none; }
+.dosing-why > summary::after { content: "+"; margin-left: auto; font-size: 1.2rem; line-height: 1; font-weight: 400; }
+.dosing-why[open] > summary::after { content: "\2013"; }
+.dosing-why .dosing-teach { margin-top: 1.5rem; }
 
 /* HOW PROGRESS WORKS */
 #progress { background: var(--white); }
@@ -232,7 +253,7 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 #differentiator .section-label { color: var(--red); position: relative; z-index: 2; }
 #differentiator .section-label::before { background: var(--red); }
 #differentiator h2.section-title { color: #fff; position: relative; z-index: 2; }
-#differentiator .section-lead { position: relative; z-index: 2; }
+#differentiator .section-lead { color: var(--ice); position: relative; z-index: 2; }
 .diff-grid { display: grid; gap: 1.5rem; margin-top: 1.5rem; position: relative; z-index: 2; }
 @media (min-width: 769px) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
 .diff-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: 3px solid var(--red); padding: 1.75rem 1.5rem; border-radius: 2px; }
@@ -355,7 +376,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">For adults who live in today's chaotic reality<br>and need help balancing self-care and...everything else.</h2>
-    <p class="section-lead">This is a program for those trying to stay strong and fit inside a schedule that already feels full — and who know that doing more isn't better if not properly balanced. Doing the right work, at the right dose, is the intention behind Train To Perform Adult.</p>
+    <p class="section-lead">It's for the adult who still wants to be strong, capable, and athletic — and who's done with training plans that ignore the fact that they have a job, a family, and a finite week.</p>
 
     <div class="audience-grid">
       <div class="audience-card">
@@ -382,7 +403,18 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">Two Tiers</div>
     <h2 class="section-title">Anchor and Ascend.<br>Dosed for the season of life you're in.</h2>
-    <p class="section-lead">The Adult program comes in two tiers. Same methodology, same six pillars, same order. The difference is volume — because the season of life you're in should determine the amount of training your body can actually absorb and recover from.</p>
+    <p class="section-lead">Two tiers, same methodology and the same six pillars. The only difference is volume — matched to what your current season of life can absorb and recover from.</p>
+
+    <div class="tiers-outcomes">
+      <div class="tiers-outcomes-label">What both tiers build</div>
+      <ul>
+        <li>Energy that lasts through the week</li>
+        <li>Strength and capability that hold with age</li>
+        <li>Consistency you can actually sustain</li>
+        <li>Better recovery and lower injury risk</li>
+        <li>Confidence from visible, steady progress</li>
+      </ul>
+    </div>
 
     <div class="tiers-grid">
 
@@ -437,9 +469,9 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 <!-- METHODOLOGY DOSING -->
 <section id="methodology" class="standard">
   <div class="section-inner">
-    <div class="section-label">Dosed for the Adult</div>
-    <h2 class="section-title">Strength leads.<br>Power gets defended, not deferred.</h2>
-    <p class="section-lead">The adult weighting protects what fades fastest. Strength is the foundation. Power gets the same priority as in teen programming — because power capacity erodes most rapidly in adulthood, and defending it now is more efficient than rebuilding it later. Mobility and conditioning do real work in tier two. Skill and finishing get less, by design.</p>
+    <div class="section-label">The Dose, By Pillar</div>
+    <h2 class="section-title">How the six pillars are weighted for adults.</h2>
+    <p class="section-lead">Strength leads. Power is protected rather than deferred. Conditioning and mobility do real work. Skill and finishing are trimmed to what adults actually need — and the result looks like this.</p>
 
     <div class="dosing-grid">
 
@@ -478,17 +510,17 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         </div>
       </div>
 
-      <div class="dosing-teach">
-        <div class="rationale-label">Rationale</div>
-        <p><strong class="pillar-str">Strength leads.</strong> STR at 25% — the same weight as in teen and masters programming. Strength is the universal foundation across athletic life stages, and the single most effective intervention against age-related muscle loss, which begins meaningfully in the 30s. Compound loading on intentional patterns. Not max effort, not ego work — the strength training that holds capability through decades.</p>
-        <p><strong class="pillar-pwr">Power gets defended, not deferred.</strong> PWR at 20% — matched to teen weighting, which is the methodology choice most adult programs get wrong. Power output declines roughly 1% per year from age 30 onward, and accelerates after 50. That decline is <em>active</em>, not passive — it requires explicit explosive training to slow it. An adult program that lowers power emphasis under the assumption "we'll defend it at masters age" is mathematically losing ground every year. Adult is precisely the stage where defending power matters most. Expressed at appropriate dose: med ball throws, broad jumps, controlled explosive lifts. Always present.</p>
-        <p><strong>Mobility and conditioning carry tier two.</strong> Both at 17%. MVT is elevated above teen programming because adult tissue requires more attention than teen tissue — joint range, soft-tissue resilience, and movement preparation are gating factors for everything else in the program. COND is also elevated above teen because adult life genuinely demands more aerobic capacity (long workdays, weekend pursuits, family logistics) and the body still recovers from conditioning volume well in this stage. Both fall below masters MVT (23%) and below adult STR — the right hierarchy.</p>
-        <p><strong class="pillar-skl">Skill drops to refinement weight.</strong> SKL at 13% — lower than teen (20%) and adult-appropriate. The motor-acquisition window has narrowed significantly by adulthood, and additional skill volume produces diminishing returns. The work shifts from acquisition to <em>execution</em>: pattern integrity under load, technical precision in compound work, movement quality maintained rather than expanded.</p>
-        <p><strong class="pillar-fin">Finishing is integrated, not isolated.</strong> FIN at 8% — below the formal threshold of a "primary" pillar. Accessory strength work — addressing imbalances, building muscle, reinforcing positions — lives inside the strength blocks rather than as a dedicated section. The work shows up; it just doesn't get its own dedicated time slot. The dose reflects real time spent, not nominal scheduling.</p>
+      <details class="dosing-why">
+        <summary>Why these weightings — pillar by pillar</summary>
+        <div class="dosing-teach">
+        <p><strong class="pillar-str">Strength leads (25%).</strong> The same weight as every stage, because it's the foundation everything else builds on — and the most reliable hedge against the gradual muscle loss that tends to set in from midlife. Intentional compound loading, not max-effort ego work.</p>
+        <p><strong class="pillar-pwr">Power is protected, not deferred (20%).</strong> The same priority teens get. For most adults, power tends to slip earlier and faster than strength — and it responds best to being trained directly rather than assumed to keep. Kept present at an appropriate dose: med-ball throws, broad jumps, controlled explosive lifts.</p>
+        <p><strong class="pillar-mvt">Mobility and conditioning carry weight (17% each).</strong> Adult tissue needs more preparation than teen tissue, and adult life genuinely demands aerobic capacity. <strong class="pillar-skl">Skill drops to refinement (13%)</strong> — the focus shifts from learning new patterns to executing them well under load. <strong class="pillar-fin">Finishing (8%)</strong> lives inside the strength blocks rather than taking its own slot.</p>
         <div class="dosing-callout">
           Same six pillars as every Train To Perform program. <strong>But the dose is adult-specific</strong> — calibrated for a body carrying real-world load, inside a life that demands performance in more than one direction. <strong>Strength is pushed, conditioning is managed, power is protected.</strong>
         </div>
-      </div>
+        </div>
+      </details>
 
     </div>
   </div>
@@ -499,7 +531,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">How Progress Works</div>
     <h2 class="section-title">Programs designed to progress.<br>Honest about what each tier delivers.</h2>
-    <p class="section-lead">Most adult training programs describe what to do in a session, but never describe how the program progresses. That's where most programs fail. Train To Perform programs are built on three principles of intentional progression — and on honest expectations of what each tier actually delivers.</p>
+    <p class="section-lead">Good programs tell you what to do in a session. Few are clear about how the training actually progresses over weeks and blocks — which is where most fall short. Adult programs run on three principles of intentional progression, and on a straight answer about what each tier delivers.</p>
 
     <div class="progress-grid">
       <div class="progress-card">
