@@ -104,6 +104,13 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .audience-text { font-size: 0.88rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
 
 /* METHODOLOGY DOSING */
+/* ── WHAT IT BUILDS ── */
+#benefits { background: var(--cream); }
+.benefits-grid { display: grid; gap: 1.75rem 2.5rem; margin-top: 2rem; }
+@media (min-width: 740px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+.benefit-item { padding-left: 1.25rem; border-left: 3px solid var(--gold); }
+.benefit-head { font-family: "DM Serif Display", serif; font-size: 1.18rem; color: var(--dark); line-height: 1.3; margin-bottom: 0.5rem; }
+.benefit-sub { font-size: 0.95rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
 #methodology { background: var(--dark); color: var(--ice); }
 #methodology .section-label { color: var(--gold); }
 #methodology .section-label::before { background: var(--gold); }
@@ -145,6 +152,16 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .dosing-teach p strong.pillar-skl { color: #5abf7f; }
 .dosing-teach p strong.pillar-fin { color: #4a9ecb; }
 .dosing-callout { margin-top: 1.5rem; background: rgba(200,146,42,0.08); border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; font-size: 0.9rem; line-height: 1.7; font-weight: 300; }
+/* dosing panel folded into What It Builds */
+.builds-dosing { background: var(--dark); color: var(--ice); border-radius: 4px; padding: 2rem 1.25rem; margin-top: 2.75rem; }
+@media (min-width: 769px) { .builds-dosing { padding: 2.5rem 2.25rem; } }
+.builds-dosing-head { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 1.75rem; }
+.dosing-why { width: 100%; max-width: 720px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.1rem; }
+.dosing-why > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); padding: 0.3rem 0; }
+.dosing-why > summary::-webkit-details-marker { display: none; }
+.dosing-why > summary::after { content: "+"; margin-left: auto; font-size: 1.2rem; line-height: 1; font-weight: 400; }
+.dosing-why[open] > summary::after { content: "\2013"; }
+.dosing-why .dosing-teach { margin-top: 1.5rem; }
 
 /* METHODOLOGY PRINCIPLE — skill × conditioning intersection */
 .methodology-principle { margin-top: 3rem; padding: 2.25rem 1.75rem; background: var(--darker); color: var(--ice); border-radius: 3px; position: relative; overflow: hidden; }
@@ -305,7 +322,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       <span class="line-2"><span>destiny.</span></span>
     </h1>
     <div class="hero-tagline">Every session is an investment in who you're becoming.</div>
-    <p class="hero-sub">A strength, power, and conditioning program for teen athletes ages 15–18. Built to develop stronger, faster, more resilient, more capable athletes — in sport and in life. The track meets you where your season does.</p>
+    <p class="hero-sub">A strength, power, and conditioning program for teen athletes ages 15–18. Built to develop stronger, faster, more resilient, more capable athletes — in sport and in life. Training adapts to your season.</p>
     <div class="hero-meta">
       <div class="meta-item"><strong>2 or 4 days</strong>per week</div>
       <div class="meta-item"><strong>90–120</strong>min per session</div>
@@ -328,7 +345,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">Built for young athletes in pursuit of excellence.</h2>
-    <p class="section-lead">This is for the teen athlete who wants to grow and excel in sport and life — who understands that training is an opportunity to gain an edge, in every season. Offseason, that means building into a different athlete before the next one starts. In-season, it means protecting and sharpening what the sport is already demanding. The track meets you where your season does.</p>
+    <p class="section-lead">This is for the teen athlete who treats training as the edge — the work that separates this year's athlete from last year's. Offseason, that means building into a different athlete before the next one starts; in-season, sharpening what the sport already demands.</p>
 
     <div class="audience-grid">
       <div class="audience-card">
@@ -344,20 +361,41 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       <div class="audience-card">
         <div class="audience-num">03</div>
         <div class="audience-title">The athlete who knows the work matters.</div>
-        <div class="audience-text">Whatever excellence looks like for you — a starting position, a freeride line executed to perfection, a mountain summit, a river conquered, a personal standard of what you're capable of — you know it's earned through disciplined, intentional training. That's what this program provides.</div>
+        <div class="audience-text">Whatever you're chasing — a starting spot, a faster line, a number you've never hit — you know it's earned through deliberate, repeated work. This program is built to deliver it.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- METHODOLOGY DOSING -->
-<section id="methodology" class="standard">
+<!-- WHAT IT BUILDS -->
+<section id="benefits" class="standard">
   <div class="section-inner">
-    <div class="section-label">Dosed for the Teen Athlete</div>
-    <h2 class="section-title">Strength leads.<br>Power and skill determine the ceiling.</h2>
-    <p class="section-lead">The teen window is the one time in an athletic life when the nervous system acquires new motor patterns at maximum speed. Our methodology weights training around that biological reality: building the power, skill, and strength that compound fastest at this age, and the conditioning that keeps it all usable when it matters most.</p>
+    <div class="section-label">What It Builds</div>
+    <h2 class="section-title">What the training is actually for.</h2>
+    <p class="section-lead">The order, the dosing, the platform — all of it exists to build specific things in a young athlete. Here's what the work is for.</p>
 
-    <div class="dosing-grid">
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-head">Maximize the development window.</div>
+        <div class="benefit-sub">The teen years are when the nervous system learns fastest. Power and skill trained now build a ceiling that's far harder to raise later.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-head">Power, coordination, and strength — in the right order.</div>
+        <div class="benefit-sub">Quality movement first, load second. The sequence is what makes strength transfer to sport instead of staying in the weight room.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-head">Support the sport without the burnout.</div>
+        <div class="benefit-sub">Training is dosed around the competitive season, not piled on top of it — so the work sharpens performance instead of draining it.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-head">Durability that protects the season.</div>
+        <div class="benefit-sub">Finishing work and balanced loading reinforce the joints and positions that keep year-round athletes healthy and available.</div>
+      </div>
+    </div>
+
+    <div class="builds-dosing">
+      <div class="builds-dosing-head">How the pillars are dosed for the teen athlete</div>
+      <div class="dosing-grid">
 
       <div class="dosing-bars">
         <div class="dosing-bar-title">Weekly Pillar Weighting — Teen</div>
@@ -394,8 +432,9 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         </div>
       </div>
 
-      <div class="dosing-teach">
-        <div class="rationale-label">Rationale</div>
+      <details class="dosing-why">
+        <summary>Why these weightings — pillar by pillar</summary>
+        <div class="dosing-teach">
         <p><strong class="pillar-str">STR leads.</strong> Strength is the foundation of athletic development. It's trained with priority because it compounds the most over time and underpins everything else — every other pillar's ceiling is shaped by how strong the athlete is.</p>
         <p><strong><span class="pillar-pwr">PWR</span> and <span class="pillar-skl">SKL</span> determine the ceiling.</strong> Power develops explosive force. Skill ensures that force is applied with precision. Both are trained early in the session and on dedicated days — fresh, with intent, with full recovery — so athletes develop real explosiveness and real technical capacity, not fatigued imitations of either.</p>
         <p><strong class="pillar-mvt">MVT is foundational (not optional).</strong> Movement quality underpins everything. We invest consistently in mobility, positions, and control so athletes can access full ranges, stabilize joints, and move efficiently under load. Without this, strength and power gains are limited or misapplied.</p>
@@ -404,10 +443,10 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <div class="dosing-callout">
           Same six pillars as every Train To Perform program. <strong>But the dose is teen-specific</strong> — calibrated for a body still building its athletic ceiling, and for an age when deliberate work compounds faster than at any other point in an athletic life.
         </div>
+        </div>
+      </details>
       </div>
-
     </div>
-
   </div>
 </section>
 
