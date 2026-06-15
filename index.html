@@ -122,6 +122,7 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .pillars-intro p { font-size: 0.92rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
 .pillars-intro p + p { margin-top: 0.85rem; }
 .pillars-quote { font-family: "DM Serif Display", serif; font-size: clamp(1.05rem, 2.8vw, 1.35rem); color: var(--dark); line-height: 1.45; border-left: 3px solid var(--red); padding-left: 1.25rem; font-style: italic; align-self: center; }
+.pillars-intro .flipcue-icon { color: var(--red); font-weight: 700; }
 
 .pillars-grid { display: grid; gap: 1rem; }
 @media (min-width: 480px) { .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -151,10 +152,10 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .pillar-card .card-front, .pillar-card .card-back { border-top-color: var(--pc); }
 .pillar-card .pillar-abbr { color: var(--pc); }
 .pillar-title { font-family: "DM Serif Display", serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; }
-.pillar-text { font-size: 0.87rem; color: var(--mid); line-height: 1.7; font-weight: 300; flex: 1; padding-bottom: 1.75rem; }
-.flip-indicator { position: absolute; bottom: 1rem; right: 1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pc); opacity: 0.75; display: flex; align-items: center; gap: 0.35rem; transition: opacity 0.2s ease; white-space: nowrap; }
+.pillar-text { font-size: 1rem; color: var(--mid); line-height: 1.65; font-weight: 300; flex: 1; padding-bottom: 2rem; }
+.flip-indicator { position: absolute; bottom: 1rem; right: 1rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pc); opacity: 1; display: flex; align-items: center; gap: 0.35rem; transition: opacity 0.2s ease; white-space: nowrap; }
 .pillar-card:hover .flip-indicator { opacity: 1; }
-.flip-indicator-icon { font-size: 0.85rem; line-height: 1; }
+.flip-indicator-icon { font-size: 1.1rem; line-height: 1; }
 .examples-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--pc); margin-bottom: 0.85rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--pc); }
 .examples-list { list-style: none; padding: 0; margin: 0; flex: 1; }
 .examples-list li { font-size: 0.85rem; color: var(--dark); line-height: 1.5; font-weight: 400; padding: 0.4rem 0 0.4rem 0.85rem; border-bottom: 1px solid rgba(0,0,0,0.04); border-left: 3px solid var(--pc); padding-left: 0.7rem; }
@@ -256,6 +257,14 @@ h2.section-title { font-family: "DM Serif Display", serif; font-size: clamp(1.6r
 .lane-details li { font-size: 0.78rem; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.5; margin-bottom: 0.35rem; padding-left: 0.9rem; position: relative; }
 .lane-details li::before { content: "·"; color: var(--gold); position: absolute; left: 0; top: -0.1em; font-size: 1.2rem; }
 .lane-adult .lane-details li::before { color: var(--red); }
+.lane-benefits { margin-bottom: 1.25rem; }
+.lane-benefits-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.7rem; }
+.lane-teen .lane-benefits-label { color: var(--gold); }
+.lane-adult .lane-benefits-label { color: var(--red); }
+.lane-benefits ul { list-style: none; margin: 0; padding: 0; }
+.lane-benefits li { font-size: 0.92rem; color: rgba(255,255,255,0.92); font-weight: 300; line-height: 1.45; margin-bottom: 0.5rem; padding-left: 1.1rem; position: relative; }
+.lane-benefits li:last-child { margin-bottom: 0; }
+.lane-benefits li::before { content: "—"; position: absolute; left: 0; top: 0; color: rgba(255,255,255,0.45); }
 
 .lanes-footer-note { margin-top: 2rem; padding: 1.5rem 1.75rem; background: var(--cream); border-left: 3px solid var(--gold); border-radius: 2px; font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; }
 .lanes-footer-note strong { color: var(--dark); font-weight: 600; }
@@ -362,7 +371,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
   <div class="section-inner">
     <div class="section-label">The Methodology</div>
     <h2 class="section-title">One methodology.<br>Dosed to meet you where you are.</h2>
-    <p class="section-lead">Train To Perform is built on a principle most programs ignore: the framework is universal, but the expression has to change with the life stage of the athlete. Teens building their athletic ceiling train differently than adults balancing performance with work and family. Same pillars. Same principles. Different dosing.</p>
+    <p class="section-lead">Train To Perform is built on a principle most programs ignore: the framework is universal, but the dose has to change with the athlete. Teens building their athletic ceiling train differently than adults balancing performance with work and family. Same pillars, same order — different dosing.</p>
 
     <div class="pillars-order on-dark">
       <a class="pname mvt" href="#pillar-mvt"><span class="pname-abbr">MVT</span><span class="pname-word">mobility</span></a>
@@ -381,19 +390,17 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <div class="methodology-grid">
       <div class="methodology-panel">
         <div class="methodology-panel-label">What stays the same</div>
-        <p class="methodology-panel-text">Six pillars, in the same order, every session. Mobility primes tissue and the nervous system. Power and skill come next, trained while the CNS is fresh. Strength follows, heavy and focused. Conditioning closes the engine work. Finishing accessories close the session with purpose, reinforcing the muscles, positions, and structural balance that support long-term performance.</p>
-        <p class="methodology-panel-text">The order is not arbitrary. Quality pillars go first. Volume pillars go last. Break the order and you compromise whatever you moved earlier.</p>
+        <p class="methodology-panel-text">Six pillars, same order, every session. Movement primes the body and nervous system. Power and skill come next, while the system is fresh. Strength follows. Conditioning builds the engine. Finishing reinforces the structure underneath. Quality first, volume last — break the order and you compromise what came before.</p>
       </div>
       <div class="methodology-panel gold">
         <div class="methodology-panel-label">What changes with the athlete</div>
-        <p class="methodology-panel-text">The weighting. Teen athletes prioritize power and skill acquisition during the window when the nervous system learns fastest. Adults balance strength, conditioning, and mobility for performance under real-world stress.</p>
+        <p class="methodology-panel-text">The weighting. Teens prioritize power and skill during the window the nervous system learns fastest. Adults balance strength, conditioning, and mobility for performance under real-world load.</p>
       </div>
     </div>
 
     <div class="methodology-callout">
-      <h3>The engine underneath the pillars.</h3>
-      <p>Six pillars are the structure of every session. <strong>Progressive overload is the engine that drives improvement underneath them.</strong> Every program runs on planned progression: weight, intensity, complexity, or volume increasing in deliberate, calibrated steps. Each block pushes the athlete one step beyond where they were, while staying inside what their body can absorb and adapt to.</p>
-      <p>The pillars are <em>what</em> gets trained. Progressive overload is <em>how</em> it improves.</p>
+      <h3>The engine underneath.</h3>
+      <p>The pillars are <em>what</em> gets trained. Progressive overload is <em>how</em> it improves — each block adds load, intensity, or complexity in calibrated steps, one past where you were, inside what the body can absorb.</p>
     </div>
 
   </div>
@@ -403,11 +410,11 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 <section id="pillars">
   <div class="section-inner">
     <div class="section-label">The Six Pillars</div>
-    <h2 class="section-title">Six capacities.<br>Trained in order. Every session.</h2>
+    <h2 class="section-title">Six capacities, built in order.</h2>
 
     <div class="pillars-lead-row">
       <div class="pillars-intro">
-        <p>Every training session in every Train To Perform program moves through the same six pillars in the same order. The order is the methodology. It's what makes sure every pillar gets trained at quality, not just at effort.</p>
+        <p class="pillars-flipnote"><span class="flipcue-icon">↻</span> Tap any card to flip it — each pillar opens to its example movements.</p>
       </div>
       <div class="pillars-quote">
         &ldquo;The framework is universal. The dose is personal.&rdquo;
@@ -420,7 +427,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">MVT</div>
             <div class="pillar-title">Movement</div>
-            <p class="pillar-text">Mobility, movement prep, and tissue quality. Every session opens here. MVT primes joints, activates key muscle groups, and prepares the nervous system to train at full capacity. It's the foundation everything else depends on.</p>
+            <p class="pillar-text">Prime the body and nervous system to train at full capacity. Every session opens here.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -442,7 +449,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">PWR</div>
             <div class="pillar-title">Power</div>
-            <p class="pillar-text">Explosive force production: jumps, throws, sprints, med ball work. Trained when the nervous system is fresh and output is highest. Short sets, full rest, maximum intent. Power is the capacity that fades fastest with age, which is exactly why it's protected deliberately at every stage.</p>
+            <p class="pillar-text">Train explosive output while the system is freshest — the capacity that fades first without it.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -464,7 +471,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">SKL</div>
             <div class="pillar-title">Skill</div>
-            <p class="pillar-text">Motor patterns trained fresh: technique, coordination, positions, timing. Pistol squats, double-unders, muscle-up transitions, sport-specific movements. Skill is what lets the body do complicated things well. It's trained when the athlete can actually learn, not when they're gassed.</p>
+            <p class="pillar-text">Build coordination and movement quality, trained fresh — when the body can actually learn.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -486,7 +493,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">STR</div>
             <div class="pillar-title">Strength</div>
-            <p class="pillar-text">Primary compound lifts with progressive overload: squats, deadlifts, presses, rows. The foundation of durable, athletic strength. Built through intentional loading, paired movement patterns, and the discipline of repeated work.</p>
+            <p class="pillar-text">Develop strength that transfers — the durable, athletic kind built through deliberate loading.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -508,7 +515,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">COND</div>
             <div class="pillar-title">Conditioning</div>
-            <p class="pillar-text">The engine: aerobic base, anaerobic capacity, work tolerance. Built through EMOMs, AMRAPs, intervals, and mixed-modal pieces. Conditioning is what lets strength and skill show up in the fourth quarter, the final rep, and the last mile of the day.</p>
+            <p class="pillar-text">Build the engine that lets strength and skill show up in the fourth quarter and the last rep.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -530,7 +537,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
           <div class="card-front">
             <div class="pillar-abbr">FIN</div>
             <div class="pillar-title">Finishing Work</div>
-            <p class="pillar-text">The final pillar develops the supporting structures behind performance. Accessory strength work addresses imbalances, builds muscle, strengthens connective tissue, and reinforces the positions that allow power, strength, and conditioning to continue improving.</p>
+            <p class="pillar-text">Reinforce the structure and durability underneath performance — the work that keeps the rest improving.</p>
             <div class="flip-indicator"><span class="flip-indicator-icon">↻</span><span>Example Movements</span></div>
           </div>
           <div class="card-back">
@@ -564,6 +571,14 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <div class="lane-label">Teen Athlete</div>
         <div class="lane-title">For the athlete building their ceiling.</div>
         <div class="lane-tagline">Drive your destiny.</div>
+        <div class="lane-benefits">
+          <div class="lane-benefits-label">Train to</div>
+          <ul>
+            <li>Maximize the athletic development window while it's open</li>
+            <li>Build power, coordination, and strength in the right order</li>
+            <li>Support sport performance without the burnout</li>
+          </ul>
+        </div>
         <ul class="lane-details">
           <li>Ages 15–18, year-round training</li>
           <li>Two tracks: Complement (2x/week) or Comprehensive (4x/week)</li>
@@ -576,6 +591,14 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <div class="lane-label">Adult</div>
         <div class="lane-title">For the athlete training inside a real life.</div>
         <div class="lane-tagline">More isn't the answer. Better is.</div>
+        <div class="lane-benefits">
+          <div class="lane-benefits-label">Train to</div>
+          <ul>
+            <li>Stay strong and capable without overtraining</li>
+            <li>Keep your athleticism as the years add up</li>
+            <li>Lower injury risk while performance climbs</li>
+          </ul>
+        </div>
         <ul class="lane-details">
           <li>Built for adults with jobs, kids, and lives that still demand their best</li>
           <li>Two tiers: Anchor (2x/week) or Ascend (3x/week)</li>
@@ -612,8 +635,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <p>Sport has shaped a great deal about how I think, move, and show up in the world. Today, my arena is functional fitness and competitive CrossFit, and I've earned my place in it, ranking in the <strong>top 1% worldwide in the CrossFit Open for my age group</strong> multiple times and placing highly across a number of well-regarded global competitions.</p>
         <p>My foundation in this work runs through team sports first, then a deep love for CrossFit that I owe in large part to <strong>TJ and Allison Belger of TJ's Gym</strong> — owners and coaches whose guidance and support shaped how I think about training, community, and what a gym can be for an athlete.</p>
         <p>From there I pursued a functional-fitness path through <strong>Marcus Filly and Functional Bodybuilding</strong>. When I faced my first major injury — a serious shoulder injury requiring surgery to repair a torn rotator cuff, labrum, and bicep — Marcus and his team were the coaches and mentors who helped me work through it. That process taught me something about myself: I needed custom, prescribed coaching to rebuild correctly, stay healthy for life, and still compete at an elite level in CrossFit. That lesson is now built into how I coach.</p>
-        <p>Drawing on all of it — the team-sport foundation, the CrossFit community, the functional-fitness methodology, and the hard-won lesson of my own rehabs — I've shaped my own formula for developing high-performing athletes, in sport and in life.</p>
-        <p>That is why Train To Perform exists as a methodology and not just a program. The framework is built to make athletes better at every stage — because bodies change, lives change, seasons change, and the training should change with them.</p>
+        <p>Drawing on all of it — the team-sport foundation, the CrossFit community, the functional-fitness methodology, and my own rehabs — I've shaped a formula for developing high-performing athletes, in sport and in life. That's why <strong>Train To Perform</strong> exists as a methodology, not just a program: built to make athletes better at every stage, because bodies change, lives change, seasons change, and the training should change with them.</p>
       </div>
       <div>
         <div class="about-quote">"Today I will do what others won't, so tomorrow I can accomplish what others can't." / Jerry Rice</div>
