@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Train To Perform — Pricing</title>
+<title>Train To Perform — Find Your Fit</title>
 <meta name="description" content="The price reflects the format. Same methodology. Two programs. Three delivery models — in person in Jackson, custom remote programming built specifically for you, or self-guided with Foundations.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -216,16 +216,45 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 .footer-links a:hover { color: var(--gold); }
 .footer-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 300; margin-top: 1.25rem; }
 
-/* FIND YOUR FIT CTA BAND */
-.fyf-cta-band{background:var(--cream);padding:3rem 1.5rem;}
-@media(min-width:769px){.fyf-cta-band{padding:3.5rem 3rem;}}
-.fyf-cta-inner{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.75rem;border:1px solid rgba(0,0,0,0.08);border-left:4px solid var(--red);border-radius:2px;background:var(--white);padding:2rem 2.25rem;}
-.fyf-cta-text{flex:1 1 320px;}
-.fyf-cta-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
-.fyf-cta-title{font-family:"DM Serif Display",serif;font-size:clamp(1.35rem,3.5vw,1.85rem);color:var(--dark);line-height:1.2;margin-bottom:0.5rem;font-weight:400;}
-.fyf-cta-sub{font-size:0.9rem;color:var(--mid);line-height:1.6;font-weight:300;max-width:540px;}
-.fyf-cta-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:0.5rem;background:var(--red);color:#fff;padding:1rem 1.85rem;border-radius:3px;font-size:0.76rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
-.fyf-cta-btn:hover{background:#e02929;transform:translateY(-1px);box-shadow:0 6px 20px rgba(204,31,31,0.3);}
+/* ASSESSMENT */
+#quiz { background: var(--cream); }
+.quiz-shell { max-width: 720px; }
+.quiz-progress { display:flex; align-items:center; gap:0.85rem; margin-bottom:2.25rem; }
+.quiz-progress-track { flex:1; height:4px; background:rgba(0,0,0,0.08); border-radius:2px; overflow:hidden; }
+.quiz-progress-fill { height:100%; background:var(--red); width:0; transition:width 0.35s ease; }
+.quiz-progress-text { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--smoke); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.quiz-qnum { font-size:0.72rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.7rem; }
+.quiz-question { font-family:"DM Serif Display",serif; font-size:clamp(1.4rem,4vw,2rem); color:var(--dark); line-height:1.25; margin-bottom:1.75rem; font-weight:400; }
+.quiz-options { display:grid; gap:0.85rem; }
+.quiz-option { text-align:left; width:100%; background:var(--white); border:1px solid rgba(0,0,0,0.1); border-left:3px solid transparent; border-radius:2px; padding:1.05rem 1.3rem; font-family:"DM Sans",sans-serif; font-size:0.95rem; color:var(--dark); cursor:pointer; transition:all 0.15s ease; display:flex; align-items:center; gap:0.9rem; line-height:1.4; }
+.quiz-option:hover { border-color:rgba(0,0,0,0.22); border-left-color:var(--red); transform:translateX(2px); }
+.quiz-option.selected { border-color:var(--red); border-left-color:var(--red); }
+.quiz-option-key { font-family:"Bebas Neue",sans-serif; font-size:1.15rem; color:var(--red); min-width:1.1rem; }
+.quiz-back { margin-top:1.9rem; background:none; border:none; font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--smoke); cursor:pointer; padding:0; }
+.quiz-back:hover { color:var(--red); }
+.quiz-back[disabled]{ opacity:0; pointer-events:none; }
+.result-eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--red); margin-bottom:1.1rem; display:flex; align-items:center; gap:0.6rem; }
+.result-eyebrow::before{content:"";width:28px;height:2px;background:var(--red);}
+.result-card { background:var(--dark); color:var(--ice); border-top:3px solid var(--gold); border-radius:2px; padding:2.25rem 2rem; }
+.result-program { font-family:"Bebas Neue",sans-serif; font-size:clamp(2rem,6vw,3rem); color:#fff; line-height:1; letter-spacing:0.03em; margin-bottom:0.55rem; }
+.result-line { font-family:"DM Serif Display",serif; font-style:italic; font-size:1.15rem; color:var(--gold); margin-bottom:1.6rem; }
+.result-detail-grid { display:grid; gap:0.85rem; margin:1.5rem 0; }
+@media(min-width:600px){.result-detail-grid{grid-template-columns:repeat(3,1fr);}}
+.result-detail { border:1px solid rgba(255,255,255,0.1); border-top:2px solid var(--red); padding:1rem 1.1rem; border-radius:2px; }
+.result-detail-label{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.5rem;}
+.result-detail-value{font-size:0.95rem;color:#fff;line-height:1.4;font-weight:500;}
+.result-price{font-family:"Bebas Neue",sans-serif;font-size:2.3rem;color:#fff;line-height:1;margin:0.5rem 0 0.25rem;}
+.result-price span{font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--smoke);font-weight:400;letter-spacing:0;}
+.result-why { font-size:0.92rem; line-height:1.75; color:var(--ice); font-weight:300; margin:1.5rem 0; }
+.result-note{font-size:0.78rem;color:rgba(255,255,255,0.55);font-style:italic;margin-top:1rem;line-height:1.6;}
+.result-actions{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.75rem;}
+.result-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.6rem;border-radius:3px;font-size:0.74rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.result-btn.primary{background:var(--red);color:#fff;}
+.result-btn.primary:hover{background:#e02929;}
+.result-btn.secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3);}
+.result-btn.secondary:hover{border-color:var(--red);}
+.quiz-restart{margin-top:1.5rem;background:none;border:none;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--smoke);cursor:pointer;padding:0;}
+.quiz-restart:hover{color:var(--red);}
 </style>
 </head>
 <body>
@@ -245,8 +274,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <a href="adult.html">Adult<span class="menu-tag">More isn't the answer. Better is.</span></a>
       </div>
     </li>
-    <li><a href="assessment.html" onclick="this.closest('ul').classList.remove('open')">Find Your Fit</a></li>
-    <li><a href="pricing.html" class="current" onclick="this.closest('ul').classList.remove('open')">Pricing</a></li>
+    <li><a href="assessment.html" class="current" onclick="this.closest('ul').classList.remove('open')">Find Your Fit</a></li>
+    <li><a href="pricing.html" onclick="this.closest('ul').classList.remove('open')">Pricing</a></li>
     <li><a href="glossary.html" onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
     <li><a href="index.html#about" onclick="this.closest('ul').classList.remove('open')">About</a></li>
     <li><a href="https://app.traintoperform.fit" target="_blank" class="athlete-login-btn" onclick="this.closest('ul').classList.remove('open')">Athlete Login</a></li>
@@ -254,276 +283,23 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 </nav>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-ghost">PRICING</div>
+  <div class="hero-ghost">FIT</div>
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="breadcrumb"><a href="index.html">Home</a> <span class="breadcrumb-sep">/</span> <span>Pricing</span></div>
-      <div class="hero-label">Honest By Design</div>
+      <div class="breadcrumb"><a href="index.html">Home</a> <span class="breadcrumb-sep">/</span> <span>Find Your Fit</span></div>
+      <div class="hero-label">Find Your Fit</div>
       <h1 class="hero-title">
-        <span class="line-1"><span>The price reflects</span></span>
-        <span class="line-2"><span>the format.</span></span>
+        <span class="line-1"><span>Which program</span></span>
+        <span class="line-2"><span>fits you?</span></span>
       </h1>
-      <p class="hero-sub">Same methodology, delivered your way: in person in Jackson, custom remote programming built specifically for you, or self-guided with Foundations.</p>
+      <p class="hero-sub">Seven quick questions. You'll get the program, the way to train it, and the frequency that fits your life right now. It's a starting point &mdash; final fit is always confirmed on a short intake call.</p>
     </div>
   </div>
 </section>
-<!-- TAGLINE BANNER -->
-<div class="tagline-banner">
-  <div class="tag-sub">The Principle</div>
-  <h2>&ldquo;What you pay for is delivery, not access. Every athlete receives the methodology in full.&rdquo;</h2>
-</div>
-<!-- APPROACH -->
-<section id="approach" class="standard">
+<!-- QUIZ -->
+<section id="quiz" class="standard">
   <div class="section-inner">
-    <div class="section-label">Our Approach</div>
-    <h2 class="section-title">A word before you pick a program.</h2>
-    <p class="section-lead">This is for athletes who would rather follow a real framework than chase a new workout every Monday.</p>
-    <div class="approach-body">
-      <p>Most programs treat all athletes the same and simply adjust the volume, weight, or time. <strong class="accent">T2P treats the framework as universal and adjusts the dose.</strong></p>
-      <p>A teenager building capacity trains differently than an adult balancing performance with life demands. Same six pillars. Same sequence. Different weighting based on where you are now — and where you need to go next.</p>
-      <p>Every athlete receives the methodology in full. The price reflects the delivery: in person in Jackson, custom remote programming built specifically for you, or self-guided through Foundations.</p>
-      <p>Teens see the fastest results — biology rewards the right work at the right age, and the framework is built to take advantage of that window. But the principle holds at every stage. <strong>Consistency beats intensity. Training evolves as you do.</strong> The athletes who keep getting better are the ones who keep showing up after the early gains stop feeling automatic — at 16 and at 56.</p>
-      <p>If you're looking for a quick transformation, this probably isn't for you — and saying that up front is part of the deal.</p>
-    </div>
-  </div>
-</section>
-<!-- PROGRAMS -->
-<section id="programs" class="standard">
-  <div class="section-inner">
-    <div class="section-label delivery">In Person · Jackson</div>
-    <h2 class="section-title">Coached in the room.</h2>
-    <p class="section-lead">Small-group cohorts of four to six, or one-on-one. Train your program in Jackson with a coach on the floor — hands on the bar, eyes on every rep.</p>
-    <div class="programs-grid">
-      <!-- TEEN -->
-      <article class="program-card">
-        <div class="program-name-row">
-          <div class="program-name">TEEN</div>
-          <div class="program-format">Two Tracks · In-Person, Jackson</div>
-        </div>
-        <p class="program-tagline">&ldquo;Drive your destiny.&rdquo;</p>
-        <ul class="program-meta">
-          <li>Ages 15–18 · year-round</li>
-          <li>Comprehensive 4× / wk or Complement 2× / wk</li>
-          <li>Coach-led · 4–6 athletes per cohort</li>
-        </ul>
-        <div class="price-block">
-          <div class="price-block-label">Comprehensive · 4 days / week</div>
-          <div class="price-row hero-price">
-            <span class="price-amount">$300</span>
-            <span class="price-period">/ month</span>
-          </div>
-          <div class="price-block-note">Enrolled in 12-week blocks · includes gym access</div>
-        </div>
-        <div class="price-block">
-          <div class="price-block-label">Complement · 2 days / week</div>
-          <div class="price-row">
-            <span class="price-amount">$175</span>
-            <span class="price-period">/ month</span>
-          </div>
-          <div class="price-block-note">Enrolled in 12-week blocks · includes gym access</div>
-        </div>
-        <p class="program-addon">In-person in Jackson. Remote coaching by exception only — ask if you split time or train from elsewhere.</p>
-        <a href="#cta" class="program-cta">Inquire About a Program</a>
-      </article>
-      <!-- ADULT -->
-      <article class="program-card">
-        <div class="program-name-row">
-          <div class="program-name">ADULT</div>
-          <div class="program-format">In-Person, Jackson</div>
-        </div>
-        <p class="program-tagline">&ldquo;More isn't the answer. Better is.&rdquo;</p>
-        <ul class="program-meta">
-          <li>2–3 sessions / week · 75–90 min</li>
-          <li>Anchor (2× / week) and Ascend (3× / week) dosing</li>
-          <li>In-person cohorts of 4–6 athletes</li>
-        </ul>
-        <div class="price-block">
-          <div class="price-block-label">In-Person, Jackson</div>
-          <div class="price-row">
-            <span class="price-amount">$175</span>
-            <span class="price-period">/ mo · 2× / wk</span>
-          </div>
-          <div class="price-row">
-            <span class="price-amount">$250</span>
-            <span class="price-period">/ mo · 3× / wk</span>
-          </div>
-          <div class="price-block-note">Enrolled in 12-week blocks · includes gym access</div>
-        </div>
-        <p class="program-addon">In-person cohorts run in 12-week blocks · No long-term contract beyond the block.</p>
-        <a href="#cta" class="program-cta">Inquire About a Program</a>
-      </article>
-      <!-- 1:1 COACHING -->
-      <article class="program-card">
-        <div class="program-name-row">
-          <div class="program-name">1:1 COACHING</div>
-          <div class="program-format">In-Person, Jackson · By Application</div>
-        </div>
-        <p class="program-tagline">&ldquo;Hands on the bar. Eyes on every rep.&rdquo;</p>
-        <ul class="program-meta">
-          <li>One-on-one coached sessions in Jackson</li>
-          <li>Sessions average 75 minutes</li>
-          <li>Hands-on technique correction and loading</li>
-          <li>Built on your full Custom programming block</li>
-          <li>Other frequencies available on application</li>
-        </ul>
-        <div class="price-block">
-          <div class="price-block-label">Per Session · 75 Min Average</div>
-          <div class="price-row hero-price">
-            <span class="price-amount">$175</span>
-            <span class="price-period">/ session (~75 min)</span>
-          </div>
-        </div>
-        <div class="price-block">
-          <div class="price-block-label">12-Session Package</div>
-          <div class="price-row">
-            <span class="price-amount">$1,925</span>
-            <span class="price-period">/ 12 sessions</span>
-            <span class="price-note">Saves $175</span>
-          </div>
-          <div class="price-block-note">12 sessions for the price of 11 — one on us</div>
-        </div>
-        <p class="program-addon">Sessions run ~75 minutes — longer than a standard hour — and every one is built on your full Custom programming block, not a drop-in workout. That's what the rate reflects. Drop-in or a 12-session package · limited 1:1 availability.</p>
-        <a href="#cta" class="program-cta">Inquire About a Program</a>
-      </article>
-    </div>
-  </div>
-</section>
-<!-- CUSTOM -->
-<section id="custom" class="standard">
-  <div class="section-inner">
-    <div class="section-label delivery">Custom · Remote</div>
-    <h2 class="section-title">Built for you. Delivered anywhere.</h2>
-    <p class="section-lead">Two ways to train the method remotely: all-inclusive Custom coaching, priced by your sessions per week, or self-guided Foundations — template programming tailored to your gym access. For athletes splitting time between Jackson and elsewhere, training from anywhere, or who'd rather do the work on their own. The methodology stays the same; the dose and delivery flex to you.</p>
-    <div class="custom-layout">
-      <div class="custom-freq">
-        <div class="custom-freq-label">Pricing · By Frequency</div>
-        <ul class="freq-rows">
-          <li class="freq-row">
-            <span class="freq-days">2 Days / Week</span>
-            <span class="freq-price">$229<span>/ month</span></span>
-          </li>
-          <li class="freq-row">
-            <span class="freq-days">3 Days / Week</span>
-            <span class="freq-price">$269<span>/ month</span></span>
-          </li>
-          <li class="freq-row">
-            <span class="freq-days">4 Days / Week</span>
-            <span class="freq-price">$309<span>/ month</span></span>
-          </li>
-          <li class="freq-row">
-            <span class="freq-days">5 Days / Week</span>
-            <span class="freq-price">$369<span>/ month</span></span>
-          </li>
-        </ul>
-        <p class="custom-freq-note">3-month minimum · Roster capped at 12 · Frequency set at intake and reviewed each block</p>
-      </div>
-      <div class="custom-includes">
-        <div class="custom-includes-label">What's Included</div>
-        <ul class="custom-features">
-          <li>Fully individualized programming, built for your frequency</li>
-          <li>Programmed for your exact setup — full gym to a single pair of dumbbells</li>
-          <li>Initial intake consultation</li>
-          <li>Weekly written check-ins</li>
-          <li>Video review of key lifts</li>
-          <li>Monthly Zoom call</li>
-          <li>Direct messaging access to coach</li>
-        </ul>
-        <p class="custom-min">3-Month Minimum · Roster Capped at 12</p>
-        <a href="#cta" class="custom-cta">Inquire About a Program</a>
-      </div>
-    </div>
-    <!-- FOUNDATIONS -->
-    <div class="foundations">
-      <div class="foundations-head">
-        <div class="foundations-eyebrow">Self-Guided · Not Ready For Coaching?</div>
-        <div class="foundations-name-row">
-          <div class="foundations-name">FOUNDATIONS</div>
-          <div class="foundations-format">The Method · On Your Own</div>
-        </div>
-        <p class="foundations-tag">&ldquo;The methodology, on your own two feet.&rdquo;</p>
-      </div>
-      <div class="foundations-body">
-        <div class="foundations-col">
-          <p class="foundations-desc">The same six-pillar framework, delivered as structured programming you run yourself. No individualization, check-ins, video review, or coach access — just the method, built to follow. A place to start for athletes who aren't ready for custom coaching, and a natural on-ramp when you are.</p>
-          <div class="foundations-tracks-label">Choose Your Equipment Track</div>
-          <ul class="foundations-tracks">
-            <li>Full gym access</li>
-            <li>Gym access, no barbell</li>
-            <li>Gym access, no machines</li>
-            <li>Dumbbell / kettlebell / bodyweight</li>
-          </ul>
-          <p class="foundations-tracks-note">Self-select the track that matches your setup — train the method wherever you are.</p>
-        </div>
-        <div class="foundations-pricing">
-          <div class="foundations-price-main">$100<span>/ month</span></div>
-          <div class="foundations-price-alt">or $270 / quarter — $90/mo paid up front, saves $30</div>
-          <p class="foundations-price-note">Monthly is month-to-month, cancel anytime · does not count against the 12-athlete Custom roster.</p>
-          <a href="#cta" class="foundations-cta">Start With Foundations</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- NOTES -->
-<section id="notes" class="standard">
-  <div class="section-inner">
-    <div class="section-label">Fine Print</div>
-    <h2 class="section-title">The fine print, in plain English.</h2>
-    <div class="faq-grid">
-      <div class="faq-aside">
-        Things worth <em>knowing</em> before you start.
-      </div>
-      <ul class="faq-list">
-        <li class="faq-item">
-          <div class="faq-q">What's the difference between Foundations and Custom?</div>
-          <p class="faq-a"><strong>Foundations is the method; Custom is the method built around you.</strong> Foundations gives you structured programming to run on your own, in the equipment track that fits your setup — with no check-ins, video review, or coach access. Custom is a coaching relationship: individualized programming, weekly check-ins, video review, and direct messaging. Foundations is a place to start; most athletes use it as an on-ramp to Custom.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">How does enrollment work?</div>
-          <p class="faq-a">In-person training runs in 12-week blocks. You commit to a block, we reassess at the end, and you choose whether to run the next one. No annual contract and no auto-renewing year — just one block at a time.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Can I cancel or pause?</div>
-          <p class="faq-a">In-person cohorts run in 12-week blocks; mid-block pauses are handled case-by-case. Custom programming requires a 3-month minimum, after which it goes month-to-month. Foundations is month-to-month and can be cancelled anytime.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Why is in-person priced the way it is?</div>
-          <p class="faq-a">Because your coach is in the room. Each in-person cohort runs four to six athletes — capped at six by design — and it's reflected in the price.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Why is 1:1 priced above a standard training session?</div>
-          <p class="faq-a"><strong>You're not buying a generic hour.</strong> Every 1:1 session runs about 75 minutes — longer than the standard 60 — and is built on your full Custom programming block, with hands-on technique correction and loading throughout. It's specialist coaching against your own plan, not a drop-in workout, and the rate reflects that.</p>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">How do I apply for Custom Programming?</div>
-          <p class="faq-a">Brief application, then a free 30-minute call to make sure it's the right fit. Custom isn't sold via a Buy button — it's a real coaching relationship.</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-<!-- FIND YOUR FIT CTA -->
-<section class="fyf-cta-band">
-  <div class="fyf-cta-inner">
-    <div class="fyf-cta-text">
-      <div class="fyf-cta-eyebrow">Not sure where you fit?</div>
-      <h2 class="fyf-cta-title">Find your program in two minutes.</h2>
-      <p class="fyf-cta-sub">Seven quick questions &mdash; we&rsquo;ll point you to the program, the best way to train it, and the frequency that fits your life right now.</p>
-    </div>
-    <a href="assessment.html" class="fyf-cta-btn">Find Your Fit &rarr;</a>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <div class="cta-label">Ready To Start</div>
-    <h2 class="cta-title">Pick the format. We'll handle the rest.</h2>
-    <p class="cta-sub">Not sure which program fits, or whether in-person, custom remote, or self-guided is right? A short conversation is the fastest way to get a real answer. No pressure.</p>
-    <div class="cta-buttons">
-      <a href="mailto:will@traintoperform.fit?subject=Pricing%20Inquiry" class="cta-btn primary">Email Will</a>
-      <a href="sms:+13104984984" class="cta-btn secondary">Text · 310-498-4984</a>
-    </div>
+    <div class="quiz-shell"><div id="quiz-app"></div></div>
   </div>
 </section>
 <!-- FOOTER -->
@@ -562,5 +338,158 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     }
   });
 </script>
+
+<script>
+(function(){
+  var Q=[
+    {id:"stage", q:"Who's training?", options:[
+      {label:"A teen athlete, ages 15–18", value:"teen"},
+      {label:"An adult, 19 and up", value:"adult"}
+    ]},
+    {id:"loc", q:"Where will you train most of the time?", options:[
+      {label:"In Jackson, consistently", value:"jackson"},
+      {label:"I split time between Jackson and elsewhere", value:"split"},
+      {label:"Somewhere other than Jackson", value:"away"}
+    ]},
+    {id:"coach", q:"How much coaching do you want?", options:[
+      {label:"A coach in the room — hands on the bar, eyes on every rep", value:"inperson"},
+      {label:"Real coaching, remotely — check-ins, video review, messaging", value:"remote"},
+      {label:"Just give me the plan and I'll run it myself", value:"self"}
+    ]},
+    {id:"days", q:"How many days a week can you realistically train?", options:[
+      {label:"2 days", value:"2"},
+      {label:"3 days", value:"3"},
+      {label:"4 days", value:"4"},
+      {label:"5 days", value:"5"}
+    ]},
+    {id:"goal", q:"What are you training for right now?", options:[
+      {label:"Supporting a sport that's in season", value:"inseason"},
+      {label:"Offseason development — building a better athlete", value:"develop"},
+      {label:"Holding strength and capacity through a demanding life", value:"maintain"},
+      {label:"Building and progressing, not just maintaining", value:"build"}
+    ]},
+    {id:"self", q:"Training on your own, without a coach present, you are…", options:[
+      {label:"A self-starter — I stay consistent solo", value:"high"},
+      {label:"Okay, but I train better with structure", value:"mid"},
+      {label:"In need of real accountability", value:"low"}
+    ]},
+    {id:"equip", q:"What equipment do you have access to?", options:[
+      {label:"A full gym", value:"full"},
+      {label:"A gym, but no barbell", value:"nobar"},
+      {label:"A gym, but no machines", value:"nomach"},
+      {label:"Dumbbells, kettlebells, or just bodyweight", value:"minimal"}
+    ]}
+  ];
+  var answers={}, step=0;
+  var app=document.getElementById("quiz-app");
+
+  function scrollToApp(){
+    var y=document.getElementById("quiz").getBoundingClientRect().top+window.scrollY-70;
+    window.scrollTo({top:y,behavior:"smooth"});
+  }
+
+  function render(){
+    if(step>=Q.length){ renderResult(); return; }
+    var q=Q[step];
+    var pct=Math.round(step/Q.length*100);
+    var h='<div class="quiz-progress"><div class="quiz-progress-track"><div class="quiz-progress-fill" style="width:'+pct+'%"></div></div><div class="quiz-progress-text">'+(step+1)+' / '+Q.length+'</div></div>';
+    h+='<div class="quiz-qnum">Question '+(step+1)+'</div>';
+    h+='<h2 class="quiz-question">'+q.q+'</h2>';
+    h+='<div class="quiz-options">';
+    q.options.forEach(function(o,i){
+      var sel=(answers[q.id]===o.value)?' selected':'';
+      h+='<button class="quiz-option'+sel+'" data-v="'+o.value+'"><span class="quiz-option-key">'+String.fromCharCode(65+i)+'</span><span>'+o.label+'</span></button>';
+    });
+    h+='</div>';
+    h+='<button class="quiz-back"'+(step===0?' disabled':'')+'>← Back</button>';
+    app.innerHTML=h;
+    app.querySelectorAll(".quiz-option").forEach(function(b){
+      b.addEventListener("click",function(){ answers[q.id]=b.getAttribute("data-v"); step++; render(); scrollToApp(); });
+    });
+    var back=app.querySelector(".quiz-back");
+    if(back) back.addEventListener("click",function(){ if(step>0){ step--; render(); scrollToApp(); } });
+  }
+
+  function renderResult(){
+    var a=answers;
+    var program=(a.stage==="teen")?"Teen":"Adult";
+    var days=parseInt(a.days,10);
+    var s={inperson:0,remote:0,foundations:0};
+    if(a.loc==="jackson"){ s.inperson+=2; }
+    else if(a.loc==="split"){ s.remote+=2; s.inperson+=1; }
+    else { s.remote+=2; }
+    if(a.coach==="inperson"){ s.inperson+=3; }
+    else if(a.coach==="remote"){ s.remote+=3; }
+    else { s.foundations+=4; }
+    if(a.self==="high"){ s.foundations+=1.5; s.remote+=0.5; }
+    else if(a.self==="mid"){ s.remote+=1; }
+    else { s.inperson+=1; s.remote+=0.5; s.foundations-=3; }
+    if(a.loc==="away"){ s.inperson=-99; }
+    var delivery="inperson";
+    if(s.remote>s[delivery]) delivery="remote";
+    if(s.foundations>s[delivery]) delivery="foundations";
+
+    var priceRemote={2:229,3:269,4:309,5:369};
+    var deliveryLabel, tierLabel, price, note="";
+    if(delivery==="foundations"){
+      deliveryLabel="Foundations · Self-guided";
+      var track={full:"Full-gym track",nobar:"No-barbell track",nomach:"No-machines track",minimal:"DB / KB / bodyweight track"}[a.equip];
+      tierLabel=track;
+      price='$100 <span>/ mo &middot; or $270 / quarter</span>';
+    } else if(delivery==="remote"){
+      deliveryLabel="Custom Remote coaching";
+      tierLabel=days+" days / week";
+      price='$'+priceRemote[days]+' <span>/ mo</span>';
+    } else {
+      deliveryLabel="In-person · Jackson";
+      if(program==="Teen"){
+        var comp=(days>=3||a.goal==="develop"||a.goal==="build");
+        tierLabel=comp?"Comprehensive · 4×/week":"Complement · 2×/week";
+        price=comp?'$300 <span>/ mo</span>':'$175 <span>/ mo</span>';
+        if(days>4) note="You picked 5 days — in-person Teen tops out at Comprehensive (4×/week). For more volume, ask about Custom Remote.";
+      } else {
+        var asc=(days>=3||a.goal==="build");
+        tierLabel=asc?"Ascend · 3×/week":"Anchor · 2×/week";
+        price=asc?'$250 <span>/ mo</span>':'$175 <span>/ mo</span>';
+        if(days>3) note="You picked "+days+" days — in-person Adult tops out at Ascend (3×/week). For 4–5 days, Custom Remote is the better route.";
+      }
+    }
+
+    var why=(program==="Teen")
+      ? "As a teen athlete, you're in the window where the framework builds the most — power, skill, and strength trained in the right order. "
+      : "As an adult training inside a real life, the framework keeps you strong, capable, and durable without overtraining. ";
+    if(delivery==="inperson") why+="You can train in Jackson and want a coach on the floor, so in-person coaching runs the methodology at its highest fidelity. ";
+    else if(delivery==="remote") why+="You want real coaching but aren't always in Jackson, so Custom Remote brings it to you — individualized programming, weekly written check-ins, video review, a monthly call, and direct messaging. ";
+    else why+="You'd rather run the work yourself, so Foundations hands you the method as structured programming with no coaching overhead — a smart place to start, and an easy on-ramp to Custom when you want eyes on your training. ";
+    why+="Based on what you can commit to, we'd start you at "+tierLabel.replace(/·/g,"—")+".";
+
+    var anchor=(delivery==="inperson")?"programs":"custom";
+    var h='<div class="result-eyebrow">Your Recommended Fit</div>';
+    h+='<div class="result-card">';
+    h+='<div class="result-program">'+program+' Program</div>';
+    h+='<div class="result-line">'+deliveryLabel+'</div>';
+    h+='<div class="result-detail-grid">';
+    h+='<div class="result-detail"><div class="result-detail-label">Program</div><div class="result-detail-value">'+program+'</div></div>';
+    h+='<div class="result-detail"><div class="result-detail-label">How you train</div><div class="result-detail-value">'+deliveryLabel+'</div></div>';
+    h+='<div class="result-detail"><div class="result-detail-label">Starting point</div><div class="result-detail-value">'+tierLabel+'</div></div>';
+    h+='</div>';
+    h+='<div class="result-price">'+price+'</div>';
+    h+='<p class="result-why">'+why+'</p>';
+    if(note) h+='<p class="result-note">'+note+'</p>';
+    h+='<div class="result-actions">';
+    h+='<a href="pricing.html#'+anchor+'" class="result-btn primary">See it on Pricing →</a>';
+    h+='<a href="mailto:will@traintoperform.fit?subject=Program%20Fit%20—%20'+program+'" class="result-btn secondary">Email Will</a>';
+    h+='</div>';
+    h+='<p class="result-note">This is a starting recommendation — final fit is confirmed on a free 30-minute intake call.</p>';
+    h+='</div>';
+    h+='<button class="quiz-restart">↺ Retake the assessment</button>';
+    app.innerHTML=h;
+    app.querySelector(".quiz-restart").addEventListener("click",function(){ answers={}; step=0; render(); scrollToApp(); });
+  }
+
+  render();
+})();
+</script>
+
 </body>
 </html>

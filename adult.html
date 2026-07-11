@@ -315,6 +315,17 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; font-weight: 500; }
 .footer-links a:hover { color: var(--gold); }
 .footer-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 300; margin-top: 1.25rem; }
+
+/* FIND YOUR FIT CTA BAND */
+.fyf-cta-band{background:var(--cream);padding:3rem 1.5rem;}
+@media(min-width:769px){.fyf-cta-band{padding:3.5rem 3rem;}}
+.fyf-cta-inner{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.75rem;border:1px solid rgba(0,0,0,0.08);border-left:4px solid var(--red);border-radius:2px;background:var(--white);padding:2rem 2.25rem;}
+.fyf-cta-text{flex:1 1 320px;}
+.fyf-cta-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.fyf-cta-title{font-family:"DM Serif Display",serif;font-size:clamp(1.35rem,3.5vw,1.85rem);color:var(--dark);line-height:1.2;margin-bottom:0.5rem;font-weight:400;}
+.fyf-cta-sub{font-size:0.9rem;color:var(--mid);line-height:1.6;font-weight:300;max-width:540px;}
+.fyf-cta-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:0.5rem;background:var(--red);color:#fff;padding:1rem 1.85rem;border-radius:3px;font-size:0.76rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+.fyf-cta-btn:hover{background:#e02929;transform:translateY(-1px);box-shadow:0 6px 20px rgba(204,31,31,0.3);}
 </style>
 </head>
 <body>
@@ -335,6 +346,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <a href="adult.html" class="current">Adult<span class="menu-tag">More isn't the answer. Better is.</span></a>
       </div>
     </li>
+    <li><a href="assessment.html" onclick="this.closest('ul').classList.remove('open')">Find Your Fit</a></li>
     <li><a href="pricing.html" onclick="this.closest('ul').classList.remove('open')">Pricing</a></li>
     <li><a href="glossary.html" onclick="this.closest('ul').classList.remove('open')">Glossary</a></li>
     <li><a href="index.html#about" onclick="this.closest('ul').classList.remove('open')">About</a></li>
@@ -730,6 +742,18 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     <h2 class="section-title">Programming that meets the life.</h2>
     <p class="section-lead">Every Adult program is written for the specific athlete — starting from the Anchor or Ascend template, tailored to training age, experience, injury history, and what the person's schedule actually allows. Coaching available in person in Jackson, Wyoming, and remote.</p>
     <a href="index.html#about" class="coach-link">More about Will →</a>
+  </div>
+</section>
+
+<!-- FIND YOUR FIT CTA -->
+<section class="fyf-cta-band">
+  <div class="fyf-cta-inner">
+    <div class="fyf-cta-text">
+      <div class="fyf-cta-eyebrow">Not sure where you fit?</div>
+      <h2 class="fyf-cta-title">Find your program in two minutes.</h2>
+      <p class="fyf-cta-sub">Seven quick questions &mdash; we&rsquo;ll point you to the program, the best way to train it, and the frequency that fits your life right now.</p>
+    </div>
+    <a href="assessment.html" class="fyf-cta-btn">Find Your Fit &rarr;</a>
   </div>
 </section>
 
