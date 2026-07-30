@@ -243,8 +243,6 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 .result-detail { border:1px solid rgba(255,255,255,0.1); border-top:2px solid var(--red); padding:1rem 1.1rem; border-radius:2px; }
 .result-detail-label{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.5rem;}
 .result-detail-value{font-size:0.95rem;color:#fff;line-height:1.4;font-weight:500;}
-.result-price{font-family:"Bebas Neue",sans-serif;font-size:2.3rem;color:#fff;line-height:1;margin:0.5rem 0 0.25rem;}
-.result-price span{font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--smoke);font-weight:400;letter-spacing:0;}
 .result-why { font-size:0.92rem; line-height:1.75; color:var(--ice); font-weight:300; margin:1.5rem 0; }
 .result-note{font-size:0.78rem;color:rgba(255,255,255,0.55);font-style:italic;margin-top:1rem;line-height:1.6;}
 .result-actions{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.75rem;}
@@ -433,28 +431,23 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     if(s.remote>s[delivery]) delivery="remote";
     if(s.foundations>s[delivery]) delivery="foundations";
 
-    var priceRemote={2:229,3:269,4:309,5:369};
-    var deliveryLabel, tierLabel, price, note="";
+    var deliveryLabel, tierLabel, note="";
     if(delivery==="foundations"){
       deliveryLabel="Self-Guided";
       var track={facility:"Full-gym track",full:"Full-gym track",nobar:"No-barbell track",nomach:"No-machines track",minimal:"DB / KB / bodyweight track"}[a.equip];
       tierLabel=track;
-      price='$100 <span>/ mo &middot; or $270 / quarter</span>';
     } else if(delivery==="remote"){
       deliveryLabel="Custom Remote coaching";
       tierLabel=days+" days / week";
-      price='$'+priceRemote[days]+' <span>/ mo</span>';
     } else {
       deliveryLabel="In-person · Jackson";
       if(program==="Teen"){
         var comp=(days>=3||a.goal==="develop"||a.goal==="build");
         tierLabel=comp?"Comprehensive · 4×/week":"Complement · 2×/week";
-        price=comp?'$300 <span>/ mo</span>':'$175 <span>/ mo</span>';
         if(days>4) note="You picked 5 days: in-person Teen tops out at Comprehensive (4×/week). For more volume, ask about Custom Remote.";
       } else {
         var asc=(days>=3||a.goal==="build");
         tierLabel=asc?"Ascend · 3×/week":"Anchor · 2×/week";
-        price=asc?'$250 <span>/ mo</span>':'$175 <span>/ mo</span>';
         if(days>3) note="You picked "+days+" days: in-person Adult tops out at Ascend (3×/week). For 4–5 days, Custom Remote is the better route.";
       }
     }
@@ -477,8 +470,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     var anchor=(delivery==="inperson")?"programs":"custom";
     var progTitle=isYouth?"Teen Program · Foundation":(program+' Program');
     var progValue=isYouth?"Teen · 12–14":program;
-    var primaryHref=isYouth?"teen.html#stages":("pricing.html#"+anchor);
-    var primaryLabel=isYouth?"See the Foundation stage →":"View Pricing &amp; Additional Program Options →";
+    var primaryHref="pricing.html#"+anchor;
+    var primaryLabel="View Pricing &amp; Additional Program Options →";
     var h='<div class="result-eyebrow">Your Recommended Fit</div>';
     h+='<div class="result-card">';
     h+='<div class="result-program">'+progTitle+'</div>';
