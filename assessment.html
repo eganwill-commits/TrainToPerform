@@ -343,6 +343,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 (function(){
   var Q=[
     {id:"stage", q:"Who's training?", options:[
+      {label:"A youth athlete, ages 12–14", value:"youth"},
       {label:"A teen athlete, ages 15–18", value:"teen"},
       {label:"An adult, 19 and up", value:"adult"}
     ]},
@@ -412,7 +413,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
 
   function renderResult(){
     var a=answers;
-    var program=(a.stage==="teen")?"Teen":"Adult";
+    var program=(a.stage==="adult")?"Adult":"Teen";
+    var isYouth=(a.stage==="youth");
     var days=parseInt(a.days,10);
     var s={inperson:0,remote:0,foundations:0};
     if(a.loc==="jackson"){ s.inperson+=2; }
@@ -455,7 +457,14 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       }
     }
 
-    var why=(program==="Teen")
+    if(isYouth){
+      tierLabel="Foundation · 12–14";
+      note="Ages 12–14 train the Foundation stage — movement, resilience, and learning the lifts light, dosed around the season. We'll confirm the right day-count and the exact fit on a short intake call.";
+    }
+
+    var why=isYouth
+      ? "At 12–14, you're in the growth-spurt window where movement quality, coordination, and durability are built. The Foundation stage leads with movement and power, teaches the strength lifts light before adding load, and protects the tissues young athletes strain the most — hamstrings, groin, knees, and ankles. "
+      : (program==="Teen")
       ? "As a teen athlete, you're in the window where the framework builds the most — power, skill, and strength trained in the right order. "
       : "As an adult training inside a real life, the framework keeps you strong, capable, and durable without overtraining. ";
     if(delivery==="inperson") why+="You can train in Jackson and want a coach on the floor, so in-person coaching runs the methodology at its highest fidelity. ";
@@ -464,20 +473,24 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     why+="Based on what you can commit to, we'd start you at "+tierLabel.replace(/·/g,"—")+".";
 
     var anchor=(delivery==="inperson")?"programs":"custom";
+    var progTitle=isYouth?"Teen Program · Foundation":(program+' Program');
+    var progValue=isYouth?"Teen · 12–14":program;
+    var primaryHref=isYouth?"teen.html#stages":("pricing.html#"+anchor);
+    var primaryLabel=isYouth?"See the Foundation stage →":"View Pricing &amp; Additional Program Options →";
     var h='<div class="result-eyebrow">Your Recommended Fit</div>';
     h+='<div class="result-card">';
-    h+='<div class="result-program">'+program+' Program</div>';
+    h+='<div class="result-program">'+progTitle+'</div>';
     h+='<div class="result-line">'+deliveryLabel+'</div>';
     h+='<div class="result-detail-grid">';
-    h+='<div class="result-detail"><div class="result-detail-label">Program</div><div class="result-detail-value">'+program+'</div></div>';
+    h+='<div class="result-detail"><div class="result-detail-label">Program</div><div class="result-detail-value">'+progValue+'</div></div>';
     h+='<div class="result-detail"><div class="result-detail-label">How you train</div><div class="result-detail-value">'+deliveryLabel+'</div></div>';
     h+='<div class="result-detail"><div class="result-detail-label">Starting point</div><div class="result-detail-value">'+tierLabel+'</div></div>';
     h+='</div>';
     h+='<p class="result-why">'+why+'</p>';
     if(note) h+='<p class="result-note">'+note+'</p>';
     h+='<div class="result-actions">';
-    h+='<a href="pricing.html#'+anchor+'" class="result-btn primary">View Pricing &amp; Additional Program Options →</a>';
-    h+='<a href="mailto:will@traintoperform.fit?subject=Program%20Fit%20—%20'+program+'" class="result-btn secondary">Email Will</a>';
+    h+='<a href="'+primaryHref+'" class="result-btn primary">'+primaryLabel+'</a>';
+    h+='<a href="mailto:will@traintoperform.fit?subject=Program%20Fit%20—%20'+(isYouth?"Youth%20(12–14)":program)+'" class="result-btn secondary">Email Will</a>';
     h+='</div>';
     h+='<p class="result-note">This is a starting recommendation — final fit is confirmed on a free 30-minute intake call.</p>';
     h+='</div>';
