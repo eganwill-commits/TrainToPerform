@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Train To Perform — Find Your Fit</title>
-<meta name="description" content="The price reflects the format. Same methodology. Two programs. Three delivery models — in person in Jackson, custom remote programming built specifically for you, or self-guided with Foundations.">
+<title>Train To Perform: Find Your Fit</title>
+<meta name="description" content="The price reflects the format. Same methodology. Two programs. Three delivery models: in person in Jackson, custom remote programming built specifically for you, or self-guided programming.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,7 +292,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         <span class="line-1"><span>Which program</span></span>
         <span class="line-2"><span>fits you?</span></span>
       </h1>
-      <p class="hero-sub">Seven quick questions. You'll get the program, the way to train it, and the frequency that fits your life right now. It's a starting point &mdash; final fit is always confirmed on a short intake call.</p>
+      <p class="hero-sub">Seven quick questions. You'll get the program, the way to train it, and the frequency that fits your life right now. It's a starting point: final fit is always confirmed on a short intake call.</p>
     </div>
   </div>
 </section>
@@ -353,8 +353,8 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
       {label:"Somewhere other than Jackson", value:"away"}
     ]},
     {id:"coach", q:"How much coaching do you want?", options:[
-      {label:"A coach in the room — hands on the bar, eyes on every rep", value:"inperson"},
-      {label:"Real coaching, remotely — check-ins, video review, messaging", value:"remote"},
+      {label:"A coach in the room: hands on the bar, eyes on every rep", value:"inperson"},
+      {label:"Real coaching, remotely: check-ins, video review, messaging", value:"remote"},
       {label:"Just give me the plan and I'll run it myself", value:"self"}
     ]},
     {id:"days", q:"How many days a week can you realistically train?", options:[
@@ -365,17 +365,17 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     ]},
     {id:"goal", q:"What are you training for right now?", options:[
       {label:"Supporting a sport that's in season", value:"inseason"},
-      {label:"Offseason development — building a better athlete", value:"develop"},
+      {label:"Offseason development: building a better athlete", value:"develop"},
       {label:"Holding strength and capacity through a demanding life", value:"maintain"},
       {label:"Building and progressing, not just maintaining", value:"build"}
     ]},
     {id:"self", q:"Training on your own, without a coach present, you are…", options:[
-      {label:"A self-starter — I stay consistent solo", value:"high"},
+      {label:"A self-starter: I stay consistent solo", value:"high"},
       {label:"Okay, but I train better with structure", value:"mid"},
       {label:"In need of real accountability", value:"low"}
     ]},
     {id:"equip", q:"Where will you train, and with what?", options:[
-      {label:"In person at the T2P facility — I'll use your gym", value:"facility"},
+      {label:"In person at the T2P facility: I'll use your gym", value:"facility"},
       {label:"My own full gym", value:"full"},
       {label:"A gym, but no barbell", value:"nobar"},
       {label:"A gym, but no machines", value:"nomach"},
@@ -436,7 +436,7 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     var priceRemote={2:229,3:269,4:309,5:369};
     var deliveryLabel, tierLabel, price, note="";
     if(delivery==="foundations"){
-      deliveryLabel="Foundations · Self-guided";
+      deliveryLabel="Self-Guided";
       var track={facility:"Full-gym track",full:"Full-gym track",nobar:"No-barbell track",nomach:"No-machines track",minimal:"DB / KB / bodyweight track"}[a.equip];
       tierLabel=track;
       price='$100 <span>/ mo &middot; or $270 / quarter</span>';
@@ -450,29 +450,29 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
         var comp=(days>=3||a.goal==="develop"||a.goal==="build");
         tierLabel=comp?"Comprehensive · 4×/week":"Complement · 2×/week";
         price=comp?'$300 <span>/ mo</span>':'$175 <span>/ mo</span>';
-        if(days>4) note="You picked 5 days — in-person Teen tops out at Comprehensive (4×/week). For more volume, ask about Custom Remote.";
+        if(days>4) note="You picked 5 days: in-person Teen tops out at Comprehensive (4×/week). For more volume, ask about Custom Remote.";
       } else {
         var asc=(days>=3||a.goal==="build");
         tierLabel=asc?"Ascend · 3×/week":"Anchor · 2×/week";
         price=asc?'$250 <span>/ mo</span>':'$175 <span>/ mo</span>';
-        if(days>3) note="You picked "+days+" days — in-person Adult tops out at Ascend (3×/week). For 4–5 days, Custom Remote is the better route.";
+        if(days>3) note="You picked "+days+" days: in-person Adult tops out at Ascend (3×/week). For 4–5 days, Custom Remote is the better route.";
       }
     }
 
     if(isYouth){
       tierLabel="Foundation · 12–14";
-      note="Ages 12–14 train the Foundation stage — movement, resilience, and learning the lifts light, dosed around the season. We'll confirm the right day-count and the exact fit on a short intake call.";
+      note="Ages 12–14 train the Foundation stage: movement, resilience, and learning the lifts light, dosed around the season. We'll confirm the right day-count and the exact fit on a short intake call.";
     }
 
     var why=isYouth
-      ? "At 12–14, you're in the growth-spurt window where movement quality, coordination, and durability are built. The Foundation stage leads with movement and power, teaches the strength lifts light before adding load, and protects the tissues young athletes strain the most — hamstrings, groin, knees, and ankles. "
+      ? "At 12–14, you're in the growth-spurt window where movement quality, coordination, and durability are built. The Foundation stage leads with movement and power, teaches the strength lifts light before adding load, and protects the tissues young athletes strain the most: hamstrings, groin, knees, and ankles. "
       : (program==="Teen")
-      ? "As a teen athlete, you're in the window where the framework builds the most — power, skill, and strength trained in the right order. "
+      ? "As a teen athlete, you're in the window where the framework builds the most: power, skill, and strength trained in the right order. "
       : "As an adult training inside a real life, the framework keeps you strong, capable, and durable without overtraining. ";
-    if(delivery==="inperson") why+="You'll train at the T2P facility in Jackson — fully equipped, coach on the floor — so in-person coaching runs the methodology at its highest fidelity, with no gym or gear to sort out on your end. ";
-    else if(delivery==="remote") why+="You want real coaching but aren't always in Jackson, so Custom Remote brings it to you — individualized programming, weekly written check-ins, video review, a monthly call, and direct messaging. ";
-    else why+="You'd rather run the work yourself, so Foundations hands you the method as structured programming with no coaching overhead — a smart place to start, and an easy on-ramp to Custom when you want eyes on your training. ";
-    why+="Based on what you can commit to, we'd start you at "+tierLabel.replace(/·/g,"—")+".";
+    if(delivery==="inperson") why+="You'll train at the T2P facility in Jackson (fully equipped, coach on the floor) so in-person coaching runs the methodology at its highest fidelity, with no gym or gear to sort out on your end. ";
+    else if(delivery==="remote") why+="You want real coaching but aren't always in Jackson, so Custom Remote brings it to you: individualized programming, weekly written check-ins, video review, a monthly call, and direct messaging. ";
+    else why+="You'd rather run the work yourself, so a self-guided plan hands you the method as structured programming with no coaching overhead: a smart place to start, and an easy on-ramp to Custom when you want eyes on your training. ";
+    why+="Based on what you can commit to, we'd start you at "+tierLabel.replace(/·/g,", ")+".";
 
     var anchor=(delivery==="inperson")?"programs":"custom";
     var progTitle=isYouth?"Teen Program · Foundation":(program+' Program');
@@ -492,9 +492,9 @@ footer { background: var(--dark); color: var(--ice); text-align: center; padding
     if(note) h+='<p class="result-note">'+note+'</p>';
     h+='<div class="result-actions">';
     h+='<a href="'+primaryHref+'" class="result-btn primary">'+primaryLabel+'</a>';
-    h+='<a href="mailto:will@traintoperform.fit?subject=Program%20Fit%20—%20'+(isYouth?"Youth%20(12–14)":program)+'" class="result-btn secondary">Email Will</a>';
+    h+='<a href="mailto:will@traintoperform.fit?subject=Program%20Fit%20-%20'+(isYouth?"Youth%20(12–14)":program)+'" class="result-btn secondary">Email Will</a>';
     h+='</div>';
-    h+='<p class="result-note">This is a starting recommendation — final fit is confirmed on a free 30-minute intake call.</p>';
+    h+='<p class="result-note">This is a starting recommendation: final fit is confirmed on a free 30-minute intake call.</p>';
     h+='</div>';
     h+='<button class="quiz-restart">↺ Retake the assessment</button>';
     app.innerHTML=h;
