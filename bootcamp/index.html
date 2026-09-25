@@ -34,12 +34,12 @@
   .stage {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 0;
     width: 1920px;
     height: 1080px;
     box-sizing: border-box;
     padding: 40px 56px 48px;
-    transform-origin: center center;
+    transform-origin: top center;
     display: grid;
     grid-template-columns: 1fr 1fr 540px;
     grid-template-rows: auto 1fr;
@@ -244,6 +244,8 @@
         <button id="skip" type="button">Skip</button>
         <button id="reset" type="button">Reset</button>
         <button id="fs" type="button">Full screen</button>
+        <button id="smaller" type="button" aria-label="Make smaller">A−</button>
+        <button id="bigger" type="button" aria-label="Make bigger">A+</button>
       </div>
       <p class="hint">Beeps at 3-2-1 and at each switch.</p>
     </div>
@@ -254,20 +256,34 @@
 (() => {
   /* Fit the 1920x1080 stage to the screen; use a scrolling layout on portrait phones */
   const stage = document.getElementById('stage');
+  let zoom = 0.85;
+  try { const z = parseFloat(localStorage.getItem('bootcampZoom')); if (z > 0.3 && z < 1.5) zoom = z; } catch (e) {}
   function fit() {
-    const w = window.innerWidth, h = window.innerHeight;
-    const portrait = h > w * 0.9 || w < 600;
-    document.documentElement.classList.toggle('flow', portrait);
-    if (!portrait) {
-      const s = Math.min(w / 1920, h / 1080);
-      stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+    const vv = window.visualViewport;
+    const w = Math.min(window.innerWidth, document.documentElement.clientWidth || 1e9, vv ? vv.width : 1e9);
+    const h = Math.min(window.innerHeight, document.documentElement.clientHeight || 1e9, vv ? vv.height : 1e9);
+    const phone = w < 600;
+    document.documentElement.classList.toggle('flow', phone);
+    if (!phone) {
+      const s = Math.min(w / 1920, h / 1080) * zoom;
+      stage.style.transform = 'translateX(-50%) scale(' + s + ')';
+      stage.style.top = Math.max(0, Math.min((h - 1080 * s) / 2, 12)) + 'px';
     } else {
       stage.style.transform = '';
+      stage.style.top = '';
     }
+  }
+  function setZoom(z) {
+    zoom = Math.max(0.4, Math.min(1.2, Math.round(z * 100) / 100));
+    try { localStorage.setItem('bootcampZoom', String(zoom)); } catch (e) {}
+    fit();
   }
   window.addEventListener('resize', fit);
   window.addEventListener('orientationchange', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
   fit();
+  document.getElementById('smaller').addEventListener('click', () => setZoom(zoom - 0.05));
+  document.getElementById('bigger').addEventListener('click', () => setZoom(zoom + 0.05));
 
   const WORK = 45, REST = 15, STATIONS = 6, ROUNDS = 5;
   const total = STATIONS * ROUNDS;
