@@ -86,6 +86,22 @@ h2.section-title em { color: var(--gold); font-style: italic; }
 .section-lead { font-size: clamp(0.92rem, 2.5vw, 1.02rem); color: var(--mid); line-height: 1.85; max-width: 720px; margin-bottom: 2.5rem; font-weight: 300; }
 .section-lead strong { color: var(--darker); font-weight: 500; }
 
+/* APP TOUR (white) */
+#app { background: var(--white); scroll-margin-top: 52px; }
+#app .section-label { color: var(--red); }
+#app .section-label::before { background: var(--red); }
+.app-tour { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 769px) { .app-tour { grid-template-columns: minmax(260px, 340px) 1fr; gap: 4rem; } }
+.app-tour-video { width: 100%; max-width: 340px; margin: 0 auto; background: var(--darker); border-radius: 18px; padding: 6px; box-shadow: 0 18px 48px rgba(0,0,0,0.18); }
+.app-tour-video video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: 13px; background: #000; }
+.app-tour-copy { min-width: 0; }
+.app-tour-list { list-style: none; display: grid; gap: 0.9rem; margin: 0 0 2rem; }
+.app-tour-list li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; font-size: 0.95rem; color: var(--mid); line-height: 1.6; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.9rem; }
+.app-tour-list li b { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 1.2rem; letter-spacing: 0.06em; color: var(--darker); line-height: 1.3; }
+.app-tour-close { font-family: "DM Serif Display", serif; font-size: 1.15rem; color: var(--darker); }
+.app-tour-close em { color: var(--red); }
+@media (max-width: 480px) { .app-tour-list li { grid-template-columns: 1fr; gap: 0.2rem; } }
+
 /* IN-PERSON SECTION (cream) */
 #in-person { background: var(--cream); }
 #in-person .section-label { color: var(--gold); }
@@ -412,6 +428,30 @@ src="https://www.facebook.com/tr?id=1599665244995751&ev=PageView&noscript=1"
       <p class="rhythm-close">The framework is universal. The dose is personal. The work is yours.</p>
     </div>
 
+  </div>
+</section>
+
+<!-- APP TOUR -->
+<section id="app" class="standard">
+  <div class="section-inner">
+    <div class="section-label">The T2P App · 60-Second Tour</div>
+    <h2 class="section-title">Your coach, <em>in your pocket.</em></h2>
+    <p class="section-lead">Every remote and hybrid athlete trains from the T2P app. It keeps you on plan when you're away and keeps your coach in the loop. <strong>Consistency and accountability are what drive progress</strong>, and this is how they travel with you.</p>
+    <div class="app-tour">
+      <div class="app-tour-video">
+        <video src="t2p-app-tour.mp4" poster="t2p-app-tour-poster.jpg" controls playsinline preload="metadata" aria-label="T2P app tour video"></video>
+      </div>
+      <div class="app-tour-copy">
+        <ul class="app-tour-list">
+          <li><b>Your plan</b><span>Today's session, laid out pillar by pillar, with sets, reps and loads written for you.</span></li>
+          <li><b>Adjusts</b><span>Home, hotel or full gym. Every exercise swaps to fit the equipment you have.</span></li>
+          <li><b>Logging</b><span>Record your weights and reps as you go. Your coach sees every number, and it sets next week's loads.</span></li>
+          <li><b>Feedback</b><span>Film a rep and get notes on your form.</span></li>
+          <li><b>Tools</b><span>Built-in timers and a movement library with demos.</span></li>
+        </ul>
+        <p class="app-tour-close">The framework is universal. <em>The dose is personal.</em></p>
+      </div>
+    </div>
   </div>
 </section>
 
