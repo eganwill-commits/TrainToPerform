@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="robots" content="noindex, nofollow">
+<title>Train To Perform: App Tour</title>
+<meta name="description" content="A 60-second tour of the Train To Perform app.">
+<meta property="og:title" content="The T2P App: 60-Second Tour">
+<meta property="og:description" content="Your plan, today's session, logging your coach sees, and form feedback. Train To Perform, Jackson, Wyoming.">
+<meta property="og:image" content="https://traintoperform.fit/t2p-app-tour-poster.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --darker: #1a1a1a; --smoke: #888; --ice: #e0e0e0; --red: #cc1f1f; --gold: #c8922a; }
+html, body { height: 100%; background: #000; color: var(--ice); font-family: "DM Sans", sans-serif; }
+body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)); }
+.stage { position: relative; height: min(calc(100dvh - 72px), calc((100vw - 24px) * 16 / 9)); aspect-ratio: 9 / 16; max-width: 100%; }
+video { display: block; width: 100%; height: 100%; border-radius: 14px; background: #000; object-fit: contain; }
+.sound { position: absolute; left: 50%; bottom: 72px; transform: translateX(-50%); background: var(--red); color: #fff; border: 0; border-radius: 999px; padding: 10px 18px; font: 700 0.78rem "DM Sans", sans-serif; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+.sound[hidden] { display: none; }
+.bar { display: flex; align-items: center; gap: 16px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.bar a { color: var(--ice); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.bar a:hover { color: var(--gold); }
+.bar img { width: 26px; height: 26px; background: #fff; border-radius: 5px; padding: 3px; }
+.bar b { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 1.05rem; letter-spacing: 0.1em; }
+.bar b span { color: var(--red); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <video id="v" src="/t2p-app-tour.mp4" poster="/t2p-app-tour-poster.jpg" autoplay muted playsinline controls preload="auto" aria-label="T2P app tour"></video>
+  <button class="sound" id="snd" type="button">Tap for sound</button>
+</div>
+<div class="bar">
+  <a href="/"><img src="/logo.png" alt=""><b>Train To <span>Perform</span></b></a>
+  <a href="/coaching.html">Coaching &rarr;</a>
+</div>
+<script>
+const v = document.getElementById('v'), b = document.getElementById('snd');
+function unmute() { v.muted = false; v.currentTime = 0; v.play().catch(() => {}); b.hidden = true; }
+b.addEventListener('click', unmute);
+v.addEventListener('volumechange', () => { if (!v.muted) b.hidden = true; });
+v.play().catch(() => { b.textContent = 'Play with sound'; });
+</script>
+</body>
+</html>
